@@ -11,7 +11,7 @@ const HeroSection = () => {
   const { heroImage } = useStaticQuery(IMAGE_QUERY)
   return (
     <Container>
-      <Img fluid={heroImage.childImageSharp.fluid} />
+      <Img fluid={heroImage.childImageSharp.fluid} style={{ height: "100%" }} />
     </Container>
   )
 }
