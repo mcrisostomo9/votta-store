@@ -9,7 +9,6 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <HeroSection />
-      <div style={{ height: "2000px" }}>hello</div>
       <FeaturedSection />
     </Layout>
   )
