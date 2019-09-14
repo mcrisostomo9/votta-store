@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 
 const Container = styled.header`
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 10;
   background: #fff;
