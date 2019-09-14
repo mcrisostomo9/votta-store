@@ -10,18 +10,19 @@ const H3 = styled.h3`
 `
 
 const FeaturedSection = () => {
-  const { products } = useStaticQuery(PRODUCTS_LISTING_QUERY)
+  const { allShopifyCollection } = useStaticQuery(FEATURED_COLLECTION_QUERY)
+  const { products } = allShopifyCollection.edges[0].node
   return (
     <Container>
       <H3>Shop our featured products</H3>
-      <ProductListing products={products.edges} />
+      <ProductListing products={products} />
     </Container>
   )
 }
 
 const FEATURED_COLLECTION_QUERY = graphql`
   query ProductsListingQuery {
-    allShopifyCollection(filter: { handle: { eq: "featured-collection" } }) {
+    allShopifyCollection(filter: { handle: { eq: "mens-collection" } }) {
       edges {
         node {
           products {

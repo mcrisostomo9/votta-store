@@ -9,7 +9,7 @@ const ProductListingItem = ({ product }) => {
   return (
     <article className="column is-one-quarter content">
       <Image
-        fluid={firstImage.localFile.childImageSharp.fluid}
+        fixed={firstImage.localFile.childImageSharp.fixed}
         loading="lazy"
       />
       <h3 className="title is-3">{product.title}</h3>
