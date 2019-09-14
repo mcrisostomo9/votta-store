@@ -10,13 +10,11 @@ const H3 = styled.h3`
 `
 
 const FeaturedSection = () => {
-  const { allShopifyCollection: data } = useStaticQuery(
-    FEATURED_COLLECTION_QUERY
-  )
+  const { products } = useStaticQuery(PRODUCTS_LISTING_QUERY)
   return (
     <Container>
       <H3>Shop our featured products</H3>
-      <ProductListing products={data.edges[0].node.products} />
+      <ProductListing products={products.edges} />
     </Container>
   )
 }
@@ -46,6 +44,38 @@ const FEATURED_COLLECTION_QUERY = graphql`
               id
               title
               price
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+const PRODUCTS_LISTING_QUERY = graphql`
+  query ProductsListingQuery {
+    products: allShopifyProduct(sort: { fields: publishedAt, order: ASC }) {
+      edges {
+        node {
+          title
+          id
+          handle
+          description
+          productType
+          variants {
+            shopifyId
+            title
+            price
+            availableForSale
+          }
+          images {
+            id
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 400, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
             }
           }
         }

@@ -7,14 +7,14 @@ const ProductWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   article {
-    width: 25%;
+    width: 50%;
   }
 `
 
 const ProductListing = ({ products }) => {
   return (
     <ProductWrapper>
-      {products.map(product => {
+      {products.map(({ node: product }) => {
         return <ProductListingItem product={product} key={product.id} />
       })}
     </ProductWrapper>
