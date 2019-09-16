@@ -49,7 +49,7 @@ const Nav = () => {
           }}
         />
         <Link to="/">
-          <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 200 }} />
+          <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />
         </Link>
         <button onClick={() => setCartOpen(!isCartOpen)}>
           <MdShoppingCart />

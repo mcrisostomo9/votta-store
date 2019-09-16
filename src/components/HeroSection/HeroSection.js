@@ -1,18 +1,35 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
+import Container from "../Layout/Container"
 import styled from "@emotion/styled"
-import Img from "gatsby-image"
 
-const Container = styled.header`
-  height: 90vh;
+const TextContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 80vh;
+
+  button {
+    color: white;
+    border: 1px solid white;
+    background: transparent;
+  }
 `
 
 const HeroSection = () => {
   const { heroImage } = useStaticQuery(IMAGE_QUERY)
   return (
-    <Container>
-      <Img fluid={heroImage.childImageSharp.fluid} style={{ height: "100%" }} />
-    </Container>
+    <BackgroundImage Tag="section" fluid={heroImage.childImageSharp.fluid}>
+      <TextContainer>
+        <h1>Discover your color</h1>
+        <p>Premium Socks available in various designs and colors</p>
+        <button>Shop Mens</button>
+        <button>Shop womens</button>
+      </TextContainer>
+    </BackgroundImage>
   )
 }
 
