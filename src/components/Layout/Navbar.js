@@ -9,24 +9,64 @@ import styled from "@emotion/styled"
 import {
   // MdClose,
   MdShoppingCart,
+  MdMenu,
   // MdArrowBack,
   // MdArrowForward
 } from "react-icons/md"
+import { breakpoints } from "../../utils/styles"
 
 const NavWrapper = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  position: relative;
+
+  @media (min-width: ${breakpoints.md}) {
+    padding: 1.5rem 2rem;
+  }
+`
+
+const ButtonToggle = styled.button`
+  border: none;
+  background: none;
+`
+
+const MenuToggle = styled(ButtonToggle)`
+  display: block;
+
+  @media (min-width: ${breakpoints.md}) {
+    display: none;
+  }
+`
+
+const DesktopMenu = styled.div`
+  display: none;
+  @media (min-width: ${breakpoints.md}) {
+    display: flex;
+    max-width: 450px;
+    width: 30vw;
+    justify-content: space-between;
+  }
+`
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #1a202c;
+`
+const LogoLink = styled(Link)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 
 const Nav = () => {
   const { logoImage } = useStaticQuery(LOGO_QUERY)
-  const [isNavOpen, setNavOpen] = useState(false)
+  const [isMenuOpen, setMenuOpen] = useState(false)
   const [isCartOpen, setCartOpen] = useState(false)
   const menuNavigation = useSpring({
-    transform: isNavOpen ? `translate3d(0,0,0)` : `translate3d(-100%,0,0)`,
+    transform: isMenuOpen ? `translate3d(0,0,0)` : `translate3d(-100%,0,0)`,
   })
   const cartNavigation = useSpring({
     transform: isCartOpen ? `translate3d(0,0,0)` : `translate3d(100%,0,0)`,
@@ -35,27 +75,27 @@ const Nav = () => {
   return (
     <>
       <NavWrapper>
-        <button
-          onClick={() => {
-            setNavOpen(!isNavOpen)
-          }}
-        >
-          Menu
-        </button>
+        <MenuToggle onClick={() => setMenuOpen(!isMenuOpen)}>
+          <MdMenu />
+        </MenuToggle>
+        <DesktopMenu>
+          <NavLink to="/">mens</NavLink>
+          <NavLink to="/">Womens</NavLink>
+          <NavLink to="/">Sock Packs</NavLink>
+        </DesktopMenu>
         <NavMobile
           style={menuNavigation}
           closeNav={() => {
-            setNavOpen(false)
+            setMenuOpen(false)
           }}
         />
-        <Link to="/">
+        <LogoLink to="/">
           <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />
-        </Link>
-        <button onClick={() => setCartOpen(!isCartOpen)}>
+        </LogoLink>
+        <ButtonToggle onClick={() => setCartOpen(!isCartOpen)}>
           <MdShoppingCart />
-        </button>
+        </ButtonToggle>
       </NavWrapper>
-      <hr />
       <Cart style={cartNavigation} closeCart={() => setCartOpen(false)} />
     </>
   )
@@ -65,7 +105,7 @@ const LOGO_QUERY = graphql`
   query logoQuery {
     logoImage: file(relativePath: { eq: "black-logo.png" }) {
       childImageSharp {
-        fluid(quality: 100, maxWidth: 300) {
+        fluid(quality: 100, maxWidth: 150) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

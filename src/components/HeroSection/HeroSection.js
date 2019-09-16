@@ -1,8 +1,10 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
+import Button from "../Button/Button"
+import { breakpoints } from "../../utils/styles"
 
 const TextContainer = styled(Container)`
   display: flex;
@@ -11,11 +13,17 @@ const TextContainer = styled(Container)`
   align-items: center;
   color: #fff;
   height: 80vh;
+`
 
-  button {
-    color: white;
-    border: 1px solid white;
-    background: transparent;
+const ButtonContainer = styled.div`
+  margin-top: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  @media (min-width: ${breakpoints.md}) {
+    grid-template-columns: 1fr 1fr;
   }
 `
 
@@ -26,8 +34,14 @@ const HeroSection = () => {
       <TextContainer>
         <h1>Discover your color</h1>
         <p>Premium Socks available in various designs and colors</p>
-        <button>Shop Mens</button>
-        <button>Shop womens</button>
+        <ButtonContainer>
+          <Link to="/mens">
+            <Button>Shop Mens</Button>
+          </Link>
+          <Link to="/mens">
+            <Button>Shop Womens</Button>
+          </Link>
+        </ButtonContainer>
       </TextContainer>
     </BackgroundImage>
   )

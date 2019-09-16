@@ -6,9 +6,7 @@ const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  article {
-    width: 100%;
-  }
+  align-items: center;
 `
 
 const ProductListing = ({ products }) => {

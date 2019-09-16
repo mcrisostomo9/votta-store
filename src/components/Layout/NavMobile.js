@@ -8,7 +8,7 @@ const NavMobile = ({ style, closeNav }) => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "30%",
+        width: "70%",
         height: "100%",
         background: "white",
         padding: "40px 2%",
@@ -17,11 +17,11 @@ const NavMobile = ({ style, closeNav }) => {
         ...style,
       }}
     >
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <div>home</div>
-          <div>home</div>
-          <div>home</div>
+      <div>
+        <div>
+          <div>Mens</div>
+          <div>Womens</div>
+          <div>Contact</div>
         </div>
         <button onClick={closeNav}>Close</button>
       </div>

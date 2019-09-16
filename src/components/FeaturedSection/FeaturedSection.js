@@ -21,7 +21,7 @@ const FeaturedSection = () => {
 
 const FEATURED_COLLECTION_QUERY = graphql`
   query ProductsListingQuery {
-    allShopifyCollection(filter: { handle: { eq: "mens-collection" } }) {
+    allShopifyCollection(filter: { handle: { eq: "featured-collection" } }) {
       edges {
         node {
           products {
@@ -37,8 +37,6 @@ const FEATURED_COLLECTION_QUERY = graphql`
                 }
               }
             }
-            description
-            descriptionHtml
             variants {
               sku
               id

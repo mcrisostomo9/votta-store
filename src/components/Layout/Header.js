@@ -2,8 +2,7 @@ import React from "react"
 import Navbar from "./Navbar"
 import styled from "@emotion/styled"
 
-const Container = styled.header`
-  width: 100%;
+const StyledContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
@@ -15,9 +14,9 @@ const Container = styled.header`
 `
 
 const Header = () => (
-  <Container>
+  <StyledContainer>
     <Navbar />
-  </Container>
+  </StyledContainer>
 )
 
 export default Header

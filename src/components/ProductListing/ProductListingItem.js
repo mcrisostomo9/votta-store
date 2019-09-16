@@ -1,5 +1,23 @@
 import React from "react"
 import Image from "gatsby-image"
+import styled from "@emotion/styled"
+import { breakpoints } from "../../utils/styles"
+
+const ProductContainer = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+
+  @media (min-width: ${breakpoints.md}) {
+    width: 33%;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    width: 25%;
+  }
+`
 
 const ProductListingItem = ({ product }) => {
   const {
@@ -7,14 +25,11 @@ const ProductListingItem = ({ product }) => {
     variants: [firstVariant],
   } = product
   return (
-    <article className="column is-one-quarter content">
-      <Image
-        fixed={firstImage.localFile.childImageSharp.fixed}
-        loading="lazy"
-      />
-      <h3 className="title is-3">{product.title}</h3>
-      <p className="subtitle is-4">${firstVariant.price}</p>
-    </article>
+    <ProductContainer>
+      <Image fixed={firstImage.localFile.childImageSharp.fixed} />
+      <h3>{product.title}</h3>
+      <p>${firstVariant.price}</p>
+    </ProductContainer>
   )
 }
 
