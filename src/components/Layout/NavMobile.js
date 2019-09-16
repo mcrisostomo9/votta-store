@@ -1,5 +1,7 @@
 import React from "react"
 import { animated } from "react-spring"
+import styled from "@emotion/styled"
+import { breakpoints } from "../../utils/styles"
 
 const NavMobile = ({ style, closeNav }) => {
   return (
@@ -8,7 +10,7 @@ const NavMobile = ({ style, closeNav }) => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "70%",
+        width: "100%",
         height: "100%",
         background: "white",
         padding: "40px 2%",
@@ -17,14 +19,14 @@ const NavMobile = ({ style, closeNav }) => {
         ...style,
       }}
     >
-      <div>
+      <Wrapper>
         <div>
           <div>Mens</div>
           <div>Womens</div>
           <div>Contact</div>
         </div>
         <button onClick={closeNav}>Close</button>
-      </div>
+      </Wrapper>
     </animated.div>
   )
 }
