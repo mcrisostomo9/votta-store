@@ -9,34 +9,8 @@ import { keyframes } from "@emotion/core"
  *    border-color: ${colors.brand}40;
  */
 export const colors = {
-  brandDarker: "#221133",
-  brandDark: "#442266",
-  brand: "#663399",
-  brandBright: "#e0d6eb",
-  brandLight: "#f5f3f7",
-  brandLighter: "#fbfafc",
-  lightest: "#ffffff",
-  darkest: "#4d4058",
-  text: "#333333",
-  textMild: "#555555",
-  textLight: "#7e718a",
-  textLighter: "#aaaaaa",
-  lilac: `#8c65b3`,
-  accent: `#ffb238`,
-  error: `#ec1818`,
-  lemon: `#ffdf37`,
-}
-
-export const spacing = {
-  "3xs": 2,
-  "2xs": 4,
-  xs: 8,
-  sm: 12,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  "2xl": 40,
-  "3xl": 48,
+  darkGrey: `#1A202C`,
+  teal: `#4FD1C5`,
 }
 
 export const breakpoints = {
