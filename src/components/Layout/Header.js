@@ -7,10 +7,6 @@ const StyledContainer = styled.header`
   top: 0;
   z-index: 10;
   background: #fff;
-
-  hr {
-    margin: 0;
-  }
 `
 
 const Header = () => (
