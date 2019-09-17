@@ -79,13 +79,6 @@ const Nav = () => {
           <NavLink to="/">Womens</NavLink>
           <NavLink to="/">Sock Packs</NavLink>
         </DesktopMenu>
-        <NavMobile
-          style={menuNavigation}
-          closeNav={() => {
-            setMenuOpen(false)
-          }}
-          toggleCart={() => setCartOpen(!isCartOpen)}
-        />
         <LogoLink to="/">
           <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />
         </LogoLink>
@@ -93,6 +86,13 @@ const Nav = () => {
           <MdShoppingCart />
         </ButtonToggle>
       </NavWrapper>
+      <NavMobile
+        style={menuNavigation}
+        closeNav={() => {
+          setMenuOpen(false)
+        }}
+        toggleCart={() => setCartOpen(!isCartOpen)}
+      />
       <Cart style={cartNavigation} closeCart={() => setCartOpen(false)} />
     </>
   )
