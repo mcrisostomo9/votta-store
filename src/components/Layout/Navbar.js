@@ -14,28 +14,18 @@ import {
   // MdArrowForward
 } from "react-icons/md"
 import { breakpoints } from "../../utils/styles"
+import ButtonToggle from "../Button/ButtonToggle"
 
 const NavWrapper = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem;
   position: relative;
 
   @media (min-width: ${breakpoints.md}) {
     padding: 1.5rem 2rem;
-  }
-`
-
-const ButtonToggle = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-
-  svg {
-    height: 25px;
-    width: 25px;
   }
 `
 
@@ -94,6 +84,7 @@ const Nav = () => {
           closeNav={() => {
             setMenuOpen(false)
           }}
+          toggleCart={() => setCartOpen(!isCartOpen)}
         />
         <LogoLink to="/">
           <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />
