@@ -31,6 +31,12 @@ const NavWrapper = styled.nav`
 const ButtonToggle = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
+
+  svg {
+    height: 25px;
+    width: 25px;
+  }
 `
 
 const MenuToggle = styled(ButtonToggle)`
