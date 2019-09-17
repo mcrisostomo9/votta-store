@@ -19,14 +19,12 @@ const NavMobile = ({ style, closeNav }) => {
         ...style,
       }}
     >
-      <Wrapper>
-        <div>
-          <div>Mens</div>
-          <div>Womens</div>
-          <div>Contact</div>
-        </div>
-        <button onClick={closeNav}>Close</button>
-      </Wrapper>
+      <div>
+        <div>Mens</div>
+        <div>Womens</div>
+        <div>Contact</div>
+      </div>
+      <button onClick={closeNav}>Close</button>
     </animated.div>
   )
 }
