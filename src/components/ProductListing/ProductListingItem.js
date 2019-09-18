@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 import { breakpoints } from "../../utils/styles"
 
 const ProductContainer = styled.article`
@@ -24,11 +25,14 @@ const ProductListingItem = ({ product }) => {
     images: [firstImage],
     variants: [firstVariant],
   } = product
+  // debugger
   return (
     <ProductContainer>
-      <Image fixed={firstImage.localFile.childImageSharp.fixed} />
-      <h3>{product.title}</h3>
-      <p>${firstVariant.price}</p>
+      <Link to={`/product/${product.handle}`}>
+        <Image fluid={firstImage.localFile.childImageSharp.fluid} />
+        <h3>{product.title}</h3>
+        <p>${firstVariant.price}</p>
+      </Link>
     </ProductContainer>
   )
 }

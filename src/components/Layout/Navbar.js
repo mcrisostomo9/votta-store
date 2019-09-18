@@ -75,9 +75,9 @@ const Nav = () => {
           <MdMenu />
         </MenuToggle>
         <DesktopMenu>
-          <NavLink to="/">mens</NavLink>
-          <NavLink to="/">Womens</NavLink>
-          <NavLink to="/">Sock Packs</NavLink>
+          <NavLink to="/mens-collection">mens</NavLink>
+          <NavLink to="/womens-collection">Womens</NavLink>
+          <NavLink to="/dress-sock-packs">Sock Packs</NavLink>
         </DesktopMenu>
         <LogoLink to="/">
           <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />

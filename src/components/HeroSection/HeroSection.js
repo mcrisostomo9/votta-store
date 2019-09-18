@@ -35,10 +35,10 @@ const HeroSection = () => {
         <h1>Discover your color</h1>
         <p>Premium Socks available in various designs and colors</p>
         <ButtonContainer>
-          <Link to="/mens">
+          <Link to="/mens-collection">
             <Button>Shop Mens</Button>
           </Link>
-          <Link to="/mens">
+          <Link to="/womens-collection">
             <Button>Shop Womens</Button>
           </Link>
         </ButtonContainer>

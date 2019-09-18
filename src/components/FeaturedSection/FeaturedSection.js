@@ -25,21 +25,18 @@ const FEATURED_COLLECTION_QUERY = graphql`
       edges {
         node {
           products {
-            id
             title
             handle
             images {
               localFile {
                 childImageSharp {
-                  fixed(width: 200) {
-                    ...GatsbyImageSharpFixed_withWebp_tracedSVG
+                  fluid(maxWidth: 400) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }
             }
             variants {
-              sku
-              id
               title
               price
             }
