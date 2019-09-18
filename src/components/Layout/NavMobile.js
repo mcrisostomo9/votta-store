@@ -92,13 +92,13 @@ const NavMobile = ({ style, closeNav, toggleCart }) => {
           </ButtonToggle>
         </TopBarContainer>
         <LinksContainer>
-          <Link to="/ff" onClick={closeNav}>
+          <Link to="/mens-collection" onClick={closeNav}>
             Mens
           </Link>
-          <Link to="/" onClick={closeNav}>
+          <Link to="/womens-collection" onClick={closeNav}>
             Women
           </Link>
-          <Link to="/" onClick={closeNav}>
+          <Link to="/dress-sock-packs" onClick={closeNav}>
             Sock Pack
           </Link>
           <Link to="/" onClick={closeNav}>
