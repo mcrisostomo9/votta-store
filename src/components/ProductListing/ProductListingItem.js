@@ -25,7 +25,6 @@ const ProductListingItem = ({ product }) => {
     images: [firstImage],
     variants: [firstVariant],
   } = product
-  // debugger
   return (
     <ProductContainer>
       <Link to={`/product/${product.handle}`}>

@@ -1,10 +1,18 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Image from "gatsby-image"
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
 import Button from "../Button/Button"
 import { breakpoints } from "../../utils/styles"
+
+const HeroContainer = styled.div`
+  position: relative;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 
 const TextContainer = styled(Container)`
   display: flex;
@@ -12,7 +20,7 @@ const TextContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   color: #fff;
-  height: 80vh;
+  position: relative;
 `
 
 const ButtonContainer = styled.div`
@@ -30,7 +38,17 @@ const ButtonContainer = styled.div`
 const HeroSection = () => {
   const { heroImage } = useStaticQuery(IMAGE_QUERY)
   return (
-    <BackgroundImage Tag="section" fluid={heroImage.childImageSharp.fluid}>
+    <HeroContainer>
+      <Image
+        fluid={heroImage.childImageSharp.fluid}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      />
       <TextContainer>
         <h1>Discover your color</h1>
         <p>Premium Socks available in various designs and colors</p>
@@ -43,7 +61,7 @@ const HeroSection = () => {
           </Link>
         </ButtonContainer>
       </TextContainer>
-    </BackgroundImage>
+    </HeroContainer>
   )
 }
 

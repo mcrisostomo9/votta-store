@@ -1,21 +1,24 @@
 import React from "react"
 import { graphql } from "gatsby"
-import ProductListingItem from "../components/ProductListing/ProductListingItem"
 import Layout from "../components/Layout/Layout"
+import Container from "../components/Layout/Container"
+import styled from "@emotion/styled"
+import ProductListing from "../components/ProductListing/ProductListing"
+
+const CollectionTitle = styled.h2`
+  text-align: center;
+`
+// TODO extract title h2
 
 const CollectionTemplate = ({ data }) => {
   const { shopifyCollection } = data
 
   return (
     <Layout>
-      <div>
-        <h2>{shopifyCollection.title}</h2>
-        <div>
-          {shopifyCollection.products.map(product => (
-            <ProductListingItem key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
+      <Container>
+        <CollectionTitle>{shopifyCollection.title}</CollectionTitle>
+        <ProductListing products={shopifyCollection.products} />
+      </Container>
     </Layout>
   )
 }
