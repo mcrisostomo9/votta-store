@@ -41,4 +41,4 @@ jobs:
           command: sudo npm install -g --silent netlify-cli
       - run:
           name: Netlify Deploy
-          command: netlify deploy --dir=./public -p
+          command: netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir=public
