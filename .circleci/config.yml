@@ -18,6 +18,7 @@ jobs:
 
     steps:
       - checkout
+      - run: echo "A first hello"
 
       # Download and cache dependencies
       - restore_cache:
