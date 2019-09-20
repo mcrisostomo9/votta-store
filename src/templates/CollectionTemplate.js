@@ -12,7 +12,6 @@ const CollectionTitle = styled.h2`
 
 const CollectionTemplate = ({ data }) => {
   const { shopifyCollection } = data
-
   return (
     <Layout>
       <Container>

@@ -9,14 +9,12 @@ const ProductWrapper = styled.div`
   align-items: center;
 `
 
-const ProductListing = ({ products }) => {
-  return (
-    <ProductWrapper>
-      {products.map(product => {
-        return <ProductListingItem product={product} key={product.id} />
-      })}
-    </ProductWrapper>
-  )
-}
+const ProductListing = ({ products }) => (
+  <ProductWrapper>
+    {products.map(product => {
+      return <ProductListingItem product={product} key={product.id} />
+    })}
+  </ProductWrapper>
+)
 
 export default ProductListing
