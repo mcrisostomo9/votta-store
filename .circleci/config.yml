@@ -35,12 +35,12 @@ jobs:
       NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
     working_directory: ~/repo
     steps:
-#      - gatsby-build
+      - gatsby-build
       - run:
           name: Install netlify-cli
           command: sudo npm install -g --silent netlify-cli
       - run:
-          command: echo $NETLIFY_AUTH_TOKEN
+          command: netlify deploy --prod --dir /your-dir --message "site deployed yay" --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
 #      - run:
 #          name: Netlify Deploy
 #          command: netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir=public
