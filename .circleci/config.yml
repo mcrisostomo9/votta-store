@@ -37,5 +37,8 @@ jobs:
     steps:
       - gatsby-build
       - run:
+          name: Install netlify-cli
+          command: sudo npm install -g --silent netlify-cli
+      - run:
           name: Netlify Deploy
           command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir=public
