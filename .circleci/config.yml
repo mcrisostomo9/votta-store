@@ -38,7 +38,7 @@ jobs:
 #          command: sudo npm install -g --silent netlify-cli
       - run:
           name: Echo sites
-          command: echo $NETLIFY_AUTH_TOKEN
+          command: $(eval echo ${NETLIFY_AUTH_TOKEN})
           environment:
             NETLIFY_SITE_ID: $NETLIFY_SITE_ID
             NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
