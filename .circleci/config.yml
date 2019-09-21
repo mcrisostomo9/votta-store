@@ -30,9 +30,6 @@ commands:
 jobs:
   build:
     executor: node-executor
-    environment:
-      NETLIFY_SITE_ID: $NETLIFY_SITE_ID
-      NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
     working_directory: ~/repo
     steps:
 #      - gatsby-build
@@ -41,7 +38,10 @@ jobs:
           command: sudo npm install -g --silent netlify-cli
       - run:
           name: Echo sites
-          command: netlify sites:list --auth
+          command: netlify sites:list --auth $NETLIFY_AUTH_TOKEN
+          environment:
+            NETLIFY_SITE_ID: $NETLIFY_SITE_ID
+            NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
 #      - run:
 #          name: Netlify Deploy
 #          command: netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir=public
