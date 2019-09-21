@@ -41,4 +41,4 @@ jobs:
           command: netlify sites:list
       - run:
           name: Netlify Deploy
-          command: netlify deploy --dir=public
+          command: netlify deploy --dir=public --prod
