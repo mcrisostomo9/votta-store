@@ -32,13 +32,13 @@ jobs:
     executor: node-executor
     working_directory: ~/repo
     steps:
-#      - gatsby-build
+      - gatsby-build
       - run:
           name: Install netlify-cli
           command: sudo npm install netlify-cli -g
       - run:
           name: list sites
           command: netlify sites:list
-#      - run:
-#          name: Netlify Deploy
-#          command: netlify deploy --dir=public
+      - run:
+          name: Netlify Deploy
+          command: netlify deploy --dir=public
