@@ -50,8 +50,8 @@ const HeroSection = () => {
         }}
       />
       <TextContainer>
-        <h1>Discover your color</h1>
-        <p>Premium Socks available in various designs and colors!</p>
+        <h1>DISCOVER YOUR COLOR</h1>
+        <p>Premium Socks available in various designs and colors</p>
         <ButtonContainer>
           <Link to="/mens-collection">
             <Button>Shop Mens</Button>
