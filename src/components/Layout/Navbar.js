@@ -6,13 +6,7 @@ import { useSpring } from "react-spring"
 import Cart from "../Cart/Cart"
 import styled from "@emotion/styled"
 
-import {
-  // MdClose,
-  MdShoppingCart,
-  MdMenu,
-  // MdArrowBack,
-  // MdArrowForward
-} from "react-icons/md"
+import { MdShoppingCart, MdMenu } from "react-icons/md"
 import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
 
@@ -50,7 +44,6 @@ const NavLink = styled(Link)`
   text-decoration: none;
   color: #1a202c;
   text-transform: uppercase;
-  font-weight: bold;
 `
 const LogoLink = styled(Link)`
   position: absolute;

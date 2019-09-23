@@ -26,7 +26,7 @@ const TextContainer = styled(Container)`
   color: #fff;
   position: relative;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 
   @media (min-width: ${breakpoints.md}) {
     margin-bottom: 10rem;
@@ -39,6 +39,7 @@ const TextContainer = styled(Container)`
   h1 {
     text-transform: uppercase;
     margin: 0;
+    font-size: 1.75rem;
 
     @media (min-width: ${breakpoints.md}) {
       font-size: 2.5rem;
