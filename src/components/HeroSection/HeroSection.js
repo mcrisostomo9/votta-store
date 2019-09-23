@@ -4,14 +4,18 @@ import Image from "gatsby-image"
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
 import Button from "../Button/Button"
-import { breakpoints } from "../../utils/styles"
+import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"
 
 const HeroContainer = styled.div`
   position: relative;
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+
+  @media (min-width: ${breakpoints.lg}) {
+    justify-content: center;
+  }
 `
 
 const TextContainer = styled(Container)`
@@ -21,6 +25,35 @@ const TextContainer = styled(Container)`
   align-items: center;
   color: #fff;
   position: relative;
+  text-align: center;
+  margin-bottom: 4rem;
+
+  @media (min-width: ${breakpoints.md}) {
+    margin-bottom: 10rem;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    margin: 0;
+
+    @media (min-width: ${breakpoints.md}) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+
+    @media (min-width: ${breakpoints.md}) {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+    }
+  }
 `
 
 const ButtonContainer = styled.div`
@@ -41,13 +74,8 @@ const HeroSection = () => {
     <HeroContainer>
       <Image
         fluid={heroImage.childImageSharp.fluid}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
+        style={backgroundGatsbyImage}
+        imgStyle={{ objectPosition: "right" }}
       />
       <TextContainer>
         <h1>Discover your color</h1>

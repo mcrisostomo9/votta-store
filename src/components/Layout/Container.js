@@ -6,6 +6,7 @@ const BaseContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 500px;
+  padding: 0 1.5rem;
 
   @media (min-width: ${breakpoints.sm}) {
     max-width: 640px;

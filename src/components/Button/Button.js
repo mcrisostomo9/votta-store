@@ -13,6 +13,8 @@ const StyledButton = styled.button`
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: Roboto, serif;
+  letter-spacing: 1px;
 
   :hover {
     background: ${colors.teal};

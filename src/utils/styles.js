@@ -21,39 +21,12 @@ export const breakpoints = {
   xxl: `1680px`,
 }
 
-export const radius = {
-  default: 2,
-  large: 4,
-}
-
-export const defaultFontStack = [
-  "-apple-system",
-  "BlinkMacSystemFont",
-  "Segoe UI",
-  "Roboto",
-  "Oxygen",
-  "Ubuntu",
-  "Cantarell",
-  "Open Sans",
-  "Helvetica Neue",
-  "sans-serif",
-].join()
-
-const monospaceFontStack = [
-  `Space Mono`,
-  `SFMono-Regular`,
-  `Menlo`,
-  `Monaco`,
-  `Consolas`,
-  `Liberation Mono`,
-  `Courier New`,
-  `monospace`,
-].join()
-
-export const fonts = {
-  body: defaultFontStack,
-  heading: `Futura PT, ${defaultFontStack}`,
-  monospace: monospaceFontStack,
+export const backgroundGatsbyImage = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
 }
 
 const simpleEntry = keyframes`

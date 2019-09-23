@@ -49,6 +49,8 @@ const DesktopMenu = styled.div`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: #1a202c;
+  text-transform: uppercase;
+  font-weight: bold;
 `
 const LogoLink = styled(Link)`
   position: absolute;

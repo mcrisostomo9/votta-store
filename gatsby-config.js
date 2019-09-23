@@ -41,6 +41,20 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Playfair Display`,
+          },
+          {
+            family: `Roboto`,
+            variants: [`400`, `700`],
+          },
+        ],
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
