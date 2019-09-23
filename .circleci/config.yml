@@ -28,7 +28,7 @@ commands:
           paths:
             - ./public
 jobs:
-  build:
+  deploy:
     executor: node-executor
     working_directory: ~/repo
     steps:
