@@ -26,7 +26,7 @@ const TextContainer = styled(Container)`
   color: #fff;
   position: relative;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 
   @media (min-width: ${breakpoints.md}) {
     margin-bottom: 10rem;
@@ -76,7 +76,7 @@ const HeroSection = () => {
       <Image
         fluid={heroImage.childImageSharp.fluid}
         style={backgroundGatsbyImage}
-        imgStyle={{ objectPosition: "right" }}
+        imgStyle={{ objectPosition: "75%" }}
       />
       <TextContainer>
         <h1>Discover your color</h1>
