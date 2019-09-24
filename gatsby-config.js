@@ -47,6 +47,7 @@ module.exports = {
         fonts: [
           {
             family: `Playfair Display`,
+            variants: [`400`, `700`],
           },
           {
             family: `Roboto`,

@@ -1,6 +1,5 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { useState } from "react"
-import Img from "gatsby-image"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
 import Cart from "../Cart/Cart"
@@ -9,6 +8,8 @@ import styled from "@emotion/styled"
 import { MdShoppingCart, MdMenu } from "react-icons/md"
 import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
+
+import logo from "../../images/black-logo.png"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -53,7 +54,7 @@ const LogoLink = styled(Link)`
 `
 
 const Nav = () => {
-  const { logoImage } = useStaticQuery(LOGO_QUERY)
+  // const { logoImage } = useStaticQuery(LOGO_QUERY)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [isCartOpen, setCartOpen] = useState(false)
   const menuNavigation = useSpring({
@@ -62,7 +63,7 @@ const Nav = () => {
   const cartNavigation = useSpring({
     transform: isCartOpen ? `translate3d(0,0,0)` : `translate3d(100%,0,0)`,
   })
-
+  // TODO choose which img to use
   return (
     <>
       <NavWrapper>
@@ -75,7 +76,8 @@ const Nav = () => {
           <NavLink to="/dress-sock-packs">Sock Packs</NavLink>
         </DesktopMenu>
         <LogoLink to="/">
-          <Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />
+          {/*<Img fluid={logoImage.childImageSharp.fluid} style={{ width: 150 }} />*/}
+          <img src={logo} alt="Votta Logo" style={{ width: 150 }} />
         </LogoLink>
         <ButtonToggle onClick={() => setCartOpen(!isCartOpen)}>
           <MdShoppingCart />
@@ -93,16 +95,16 @@ const Nav = () => {
   )
 }
 
-const LOGO_QUERY = graphql`
-  query logoQuery {
-    logoImage: file(relativePath: { eq: "black-logo.png" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 150) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-  }
-`
+// const LOGO_QUERY = graphql`
+//   query logoQuery {
+//     logoImage: file(relativePath: { eq: "black-logo.png" }) {
+//       childImageSharp {
+//         fluid(quality: 100, maxWidth: 150) {
+//           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Nav

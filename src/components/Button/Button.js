@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { colors } from "../../utils/styles"
 
 const StyledButton = styled.button`
-  transition: all 500ms ease 0s;
+  transition: all 300ms ease 0s;
   cursor: pointer;
   width: 200px;
   height: 50px;

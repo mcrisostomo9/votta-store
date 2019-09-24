@@ -1,19 +1,15 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProductListing from "../ProductListing/ProductListing"
-import styled from "@emotion/styled"
 import Container from "../Layout/Container"
-
-const H3 = styled.h3`
-  text-align: center;
-`
+import SectionTitle from "../SectionTitle/SectionTitle"
 
 const FeaturedSection = () => {
   const { allShopifyCollection } = useStaticQuery(FEATURED_COLLECTION_QUERY)
   const { products } = allShopifyCollection.edges[0].node
   return (
     <Container>
-      <H3>Shop our featured products</H3>
+      <SectionTitle title="Shop our featured products" />
       <ProductListing products={products} />
     </Container>
   )
