@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Votta Dress Socks`,
+    description: `Votta Socks are designed for comfort and versatility. Each pair of premium dress socks are made using quality materials. We offer men's and women's dress socks in a wide range of patterned, striped, ribbed, and colorful solid designs fit for any occasion.`,
     author: `@gatsbyjs`,
   },
   plugins: [
