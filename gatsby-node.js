@@ -1,7 +1,7 @@
 const path = require("path")
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  const pages = await graphql(`
+  const product = await graphql(`
     query PagesQuery {
       allShopifyProduct {
         edges {
@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
   `)
 
-  pages.data.allShopifyProduct.edges.forEach(({ node: { id, handle } }) => {
+  product.data.allShopifyProduct.edges.forEach(({ node: { id, handle } }) => {
     createPage({
       path: `/product/${handle}`,
       component: path.resolve("./src/templates/ProductDetailTemplate.js"),
@@ -46,6 +46,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         context: {
           id,
           handle,
+        },
+      })
+    }
+  )
+
+  const shopPolicy = await graphql(`
+    query allShopifyShopPolicy {
+      allShopifyShopPolicy {
+        edges {
+          node {
+            title
+            type
+          }
+        }
+      }
+    }
+  `)
+
+  shopPolicy.data.allShopifyShopPolicy.edges.forEach(
+    ({ node: { title, type } }) => {
+      createPage({
+        path: `/${title.replace(/\s+/g, "-").toLowerCase()}`,
+        component: path.resolve("./src/templates/ShopPolicyTemplate.js"),
+        context: {
+          title,
+          type,
         },
       })
     }
