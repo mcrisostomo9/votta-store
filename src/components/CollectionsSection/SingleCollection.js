@@ -8,9 +8,14 @@ const CollectionWrapper = styled.div`
   position: relative;
   height: 25vh;
   min-height: 300px;
+  transition: all 300ms ease 0s;
 
   @media (min-width: ${breakpoints.md}) {
     height: 350px;
+  }
+
+  :hover {
+    opacity: 0.8;
   }
 `
 

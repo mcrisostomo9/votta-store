@@ -26,7 +26,7 @@ const FEATURED_COLLECTION_QUERY = graphql`
             images {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
+                  fluid(maxWidth: 900) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
