@@ -2,26 +2,16 @@ import React from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import { breakpoints, colors } from "../../utils/styles"
+import { colors } from "../../utils/styles"
 
 const ProductListingItemLink = styled(Link)`
   text-align: center;
   color: ${colors.darkGrey};
-
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-decoration: none;
-  transition: all 300ms;
-
-  @media (hover: hover) {
-    :hover {
-      background: red;
-    }
-  }
 `
 
-const Preview = styled(`div`)`
-  border-bottom: 1px solid ${colors.darkGrey};
+const Preview = styled.div`
   overflow: hidden;
   position: relative;
   .gatsby-image-wrapper {

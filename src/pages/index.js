@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout"
 import HeroSection from "../components/HeroSection/HeroSection"
 import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
+import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => (
   <Layout>
@@ -11,6 +12,7 @@ const IndexPage = () => (
     <HeroSection />
     <CollectionsSection />
     <FeaturedSection />
+    <DesignedSection />
   </Layout>
 )
 
