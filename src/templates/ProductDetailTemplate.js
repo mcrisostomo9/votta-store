@@ -1,28 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
 import Layout from "../components/Layout/Layout"
-// import AddToCart from "../components/Cart/AddToCart"
+import ProductDetail from "../components/ProductDetail/ProductDetail"
 
 const ProductDetailTemplate = ({ data }) => {
   const { shopifyProduct: product } = data
-  const {
-    images,
-    variants: [firstVariant],
-  } = product
   return (
     <Layout>
-      <div>
-        <div>
-          <Image fluid={images[0].localFile.childImageSharp.fluid} />
-        </div>
-        <div>
-          <h1>{product.title}</h1>
-          <p>${firstVariant.price}</p>
-          <p>{product.description}</p>
-          {/*<AddToCart variantId={firstVariant.shopifyId} />*/}
-        </div>
-      </div>
+      <ProductDetail product={product} />
     </Layout>
   )
 }
@@ -49,7 +34,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 400, maxHeight: 400) {
+            fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

@@ -95,7 +95,7 @@ const Footer = () => {
         <FooterSection>
           <StyledLink>About Us</StyledLink>
           <StyledLink>Shipping Policy</StyledLink>
-          <StyledLink>Returns & Exchanges</StyledLink>
+          <StyledLink to="/refund-policy">Returns & Exchanges</StyledLink>
         </FooterSection>
       </FooterContent>
     </FooterContainer>
