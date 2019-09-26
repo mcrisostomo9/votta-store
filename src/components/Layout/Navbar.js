@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import React, { useState } from "react"
 import NavMobile from "./NavMobile"
