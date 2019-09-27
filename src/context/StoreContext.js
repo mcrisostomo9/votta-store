@@ -81,7 +81,6 @@ export const StoreProvider = ({ children }) => {
   const addProductToCart = async variantId => {
     try {
       setLoading(true)
-      console.log(`process env: ${process.env.GATSBY_SHOPIFY_ACCESS_TOKEN}`)
       const lineItems = [
         {
           variantId,
