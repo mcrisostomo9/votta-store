@@ -98,7 +98,7 @@ export const StoreProvider = ({ children }) => {
       setCheckout(newCheckout)
       setLoading(false)
     } catch (e) {
-      console.error(e)
+      console.error(`Add to cart error: ${e}`)
       setLoading(false)
     }
   }
