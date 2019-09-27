@@ -1,14 +1,16 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
 import Cart from "../Cart/Cart"
 import styled from "@emotion/styled"
 
-import { MdShoppingCart, MdMenu } from "react-icons/md"
+import { MdMenu } from "react-icons/md"
 import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
+import { StoreContext } from "../../context/StoreContext"
+import CartIconIndicator from "../Cart/CartIconIndicator"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -54,8 +56,8 @@ const LogoLink = styled(Link)`
 
 const Nav = () => {
   const { logoImage } = useStaticQuery(LOGO_QUERY)
+  const { toggleCartOpen, isCartOpen } = useContext(StoreContext)
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const [isCartOpen, setCartOpen] = useState(false)
   const menuNavigation = useSpring({
     transform: isMenuOpen ? `translate3d(0,0,0)` : `translate3d(-100%,0,0)`,
   })
@@ -76,18 +78,16 @@ const Nav = () => {
         <LogoLink to="/">
           <Img fixed={logoImage.childImageSharp.fixed} />
         </LogoLink>
-        <ButtonToggle onClick={() => setCartOpen(!isCartOpen)}>
-          <MdShoppingCart />
-        </ButtonToggle>
+        <CartIconIndicator />
       </NavWrapper>
       <NavMobile
         style={menuNavigation}
         closeNav={() => {
           setMenuOpen(false)
         }}
-        toggleCart={() => setCartOpen(!isCartOpen)}
+        toggleCart={() => toggleCartOpen(!isCartOpen)}
       />
-      <Cart style={cartNavigation} closeCart={() => setCartOpen(false)} />
+      <Cart style={cartNavigation} />
     </>
   )
 }

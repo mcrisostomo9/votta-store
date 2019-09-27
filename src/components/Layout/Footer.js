@@ -93,8 +93,8 @@ const Footer = () => {
           <FaInstagram />
         </SocialFooterSection>
         <FooterSection>
-          <StyledLink>About Us</StyledLink>
-          <StyledLink>Shipping Policy</StyledLink>
+          <StyledLink to="/">About Us</StyledLink>
+          <StyledLink to="/">Shipping Policy</StyledLink>
           <StyledLink to="/refund-policy">Returns & Exchanges</StyledLink>
         </FooterSection>
       </FooterContent>

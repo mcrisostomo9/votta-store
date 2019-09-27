@@ -21,8 +21,12 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ children, className }) => {
-  return <StyledButton className={className}>{children}</StyledButton>
+const Button = ({ children, className, onClick }) => {
+  return (
+    <StyledButton className={className} onClick={onClick}>
+      {children}
+    </StyledButton>
+  )
 }
 
 export default Button

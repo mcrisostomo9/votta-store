@@ -1,18 +1,22 @@
-import React from "react"
+import React, { useContext } from "react"
 import { animated } from "react-spring"
 import styled from "@emotion/styled"
-import { breakpoints } from "../../utils/styles"
+import { MdClose } from "react-icons/md"
 
-const Wrapper = styled(animated.div)`
+import { breakpoints } from "../../utils/styles"
+import { StoreContext } from "../../context/StoreContext"
+import LineItem from "./LineItem"
+import ButtonToggle from "../Button/ButtonToggle"
+
+const CartContainer = styled(animated.div)`
   width: 100%;
   position: fixed;
   top: 0;
   right: 0;
   height: 100%;
-  background: red;
-  padding: 40px 2%;
   z-index: 49;
   overflow-y: auto;
+  background: beige;
 
   @media (min-width: ${breakpoints.md}) {
     width: 30vw;
@@ -20,20 +24,48 @@ const Wrapper = styled(animated.div)`
   }
 `
 
-const Cart = ({ style, closeCart }) => {
+const CartTopBar = styled.div`
+  position: relative;
+  h3 {
+    text-transform: uppercase;
+    text-align: center;
+  }
+`
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+`
+
+const StyledButtonToggle = styled(ButtonToggle)`
+  position: absolute;
+  right: 0;
+`
+
+const Cart = ({ style }) => {
+  const { checkout, toggleCartOpen } = useContext(StoreContext)
   return (
-    <Wrapper
+    <CartContainer
       style={{
         ...style,
       }}
     >
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <div>Cart is empty</div>
-        </div>
-        <button onClick={closeCart}>Close</button>
-      </div>
-    </Wrapper>
+      <CartTopBar>
+        <StyledButtonToggle onClick={() => toggleCartOpen()}>
+          <MdClose />
+        </StyledButtonToggle>
+        <h3>Your cart</h3>
+      </CartTopBar>
+      <ContentContainer>
+        {checkout.lineItems.length > 0 ? (
+          checkout.lineItems.map(item => <LineItem key={item.id} item={item} />)
+        ) : (
+          <p>is currently empty</p>
+        )}
+        <button onClick={toggleCartOpen}>Close</button>
+      </ContentContainer>
+    </CartContainer>
   )
 }
 

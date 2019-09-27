@@ -10,6 +10,7 @@ import {
 import { FaInstagram, FaFacebookF } from "react-icons/fa"
 import styled from "@emotion/styled"
 import ButtonToggle from "../Button/ButtonToggle"
+import CartIconIndicator from "../Cart/CartIconIndicator"
 
 const Wrapper = styled(animated.div)`
   width: 100%;
@@ -75,7 +76,7 @@ const SocialContainer = styled.div`
   }
 `
 
-const NavMobile = ({ style, closeNav, toggleCart }) => {
+const NavMobile = ({ style, closeNav }) => {
   return (
     <Wrapper
       style={{
@@ -87,9 +88,7 @@ const NavMobile = ({ style, closeNav, toggleCart }) => {
           <ButtonToggle onClick={closeNav}>
             <MdClose />
           </ButtonToggle>
-          <ButtonToggle onClick={toggleCart}>
-            <MdShoppingCart />
-          </ButtonToggle>
+          <CartIconIndicator />
         </TopBarContainer>
         <LinksContainer>
           <Link to="/mens-collection" onClick={closeNav}>
