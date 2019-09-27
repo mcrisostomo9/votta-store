@@ -81,6 +81,7 @@ export const StoreProvider = ({ children }) => {
   const addProductToCart = async variantId => {
     try {
       setLoading(true)
+      console.log(`process env: ${process.env.SHOPIFY_ACCESS_TOKEN}`)
       const lineItems = [
         {
           variantId,
@@ -98,7 +99,6 @@ export const StoreProvider = ({ children }) => {
       setCheckout(newCheckout)
       setLoading(false)
     } catch (e) {
-      console.error(`Add to cart error: ${e}`)
       setLoading(false)
     }
   }
