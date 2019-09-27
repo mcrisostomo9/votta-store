@@ -1,12 +1,7 @@
 import React from "react"
 import { animated } from "react-spring"
 import { Link } from "gatsby"
-import {
-  MdClose,
-  // MdArrowBack,
-  // MdArrowForward
-  MdShoppingCart,
-} from "react-icons/md"
+import { MdClose } from "react-icons/md"
 import { FaInstagram, FaFacebookF } from "react-icons/fa"
 import styled from "@emotion/styled"
 import ButtonToggle from "../Button/ButtonToggle"

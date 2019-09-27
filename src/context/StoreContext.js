@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react"
 import Client from "shopify-buy"
 
 const client = Client.buildClient({
-  domain: `${process.env.SHOPIFY_SHOP_NAME}.myshopify.com`,
+  domain: `votta-socks.myshopify.com`,
   storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 })
 
