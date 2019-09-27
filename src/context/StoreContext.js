@@ -3,7 +3,7 @@ import Client from "shopify-buy"
 
 const client = Client.buildClient({
   domain: `votta-socks.myshopify.com`,
-  storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+  storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
 })
 
 const defaultValues = {
@@ -81,7 +81,7 @@ export const StoreProvider = ({ children }) => {
   const addProductToCart = async variantId => {
     try {
       setLoading(true)
-      console.log(`process env: ${process.env.SHOPIFY_ACCESS_TOKEN}`)
+      console.log(`process env: ${process.env.GATSBY_SHOPIFY_ACCESS_TOKEN}`)
       const lineItems = [
         {
           variantId,
