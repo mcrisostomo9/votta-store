@@ -24,6 +24,10 @@ const CartContainer = styled(animated.div)`
   }
 `
 
+const InnerContainer = styled.div`
+  ${props => props.isCartLoading && "opacity: .7;"};
+`
+
 const CartTopBar = styled.div`
   position: relative;
   h3 {
@@ -44,27 +48,31 @@ const StyledButtonToggle = styled(ButtonToggle)`
 `
 
 const Cart = ({ style }) => {
-  const { checkout, toggleCartOpen } = useContext(StoreContext)
+  const { checkout, toggleCartOpen, isCartLoading } = useContext(StoreContext)
   return (
     <CartContainer
       style={{
         ...style,
       }}
     >
-      <CartTopBar>
-        <StyledButtonToggle onClick={() => toggleCartOpen()}>
-          <MdClose />
-        </StyledButtonToggle>
-        <h3>Your cart</h3>
-      </CartTopBar>
-      <ContentContainer>
-        {checkout.lineItems.length > 0 ? (
-          checkout.lineItems.map(item => <LineItem key={item.id} item={item} />)
-        ) : (
-          <p>is currently empty</p>
-        )}
-        <button onClick={toggleCartOpen}>Close</button>
-      </ContentContainer>
+      <InnerContainer isCartLoading={isCartLoading}>
+        <CartTopBar>
+          <StyledButtonToggle onClick={() => toggleCartOpen()}>
+            <MdClose />
+          </StyledButtonToggle>
+          <h3>Your cart</h3>
+        </CartTopBar>
+        <ContentContainer>
+          {checkout.lineItems.length > 0 ? (
+            checkout.lineItems.map(item => (
+              <LineItem key={item.id} item={item} />
+            ))
+          ) : (
+            <p>is currently empty</p>
+          )}
+          <button onClick={toggleCartOpen}>Close</button>
+        </ContentContainer>
+      </InnerContainer>
     </CartContainer>
   )
 }

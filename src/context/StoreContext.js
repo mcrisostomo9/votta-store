@@ -15,6 +15,8 @@ const defaultValues = {
   checkCoupon: () => {},
   isLoading: false,
   setLoading: () => {},
+  isCartLoading: false,
+  seCartLoading: () => {},
   client,
   checkout: { lineItems: [] },
 }
@@ -27,6 +29,7 @@ export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultValues.checkout)
   const [isCartOpen, setCartOpen] = useState(false)
   const [isLoading, setLoading] = useState(false)
+  const [isCartLoading, setCartLoading] = useState(false)
 
   const toggleCartOpen = () => {
     setCartOpen(!isCartOpen)
@@ -104,13 +107,13 @@ export const StoreProvider = ({ children }) => {
 
   const removeProductFromCart = async lineItemId => {
     try {
-      setLoading(true)
+      setCartLoading(true)
       const newCheckout = await client.checkout.removeLineItems(checkout.id, [
         lineItemId,
       ])
       setCheckout(newCheckout)
       setCartOpen(true)
-      setLoading(false)
+      setCartLoading(false)
     } catch (e) {
       console.error(e)
       setLoading(false)
@@ -159,6 +162,7 @@ export const StoreProvider = ({ children }) => {
         checkCoupon,
         removeCoupon,
         isLoading,
+        isCartLoading,
       }}
     >
       {children}

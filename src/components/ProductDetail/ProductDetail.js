@@ -1,16 +1,22 @@
 import React, { useContext } from "react"
-import Img from "gatsby-image"
+
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
 import Button from "../Button/Button"
 import { StoreContext } from "../../context/StoreContext"
+import ImgSlider from "./ImgSlider"
+import { breakpoints } from "../../utils/styles"
 
 const MainProductContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-`
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
 
-const ImgContainer = styled.div``
+  @media (min-width: ${breakpoints.md}) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+`
 
 const ProductInfoContainer = styled.div``
 
@@ -23,13 +29,7 @@ const ProductDetail = ({ product }) => {
   return (
     <Container>
       <MainProductContainer>
-        <ImgContainer>
-          {images.map((image, index) => {
-            return (
-              <Img fluid={image.localFile.childImageSharp.fluid} key={index} />
-            )
-          })}
-        </ImgContainer>
+        <ImgSlider images={images} />
         <ProductInfoContainer>
           <h1>{product.title}</h1>
           <p>${firstVariant.price}</p>

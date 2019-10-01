@@ -24,8 +24,10 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
+    "react-id-swiper": "^2.3.2",
     "react-spring": "^8.0.27",
-    "shopify-buy": "^2.7.2"
+    "shopify-buy": "^2.7.2",
+    "swiper": "^5.0.4"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
