@@ -19,6 +19,7 @@ const defaultValues = {
   seCartLoading: () => {},
   client,
   checkout: { lineItems: [] },
+  lineItemQuantity: 0,
 }
 export const StoreContext = createContext(defaultValues)
 
@@ -30,6 +31,7 @@ export const StoreProvider = ({ children }) => {
   const [isCartOpen, setCartOpen] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [isCartLoading, setCartLoading] = useState(false)
+  const [lineItemQuantity, setLineItemQuantity] = useState(0)
 
   const toggleCartOpen = () => {
     setCartOpen(!isCartOpen)
@@ -76,7 +78,7 @@ export const StoreProvider = ({ children }) => {
 
       // Set checkout to state
       setCheckout(newCheckout)
-
+      getLineItemQuantity(newCheckout.lineItems)
       setLoading(false)
     } catch (e) {}
   }
@@ -99,6 +101,7 @@ export const StoreProvider = ({ children }) => {
       // window.open(newCheckout.webUrl, "_blank")
 
       setCheckout(newCheckout)
+      getLineItemQuantity(newCheckout.lineItems)
       setLoading(false)
     } catch (e) {
       setLoading(false)
@@ -112,12 +115,22 @@ export const StoreProvider = ({ children }) => {
         lineItemId,
       ])
       setCheckout(newCheckout)
+      getLineItemQuantity(newCheckout.lineItems)
       setCartOpen(true)
       setCartLoading(false)
     } catch (e) {
       console.error(e)
       setLoading(false)
     }
+  }
+
+  const getLineItemQuantity = lineItems => {
+    const quantity =
+      lineItems.length > 0 &&
+      lineItems.reduce((total, item) => {
+        return total + item.quantity
+      }, 0)
+    quantity > 0 ? setLineItemQuantity(quantity) : setLineItemQuantity(0)
   }
 
   const checkCoupon = async coupon => {
@@ -141,7 +154,6 @@ export const StoreProvider = ({ children }) => {
         checkout.id,
         coupon
       )
-
       setCheckout(newCheckout)
       setLoading(false)
     } catch (e) {
@@ -163,6 +175,7 @@ export const StoreProvider = ({ children }) => {
         removeCoupon,
         isLoading,
         isCartLoading,
+        lineItemQuantity,
       }}
     >
       {children}

@@ -25,8 +25,8 @@ const ImgSlider = ({ images }) => {
       <Swiper {...params}>
         {images.map((image, i) => {
           return (
-            <div>
-              <Img fluid={image.localFile.childImageSharp.fluid} key={i} />
+            <div key={i}>
+              <Img fluid={image.localFile.childImageSharp.fluid} />
             </div>
           )
         })}

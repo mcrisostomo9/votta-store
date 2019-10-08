@@ -1,7 +1,7 @@
 import React from "react"
 import Container from "./Container"
 import styled from "@emotion/styled"
-import { colors } from "../../utils/styles"
+import { breakpoints, colors } from "../../utils/styles"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import { FaInstagram, FaFacebookF } from "react-icons/fa"
@@ -36,8 +36,14 @@ const GuaranteeText = styled.p`
 const FooterContent = styled.div`
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
+
+  @media (min-width: ${breakpoints.md}) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+  }
 `
 
 const FooterSection = styled.div`
