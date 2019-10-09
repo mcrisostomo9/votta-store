@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef, useCallback } from "react"
 import { animated } from "react-spring"
 import styled from "@emotion/styled"
 import { MdClose } from "react-icons/md"
@@ -8,6 +8,8 @@ import { StoreContext } from "../../context/StoreContext"
 import LineItem from "./LineItem"
 import ButtonToggle from "../Button/ButtonToggle"
 import CartNumber from "./CartNumber"
+import EmptyCart from "./EmptyCart"
+import Checkout from "./Checkout"
 
 const CartContainer = styled(animated.div)`
   width: 100%;
@@ -26,14 +28,21 @@ const CartContainer = styled(animated.div)`
 `
 
 const InnerContainer = styled.div`
+  height: 100%;
+  position: relative;
+
   ${props => props.isCartLoading && "opacity: .7;"};
 `
 
 const CartTopBar = styled.div`
   padding: 1.5rem;
-  position: relative;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
 
   h3 {
     text-transform: uppercase;
@@ -41,14 +50,16 @@ const CartTopBar = styled.div`
   }
 
   @media (min-width: ${breakpoints.md}) {
-    padding: 1.5rem 3rem 0;
+    padding: 1.5rem 3rem;
   }
 `
 
-const ContentContainer = styled.div`
+const LineItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
+  overflow: hidden;
+  overflow-y: scroll;
 
   @media (min-width: ${breakpoints.md}) {
     padding: 3rem;
@@ -57,20 +68,69 @@ const ContentContainer = styled.div`
 
 const CloseButton = styled(ButtonToggle)``
 
+const ItemsInCart = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+`
 const StyledCartNumber = styled(CartNumber)`
   position: relative;
+  bottom: 0;
+  left: 0;
+  transform: scale(1);
+  font-size: 1rem;
+  margin-left: 0.25rem;
 `
+
+const ShippingContainer = styled.div`
+  padding: 1.5rem 1.5rem 0;
+  text-align: center;
+
+  @media (min-width: ${breakpoints.md}) {
+    padding: 3rem 1.5rem 0;
+  }
+`
+
+const ShippingText = styled.p``
 
 const Cart = ({ style }) => {
   const {
-    checkout: { lineItems },
+    checkout,
     lineItemQuantity,
     toggleCartOpen,
     isCartLoading,
+    isCartOpen,
   } = useContext(StoreContext)
+
+  const node = useRef()
+
+  const handleClickOutside = useCallback(
+    e => {
+      if (node.current.contains(e.target)) {
+        // inside click
+        return
+      }
+      // outside click
+      toggleCartOpen(false)
+    },
+    [toggleCartOpen]
+  )
+
+  useEffect(() => {
+    if (isCartOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isCartOpen, handleClickOutside])
 
   return (
     <CartContainer
+      ref={node}
       style={{
         ...style,
       }}
@@ -81,16 +141,43 @@ const Cart = ({ style }) => {
             <MdClose />
           </CloseButton>
           <h3>Your cart</h3>
-          <StyledCartNumber number={lineItemQuantity} />
+          <ItemsInCart>
+            items
+            <br />
+            in cart
+            <StyledCartNumber number={lineItemQuantity} />
+          </ItemsInCart>
         </CartTopBar>
-        <ContentContainer>
-          {lineItems.length > 0 ? (
-            lineItems.map(item => <LineItem key={item.id} item={item} />)
+        <ShippingContainer>
+          {lineItemQuantity > 0 ? (
+            checkout.lineItemsSubtotalPrice.amount >= 20 ? (
+              <ShippingText>
+                Your order qualifies for free shipping in the US!
+              </ShippingText>
+            ) : (
+              <ShippingText>
+                You are ${20 - checkout.lineItemsSubtotalPrice.amount} away from
+                free shipping in the US!
+              </ShippingText>
+            )
           ) : (
-            <p>is currently empty</p>
+            <ShippingText>
+              Get free shipping on orders of $20 and above!
+            </ShippingText>
           )}
-          <button onClick={toggleCartOpen}>Close</button>
-        </ContentContainer>
+        </ShippingContainer>
+        <LineItemsContainer>
+          {lineItemQuantity > 0 ? (
+            checkout.lineItems.map(item => (
+              <LineItem key={item.id} item={item} />
+            ))
+          ) : (
+            <EmptyCart toggleCartOpen={toggleCartOpen} />
+          )}
+        </LineItemsContainer>
+        {lineItemQuantity > 0 && (
+          <Checkout checkout={checkout} toggleCartOpen={toggleCartOpen} />
+        )}
       </InnerContainer>
     </CartContainer>
   )

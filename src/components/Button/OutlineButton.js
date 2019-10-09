@@ -24,9 +24,9 @@ const StyledButton = styled.button`
   }
 `
 
-const OutlineButton = ({ children, className, color }) => {
+const OutlineButton = ({ children, className, color, onClick }) => {
   return (
-    <StyledButton className={className} color={color}>
+    <StyledButton className={className} color={color} onClick={onClick}>
       {children}
     </StyledButton>
   )

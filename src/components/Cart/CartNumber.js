@@ -15,6 +15,7 @@ const Number = styled.span`
   align-items: center;
   justify-content: center;
   transform: scale(0.7);
+  font-weight: 700;
 `
 
 const CartNumber = ({ number, className }) => {
