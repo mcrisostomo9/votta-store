@@ -3,9 +3,7 @@ import Img from "gatsby-image"
 import React, { useContext, useState } from "react"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
-import Cart from "../Cart/Cart"
 import styled from "@emotion/styled"
-
 import { MdMenu } from "react-icons/md"
 import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
@@ -56,14 +54,12 @@ const LogoLink = styled(Link)`
 
 const Nav = () => {
   const { logoImage } = useStaticQuery(LOGO_QUERY)
-  const { toggleCartOpen, isCartOpen } = useContext(StoreContext)
+  const { toggleCartOpen } = useContext(StoreContext)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const menuNavigation = useSpring({
     transform: isMenuOpen ? `translate3d(0,0,0)` : `translate3d(-100%,0,0)`,
   })
-  const cartNavigation = useSpring({
-    transform: isCartOpen ? `translate3d(0,0,0)` : `translate3d(100%,0,0)`,
-  })
+
   return (
     <>
       <NavWrapper>
@@ -85,9 +81,8 @@ const Nav = () => {
         closeNav={() => {
           setMenuOpen(false)
         }}
-        toggleCart={() => toggleCartOpen(!isCartOpen)}
+        toggleCart={toggleCartOpen}
       />
-      <Cart style={cartNavigation} />
     </>
   )
 }

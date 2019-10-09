@@ -20,6 +20,7 @@ const CartContainer = styled(animated.div)`
   z-index: 49;
   overflow-y: auto;
   background: #fff;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 
   @media (min-width: ${breakpoints.md}) {
     width: 30vw;
@@ -31,7 +32,7 @@ const InnerContainer = styled.div`
   height: 100%;
   position: relative;
 
-  ${props => props.isCartLoading && "opacity: .7;"};
+  ${props => props.isCartLoading && "opacity: .1;"};
 `
 
 const CartTopBar = styled.div`
