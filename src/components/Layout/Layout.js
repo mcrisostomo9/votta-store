@@ -15,15 +15,7 @@ const MainContainer = styled.main`
 `
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(LAYOUT_QUERY)
 
   const { isCartOpen } = useContext(StoreContext)
 
@@ -39,6 +31,16 @@ const Layout = ({ children }) => {
     </>
   )
 }
+
+const LAYOUT_QUERY = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

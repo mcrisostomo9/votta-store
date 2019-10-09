@@ -86,6 +86,7 @@ export const StoreProvider = ({ children }) => {
   const addProductToCart = async variantId => {
     try {
       setLoading(true)
+      setCartLoading(true)
       const lineItems = [
         {
           variantId,
@@ -97,12 +98,10 @@ export const StoreProvider = ({ children }) => {
         lineItems
       )
 
-      // Buy now button code
-      // window.open(newCheckout.webUrl, "_blank")
-
       setCheckout(newCheckout)
       getLineItemQuantity(newCheckout.lineItems)
       setLoading(false)
+      setCartLoading(false)
     } catch (e) {
       setLoading(false)
     }
@@ -116,7 +115,6 @@ export const StoreProvider = ({ children }) => {
       ])
       setCheckout(newCheckout)
       getLineItemQuantity(newCheckout.lineItems)
-      setCartOpen(true)
       setCartLoading(false)
     } catch (e) {
       console.error(e)
