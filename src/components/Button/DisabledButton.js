@@ -8,7 +8,6 @@ const StyledButton = styled.button`
   width: 200px;
   height: 50px;
   border: none;
-
   color: #fff;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -16,18 +15,16 @@ const StyledButton = styled.button`
   font-family: Roboto, serif;
   letter-spacing: 1px;
   background: ${colors.darkGrey};
-
-  :hover {
-    background: ${colors.teal};
-  }
+  opacity: 0.6;
+  pointer-events: none;
 `
 
-const Button = ({ children, className, onClick }) => {
+const DisabledButton = ({ children, className }) => {
   return (
-    <StyledButton className={className} onClick={onClick}>
+    <StyledButton className={className} disabled>
       {children}
     </StyledButton>
   )
 }
 
-export default Button
+export default DisabledButton

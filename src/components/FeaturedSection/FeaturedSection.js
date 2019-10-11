@@ -35,6 +35,7 @@ const FEATURED_COLLECTION_QUERY = graphql`
             variants {
               title
               price
+              availableForSale
             }
           }
         }
