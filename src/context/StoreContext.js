@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react"
+import React, { createContext, useEffect, useState, useCallback } from "react"
 import Client from "shopify-buy"
 
 const client = Client.buildClient({
@@ -37,23 +37,7 @@ export const StoreProvider = ({ children }) => {
     setCartOpen(!isCartOpen)
   }
 
-  useEffect(() => {
-    initializeCheckout()
-  })
-
-  const getNewId = async () => {
-    try {
-      const newCheckout = await client.checkout.create()
-      if (isBrowser) {
-        localStorage.setItem("checkout_id", newCheckout.id)
-      }
-      return newCheckout
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  const initializeCheckout = async () => {
+  const initializeCheckout = useCallback(async () => {
     try {
       // Check if id exists
       const currentCheckoutId = isBrowser
@@ -81,6 +65,22 @@ export const StoreProvider = ({ children }) => {
       getLineItemQuantity(newCheckout.lineItems)
       setLoading(false)
     } catch (e) {}
+  }, [])
+
+  useEffect(() => {
+    initializeCheckout()
+  }, [initializeCheckout])
+
+  const getNewId = async () => {
+    try {
+      const newCheckout = await client.checkout.create()
+      if (isBrowser) {
+        localStorage.setItem("checkout_id", newCheckout.id)
+      }
+      return newCheckout
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   const addProductToCart = async variantId => {
