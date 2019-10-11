@@ -128,6 +128,7 @@ const Cart = ({ style }) => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [isCartOpen, handleClickOutside])
+
   return (
     <CartContainer
       ref={node}

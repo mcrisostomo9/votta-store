@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-votta-store",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Votta Shopify Store Front",
+  "version": "1.0.0",
+  "author": "Mark Crisostomo <mcrisostomo.jmc@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
@@ -17,8 +17,9 @@
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sharp": "^2.0.22",
     "gatsby-source-filesystem": "^2.1.22",
-    "gatsby-source-shopify": "^3.0.17",
+    "gatsby-source-shopify": "^3.0.22",
     "gatsby-transformer-sharp": "^2.1.14",
+    "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -26,7 +27,7 @@
     "react-icons": "^3.7.0",
     "react-id-swiper": "^2.3.2",
     "react-spring": "^8.0.27",
-    "shopify-buy": "^2.7.2",
+    "shopify-buy": "^2.8.0",
     "swiper": "^5.0.4"
   },
   "devDependencies": {
