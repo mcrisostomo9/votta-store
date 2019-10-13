@@ -11,6 +11,7 @@ const defaultValues = {
   toggleCartOpen: () => {},
   cart: [],
   addProductToCart: () => {},
+  updateProductQuantity: () => {},
   removeProductFromCart: () => {},
   checkCoupon: () => {},
   isLoading: false,
@@ -83,14 +84,15 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const addProductToCart = async variantId => {
+  const addProductToCart = async (variantId, quantity) => {
     try {
       setLoading(true)
       setCartLoading(true)
+
       const lineItems = [
         {
           variantId,
-          quantity: 1,
+          quantity,
         },
       ]
       const newCheckout = await client.checkout.addLineItems(
@@ -103,6 +105,25 @@ export const StoreProvider = ({ children }) => {
       setLoading(false)
       setCartLoading(false)
     } catch (e) {
+      setLoading(false)
+    }
+  }
+
+  const updateProductQuantity = async (lineItemId, cartQuantity) => {
+    try {
+      setCartLoading(true)
+
+      const lineItems = [{ id: lineItemId, quantity: cartQuantity }]
+      const newCheckout = await client.checkout.updateLineItems(
+        checkout.id,
+        lineItems
+      )
+
+      setCheckout(newCheckout)
+      getLineItemQuantity(newCheckout.lineItems)
+      setCartLoading(false)
+    } catch (e) {
+      console.error(e)
       setLoading(false)
     }
   }
@@ -174,6 +195,7 @@ export const StoreProvider = ({ children }) => {
         isLoading,
         isCartLoading,
         lineItemQuantity,
+        updateProductQuantity,
       }}
     >
       {children}

@@ -20,6 +20,10 @@ const MainProductContainer = styled.div`
 
 const ProductInfoContainer = styled.div``
 
+const Form = styled.form``
+const Label = styled.label``
+const Input = styled.input``
+
 const ProductDetail = ({ product }) => {
   const {
     images,
@@ -28,6 +32,7 @@ const ProductDetail = ({ product }) => {
   } = product
   const { addProductToCart, isLoading, client } = useContext(StoreContext)
   const [available, setAvailable] = useState(firstVariant.availableForSale)
+  const [quantity, setQuantity] = useState(1)
 
   useEffect(() => {
     const checkAvailability = productHandle => {
@@ -41,6 +46,11 @@ const ProductDetail = ({ product }) => {
     checkAvailability(handle)
   }, [client, handle, firstVariant])
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    addProductToCart(firstVariant.shopifyId, quantity)
+  }
+
   return (
     <Container>
       <MainProductContainer>
@@ -50,9 +60,25 @@ const ProductDetail = ({ product }) => {
           <p>${firstVariant.price}</p>
           <p>{product.description}</p>
           {available ? (
-            <Button onClick={() => addProductToCart(firstVariant.shopifyId)}>
-              {isLoading ? "Adding to cart..." : "add to cart"}
-            </Button>
+            <Form onSubmit={handleSubmit}>
+              <Label htmlFor="quantity">Qty.</Label>
+              <Input
+                type="number"
+                name="quantity"
+                min="1"
+                onChange={e =>
+                  setQuantity(
+                    e.target.type === "number"
+                      ? parseInt(e.target.value, 10)
+                      : e.target.value
+                  )
+                }
+                value={quantity}
+              />
+              <Button type="submit">
+                {isLoading ? "Adding to cart..." : "add to cart"}
+              </Button>
+            </Form>
           ) : (
             <DisabledButton>Sorry, this product is sold out</DisabledButton>
           )}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { StoreContext } from "../../context/StoreContext"
 import { colors } from "../../utils/styles"
@@ -46,13 +46,32 @@ const RemoveButton = styled.button`
 
 const QuantityWrapper = styled.div``
 
+const Input = styled.input``
+
 const LineItem = ({ item }) => {
-  const { removeProductFromCart } = useContext(StoreContext)
+  const { removeProductFromCart, updateProductQuantity } = useContext(
+    StoreContext
+  )
   const {
     title,
     variant: { image, price },
     quantity,
+    id,
   } = item
+
+  const [cartQuantity, setCartQuantity] = useState(quantity)
+
+  const handleChange = e => {
+    const newQuantity =
+      e.target.type === "number" ? parseInt(e.target.value, 10) : e.target.value
+    setCartQuantity(newQuantity)
+    updateProductQuantity(id, newQuantity)
+  }
+
+  useEffect(() => {
+    setCartQuantity(quantity)
+  }, [setCartQuantity, quantity])
+
   return (
     <ItemContainer>
       <Thumbnail>
@@ -64,14 +83,16 @@ const LineItem = ({ item }) => {
         <div>
           <RemoveButton
             onClick={() => {
-              removeProductFromCart(item.id)
+              removeProductFromCart(id)
             }}
           >
             <div>Remove</div>
           </RemoveButton>
         </div>
       </DetailsWrapper>
-      <QuantityWrapper>{quantity}</QuantityWrapper>
+      <QuantityWrapper>
+        <Input type="number" value={cartQuantity} onChange={handleChange} />
+      </QuantityWrapper>
     </ItemContainer>
   )
 }
