@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
 import Button from "../Button/Button"
@@ -30,25 +30,29 @@ const ProductDetail = ({ product }) => {
     variants: [firstVariant],
     handle,
   } = product
-  const { addProductToCart, isLoading, client } = useContext(StoreContext)
-  const [available, setAvailable] = useState(firstVariant.availableForSale)
+  const {
+    addProductToCart,
+    isLoading,
+    // client
+  } = useContext(StoreContext)
+  const [available] = useState(firstVariant.availableForSale)
   const [quantity, setQuantity] = useState(1)
 
-  useEffect(() => {
-    const checkAvailability = productHandle => {
-      client.product.fetchByHandle(productHandle).then(product => {
-        const res = product.variants.filter(
-          variant => variant.id === firstVariant.shopifyId
-        )
-        setAvailable(res[0].available)
-      })
-    }
-    checkAvailability(handle)
-  }, [client, handle, firstVariant])
+  // useEffect(() => {
+  //   const checkAvailability = productHandle => {
+  //     client.product.fetchByHandle(productHandle).then(product => {
+  //       const res = product.variants.filter(
+  //         variant => variant.id === firstVariant.shopifyId
+  //       )
+  //       setAvailable(res[0].available)
+  //     })
+  //   }
+  //   checkAvailability(handle)
+  // }, [client, handle, firstVariant])
 
   const handleSubmit = e => {
     e.preventDefault()
-    addProductToCart(firstVariant.shopifyId, quantity)
+    addProductToCart(firstVariant, quantity, handle)
   }
 
   return (

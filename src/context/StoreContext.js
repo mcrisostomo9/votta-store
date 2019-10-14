@@ -13,6 +13,7 @@ const defaultValues = {
   addProductToCart: () => {},
   updateProductQuantity: () => {},
   removeProductFromCart: () => {},
+  checkProductAvailability: () => {},
   checkCoupon: () => {},
   isLoading: false,
   setLoading: () => {},
@@ -33,6 +34,7 @@ export const StoreProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(false)
   const [isCartLoading, setCartLoading] = useState(false)
   const [lineItemQuantity, setLineItemQuantity] = useState(0)
+  // const [isProductAvailable, setProductAvailable] = useState(true)
 
   const toggleCartOpen = () => {
     setCartOpen(!isCartOpen)
@@ -84,10 +86,18 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const addProductToCart = async (variantId, quantity) => {
+  const addProductToCart = async (firstVariant, quantity, handle) => {
     try {
       setLoading(true)
       setCartLoading(true)
+      const variantId = firstVariant.shopifyId
+
+      // await checkProductAvailability(handle, variantId)
+      // if (!isProductAvailable) {
+      //   setLoading(false)
+      //   setCartLoading(false)
+      //   return
+      // }
 
       const lineItems = [
         {
@@ -151,6 +161,18 @@ export const StoreProvider = ({ children }) => {
       }, 0)
     quantity > 0 ? setLineItemQuantity(quantity) : setLineItemQuantity(0)
   }
+
+  // TODO reimplement product product availability
+  // const checkProductAvailability = async (productHandle, shopifyId) => {
+  //   await client.product.fetchByHandle(productHandle).then(product => {
+  //     const res = product.variants.filter(variant => variant.id === shopifyId)
+  //
+  //     setProductAvailable(false)
+  //
+  //     console.log(`avail ${res[0].available}`)
+  //   })
+  //   console.log(`is availl ${isProductAvailable}`)
+  // }
 
   const checkCoupon = async coupon => {
     try {

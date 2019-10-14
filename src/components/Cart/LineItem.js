@@ -13,6 +13,7 @@ const ItemContainer = styled.div`
 const Thumbnail = styled.div`
   width: 50px;
   margin-right: 1rem;
+  flex-grow: 0;
 
   img {
     width: 100%;
@@ -44,9 +45,14 @@ const RemoveButton = styled.button`
   }
 `
 
-const QuantityWrapper = styled.div``
-
-const Input = styled.input``
+const Quantity = styled.input`
+  flex-grow: 0;
+  width: 50px;
+  height: 45px;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  border: 1px solid ${colors.lightGrey};
+`
 
 const LineItem = ({ item }) => {
   const { removeProductFromCart, updateProductQuantity } = useContext(
@@ -90,9 +96,12 @@ const LineItem = ({ item }) => {
           </RemoveButton>
         </div>
       </DetailsWrapper>
-      <QuantityWrapper>
-        <Input type="number" value={cartQuantity} onChange={handleChange} />
-      </QuantityWrapper>
+      <Quantity
+        type="number"
+        min="1"
+        value={cartQuantity}
+        onChange={handleChange}
+      />
     </ItemContainer>
   )
 }

@@ -9,6 +9,7 @@ import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
 import { StoreContext } from "../../context/StoreContext"
 import CartIconIndicator from "../Cart/CartIconIndicator"
+import CartAddingIndicator from "../Cart/CartAddingIndicator"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -54,7 +55,7 @@ const LogoLink = styled(Link)`
 
 const Nav = () => {
   const { logoImage } = useStaticQuery(LOGO_QUERY)
-  const { toggleCartOpen } = useContext(StoreContext)
+  const { toggleCartOpen, isCartLoading } = useContext(StoreContext)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const menuNavigation = useSpring({
     transform: isMenuOpen ? `translate3d(0,0,0)` : `translate3d(-100%,0,0)`,
@@ -75,6 +76,7 @@ const Nav = () => {
           <Img fixed={logoImage.childImageSharp.fixed} />
         </LogoLink>
         <CartIconIndicator />
+        <CartAddingIndicator visible={isCartLoading} />
       </NavWrapper>
       <NavMobile
         style={menuNavigation}
