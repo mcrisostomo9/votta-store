@@ -23,6 +23,7 @@ export const query = graphql`
       title
       productType
       description
+      descriptionHtml
       variants {
         id
         shopifyId
