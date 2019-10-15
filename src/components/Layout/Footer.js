@@ -110,7 +110,7 @@ const Footer = () => {
 
 const FOOTER_LOGO_QUERY = graphql`
   query footerLogoQuery {
-    footerLogo: file(relativePath: { eq: "footer-logo.png" }) {
+    footerLogo: file(relativePath: { eq: "guarantee-logo.png" }) {
       childImageSharp {
         fixed(quality: 100, width: 150) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG

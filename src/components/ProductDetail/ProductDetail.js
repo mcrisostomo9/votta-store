@@ -6,12 +6,8 @@ import DisabledButton from "../Button/DisabledButton"
 import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
-
-const ProductInfoContainer = styled.div`
-  max-width: 500px;
-  justify-self: center;
-  align-self: center;
-`
+import Guarantee from "./Guarantee"
+import TextContainer from "./TextContainer"
 
 const ProductTitle = styled.h1``
 
@@ -46,7 +42,7 @@ const ProductDetail = ({ product }) => {
     <Container>
       <GridContainer>
         <ImgSlider images={images} />
-        <ProductInfoContainer>
+        <TextContainer>
           <ProductTitle>{product.title}</ProductTitle>
           <ProductPrice>${firstVariant.price}</ProductPrice>
           <ProductDescription
@@ -57,9 +53,10 @@ const ProductDetail = ({ product }) => {
           ) : (
             <DisabledButton>Sorry, this product is sold out</DisabledButton>
           )}
-        </ProductInfoContainer>
+        </TextContainer>
       </GridContainer>
       <ProductProperties />
+      <Guarantee />
     </Container>
   )
 }

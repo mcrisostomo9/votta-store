@@ -4,14 +4,11 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import data from "../../data/productProperties"
 import GridContainer from "./GridContainer"
+import TextContainer from "./TextContainer"
 
-const TextContainer = styled.div`
-  max-width: 500px;
-  justify-self: center;
-  align-self: center;
+const Title = styled.h3`
+  margin-bottom: 2rem;
 `
-
-const Title = styled.h3``
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -20,10 +17,14 @@ const ListContainer = styled.ul`
 `
 
 const ListItem = styled.li``
+
 const ListTitle = styled.h4`
   text-transform: uppercase;
+  margin-top: 1rem;
 `
-const ListDescription = styled.p``
+const ListDescription = styled.p`
+  margin-top: 0.5rem;
+`
 
 const ProductProperties = () => {
   const {
@@ -33,7 +34,6 @@ const ProductProperties = () => {
   } = useStaticQuery(IMAGE_QUERY)
   return (
     <GridContainer>
-      <Img fluid={fluid} />
       <TextContainer>
         <Title>All of our socks are designed with...</Title>
         <ListContainer>
@@ -45,6 +45,7 @@ const ProductProperties = () => {
           ))}
         </ListContainer>
       </TextContainer>
+      <Img fluid={fluid} />
     </GridContainer>
   )
 }
