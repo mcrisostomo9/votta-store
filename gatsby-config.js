@@ -56,6 +56,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `votta-socks`,
+        accessToken: `${process.env.GATSBY_PRISMIC_ACCESS_TOKEN}`,
+        // linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

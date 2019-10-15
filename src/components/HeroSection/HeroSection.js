@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import Image from "gatsby-image"
 import Container from "../Layout/Container"
 import styled from "@emotion/styled"
@@ -69,18 +69,17 @@ const ButtonContainer = styled.div`
   }
 `
 
-const HeroSection = () => {
-  const { heroImage } = useStaticQuery(IMAGE_QUERY)
+const HeroSection = ({ hero, title, subheader }) => {
   return (
     <HeroContainer>
       <Image
-        fluid={heroImage.childImageSharp.fluid}
+        fluid={hero}
         style={backgroundGatsbyImage}
         imgStyle={{ objectPosition: "75%" }}
       />
       <TextContainer>
-        <h1>Discover your color</h1>
-        <p>Premium Socks available in various designs and colors</p>
+        <h1>{title}</h1>
+        <p>{subheader}</p>
         <ButtonContainer>
           <Link to="/mens-collection">
             <Button>Shop Mens</Button>
@@ -95,15 +94,3 @@ const HeroSection = () => {
 }
 
 export default HeroSection
-
-const IMAGE_QUERY = graphql`
-  query {
-    heroImage: file(relativePath: { eq: "hero-image.jpg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-  }
-`
