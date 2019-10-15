@@ -26,6 +26,11 @@ const Preview = styled.div`
   }
 `
 
+const ProductTitle = styled.h4`
+  position: relative;
+  z-index: 1;
+`
+
 const ProductListingItem = ({ product }) => {
   const {
     images: [firstImage],
@@ -39,8 +44,8 @@ const ProductListingItem = ({ product }) => {
   return (
     <ProductListingItemLink to={`/product/${product.handle}`}>
       <Preview>
-        <Image fluid={fluid} loading="lazy" />
-        <h4>{product.title}</h4>
+        <Image fluid={fluid} />
+        <ProductTitle>{product.title}</ProductTitle>
         <p>${firstVariant.price}</p>
       </Preview>
     </ProductListingItemLink>
