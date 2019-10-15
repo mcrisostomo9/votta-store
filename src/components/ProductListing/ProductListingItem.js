@@ -14,7 +14,6 @@ const ProductListingItemLink = styled(Link)`
 const Preview = styled.div`
   overflow: hidden;
   position: relative;
-  //cursor: pointer;
 
   .gatsby-image-wrapper {
     transition: all 300ms;
