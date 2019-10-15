@@ -14,6 +14,8 @@ const ProductListingItemLink = styled(Link)`
 const Preview = styled.div`
   overflow: hidden;
   position: relative;
+  //cursor: pointer;
+
   .gatsby-image-wrapper {
     transition: all 300ms;
   }
@@ -31,6 +33,18 @@ const ProductTitle = styled.h4`
   z-index: 1;
 `
 
+const SoldOutLabel = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: ${colors.darkGrey};
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+`
+
 const ProductListingItem = ({ product }) => {
   const {
     images: [firstImage],
@@ -41,12 +55,14 @@ const ProductListingItem = ({ product }) => {
       childImageSharp: { fluid },
     },
   } = firstImage
+  const { price, availableForSale } = firstVariant
   return (
     <ProductListingItemLink to={`/product/${product.handle}`}>
       <Preview>
+        {!availableForSale && <SoldOutLabel>Out of stock</SoldOutLabel>}
         <Image fluid={fluid} />
         <ProductTitle>{product.title}</ProductTitle>
-        <p>${firstVariant.price}</p>
+        <p>${price}</p>
       </Preview>
     </ProductListingItemLink>
   )
