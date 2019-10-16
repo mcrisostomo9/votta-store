@@ -18,9 +18,23 @@ const NavWrapper = styled.nav`
   align-items: center;
   padding: 1.5rem;
   position: relative;
+  margin: 0 auto;
 
   @media (min-width: ${breakpoints.md}) {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem;
+    max-width: 768px;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    max-width: 1280px;
+  }
+
+  @media (min-width: ${breakpoints.xxl}) {
+    max-width: 1680px;
   }
 `
 
@@ -45,6 +59,7 @@ const NavLink = styled(Link)`
   text-decoration: none;
   color: #1a202c;
   text-transform: uppercase;
+  font-size: 0.75rem;
 `
 const LogoLink = styled(Link)`
   position: absolute;
@@ -68,9 +83,10 @@ const Nav = () => {
           <MdMenu />
         </MenuToggle>
         <DesktopMenu>
-          <NavLink to="/mens-collection">mens</NavLink>
-          <NavLink to="/womens-collection">Womens</NavLink>
-          <NavLink to="/dress-sock-packs">Sock Packs</NavLink>
+          <NavLink to="/collections/mens-collection">mens</NavLink>
+          <NavLink to="/collections/womens-collection">Womens</NavLink>
+          <NavLink to="/collections/dress-sock-packs">Sock Packs</NavLink>
+          <NavLink to="/collections/mens-premium">Premium</NavLink>
         </DesktopMenu>
         <LogoLink to="/">
           <Img fixed={logoImage.childImageSharp.fixed} />

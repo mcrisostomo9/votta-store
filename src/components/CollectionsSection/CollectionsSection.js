@@ -69,22 +69,22 @@ const CollectionsSection = () => {
         <SingleCollection
           fluid={data.mensCollection.childImageSharp.fluid}
           title="Men's"
-          link="/mens-collection"
+          link="/collections/mens-collection"
         />
         <SingleCollection
           fluid={data.womensCollection.childImageSharp.fluid}
           title="Women's"
-          link="/womens-collection"
+          link="/collections/womens-collection"
         />
         <SingleCollection
           fluid={data.premiumCollection.childImageSharp.fluid}
           title="Premium"
-          link="/mens-premium"
+          link="/collections/mens-premium"
         />
         <SingleCollection
           fluid={data.packCollection.childImageSharp.fluid}
           title="Sock Pack"
-          link="/dress-sock-packs"
+          link="/collections/dress-sock-packs"
         />
       </CollectionContainer>
     </StyledContainer>

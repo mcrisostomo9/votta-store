@@ -81,10 +81,10 @@ const HeroSection = ({ hero, title, subheader }) => {
         <h1>{title}</h1>
         <p>{subheader}</p>
         <ButtonContainer>
-          <Link to="/mens-collection">
+          <Link to="/collections/mens-collection">
             <Button>Shop Mens</Button>
           </Link>
-          <Link to="/womens-collection">
+          <Link to="/collections/womens-collection">
             <Button>Shop Womens</Button>
           </Link>
         </ButtonContainer>
