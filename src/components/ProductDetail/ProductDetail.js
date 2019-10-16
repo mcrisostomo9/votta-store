@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Container from "../Layout/Container"
+import Container from "../Container/Container"
 import styled from "@emotion/styled"
 import ImgSlider from "./ImgSlider"
 import DisabledButton from "../Button/DisabledButton"

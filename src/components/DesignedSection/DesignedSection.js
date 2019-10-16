@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import Container from "../Layout/Container"
+import Container from "../Container/Container"
 import SectionTitle from "../SectionTitle/SectionTitle"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"

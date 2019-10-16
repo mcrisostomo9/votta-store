@@ -1,5 +1,5 @@
 import React from "react"
-import Container from "./Container"
+import Container from "../Container/Container"
 import styled from "@emotion/styled"
 import { breakpoints, colors } from "../../utils/styles"
 import { graphql, useStaticQuery, Link } from "gatsby"

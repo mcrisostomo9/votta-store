@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProductListing from "../ProductListing/ProductListing"
-import Container from "../Layout/Container"
+import Container from "../Container/Container"
 import SectionTitle from "../SectionTitle/SectionTitle"
 
 const FeaturedSection = () => {

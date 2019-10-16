@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import Container from "../Layout/Container"
+import Container from "../Container/Container"
 import SingleCollection from "./SingleCollection"
 import { breakpoints } from "../../utils/styles"
 import SectionTitle from "../SectionTitle/SectionTitle"
