@@ -2,10 +2,11 @@ import React from "react"
 import { animated } from "react-spring"
 import { Link } from "gatsby"
 import { MdClose } from "react-icons/md"
-import { FaInstagram, FaFacebookF } from "react-icons/fa"
 import styled from "@emotion/styled"
 import ButtonToggle from "../Button/ButtonToggle"
 import CartIconIndicator from "../Cart/CartIconIndicator"
+import Img from "gatsby-image"
+import SocialIcon from "../SocialIcon/SocialIcon"
 
 const Wrapper = styled(animated.div)`
   width: 100%;
@@ -36,12 +37,6 @@ const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
-
-  a {
-    text-decoration: none;
-    margin-bottom: 2.5rem;
-    font-size: 1.5rem;
-  }
 `
 
 const NavFooter = styled.div`
@@ -54,8 +49,7 @@ const Callout = styled.div`
   margin-bottom: 1rem;
 
   a {
-    //TODO fix color
-    color: black;
+    color: var(--dark-grey);
     text-decoration: none;
   }
 `
@@ -64,14 +58,19 @@ const SocialContainer = styled.div`
   margin-top: 4rem;
   display: flex;
 
-  svg {
-    width: 25px;
-    height: 25px;
+  a {
     margin-right: 3rem;
   }
 `
 
-const NavMobile = ({ style, closeNav }) => {
+const NavLink = styled(Link)`
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+  color: var(--dark-grey);
+`
+
+const NavMobile = ({ style, closeNav, logoImage }) => {
   return (
     <Wrapper
       style={{
@@ -83,21 +82,27 @@ const NavMobile = ({ style, closeNav }) => {
           <ButtonToggle onClick={closeNav}>
             <MdClose />
           </ButtonToggle>
+          <div onClick={closeNav}>
+            <Img fixed={logoImage.childImageSharp.fixed} />
+          </div>
           <CartIconIndicator />
         </TopBarContainer>
         <LinksContainer>
-          <Link to="/mens-collection" onClick={closeNav}>
+          <NavLink to="/collections/mens-collection" onClick={closeNav}>
             Mens
-          </Link>
-          <Link to="/womens-collection" onClick={closeNav}>
+          </NavLink>
+          <NavLink to="/collections/womens-collection" onClick={closeNav}>
             Women
-          </Link>
-          <Link to="/dress-sock-packs" onClick={closeNav}>
+          </NavLink>
+          <NavLink to="/collections/dress-sock-packs" onClick={closeNav}>
             Sock Pack
-          </Link>
-          <Link to="/" onClick={closeNav}>
+          </NavLink>
+          <NavLink to="/collections/mens-premium" onClick={closeNav}>
+            Premium
+          </NavLink>
+          <NavLink to="/" onClick={closeNav}>
             About Us
-          </Link>
+          </NavLink>
         </LinksContainer>
         <NavFooter>
           <Callout>Need to contact us?</Callout>
@@ -108,8 +113,8 @@ const NavMobile = ({ style, closeNav }) => {
             info@vottasocks.com
           </a>
           <SocialContainer>
-            <FaFacebookF />
-            <FaInstagram />
+            <SocialIcon socialNetwork="facebook" />
+            <SocialIcon socialNetwork="instagram" />
           </SocialContainer>
         </NavFooter>
       </MenuContainer>

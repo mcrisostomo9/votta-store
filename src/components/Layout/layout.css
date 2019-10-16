@@ -349,6 +349,12 @@ template {
 
 /*end normalize.css*/
 
+:root{
+  --dark-grey: #1A202C;
+  --light-grey: #e2e8f0;
+  --teal: #4FD1C5;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -371,9 +377,11 @@ body {
 h1, h2, h3, h4, h5{
   font-family: "Playfair Display", serif;
   margin: 0;
+  color: var(--dark-grey);
 }
 
 p, a{
   font-family: "Raleway", sans-serif;
   margin: 0;
+  color: var(--dark-grey);
 }

@@ -27,9 +27,15 @@ const Preview = styled.div`
   }
 `
 
-const ProductTitle = styled.h4`
+const ProductTitle = styled.div`
   position: relative;
   z-index: 1;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+`
+
+const Price = styled.div`
+  font-size: 1rem;
 `
 
 const SoldOutLabel = styled.span`
@@ -61,7 +67,7 @@ const ProductListingItem = ({ product }) => {
         {!availableForSale && <SoldOutLabel>Out of stock</SoldOutLabel>}
         <Image fluid={fluid} />
         <ProductTitle>{product.title}</ProductTitle>
-        <p>${price}</p>
+        <Price>${price}</Price>
       </Preview>
     </ProductListingItemLink>
   )

@@ -22,7 +22,7 @@ const NavWrapper = styled.nav`
 
   @media (min-width: ${breakpoints.md}) {
     padding: 1.5rem;
-    max-width: 768px;
+    max-width: 992px;
   }
 
   @media (min-width: ${breakpoints.lg}) {
@@ -57,9 +57,12 @@ const DesktopMenu = styled.div`
 `
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: #1a202c;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+
+  @media (min-width: ${breakpoints.lg}) {
+    font-size: 0.8rem;
+  }
 `
 const LogoLink = styled(Link)`
   position: absolute;
@@ -95,6 +98,7 @@ const Nav = () => {
         <CartAddingIndicator visible={isCartLoading} />
       </NavWrapper>
       <NavMobile
+        logoImage={logoImage}
         style={menuNavigation}
         closeNav={() => {
           setMenuOpen(false)

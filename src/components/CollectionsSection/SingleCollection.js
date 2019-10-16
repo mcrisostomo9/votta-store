@@ -34,9 +34,11 @@ const TextContainer = styled.div`
   position: relative;
   margin: 0 auto;
 
-  h3 {
+  h4 {
     font-weight: 700;
     text-transform: uppercase;
+    color: #fff;
+    font-size: 1.25rem;
   }
 `
 
@@ -46,7 +48,7 @@ const SingleCollection = ({ fluid, title, link }) => {
       <StyledLink to={link}>
         <Image fluid={fluid} style={backgroundGatsbyImage} />
         <TextContainer>
-          <h3>{title}</h3>
+          <h4>{title}</h4>
         </TextContainer>
       </StyledLink>
     </CollectionWrapper>

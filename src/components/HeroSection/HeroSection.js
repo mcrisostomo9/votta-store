@@ -40,6 +40,7 @@ const TextContainer = styled(Container)`
     text-transform: uppercase;
     margin: 0;
     font-size: 1.75rem;
+    color: #fff;
 
     @media (min-width: ${breakpoints.md}) {
       font-size: 2.5rem;
@@ -47,6 +48,7 @@ const TextContainer = styled(Container)`
   }
 
   p {
+    color: #fff;
     font-size: 1rem;
     margin-top: 0.75rem;
 

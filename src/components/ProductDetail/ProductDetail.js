@@ -6,7 +6,6 @@ import DisabledButton from "../Button/DisabledButton"
 import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
-import Guarantee from "./Guarantee"
 import TextContainer from "./TextContainer"
 
 const ProductTitle = styled.h1``
@@ -56,7 +55,7 @@ const ProductDetail = ({ product }) => {
         </TextContainer>
       </GridContainer>
       <ProductProperties />
-      <Guarantee />
+      {/*<Guarantee />*/}
     </Container>
   )
 }
