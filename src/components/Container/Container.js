@@ -20,6 +20,10 @@ const BaseContainer = styled.div`
     max-width: 1024px;
   }
 
+  //@media (min-width: 1150px) {
+  //  max-width: 1150px;
+  //}
+
   @media (min-width: ${breakpoints.xl}) {
     max-width: 1280px;
   }

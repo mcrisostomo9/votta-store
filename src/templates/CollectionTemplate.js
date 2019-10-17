@@ -4,19 +4,35 @@ import Layout from "../components/Layout/Layout"
 import Container from "../components/Container/Container"
 import styled from "@emotion/styled"
 import ProductListing from "../components/ProductListing/ProductListing"
+import CollectionSideNav from "../components/CollectionSideNav/CollectionSideNav"
+import { breakpoints } from "../utils/styles"
 
 const CollectionTitle = styled.h2`
   text-align: center;
 `
 // TODO extract title h2
 
+const ListingContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+  }
+`
+
 const CollectionTemplate = ({ data }) => {
-  const { shopifyCollection } = data
+  const { shopifyCollection, allShopifyCollection } = data
   return (
     <Layout>
       <Container>
         <CollectionTitle>{shopifyCollection.title}</CollectionTitle>
-        <ProductListing products={shopifyCollection.products} />
+        <ListingContainer>
+          <CollectionSideNav collections={allShopifyCollection} />
+          <ProductListing products={shopifyCollection.products} />
+        </ListingContainer>
       </Container>
     </Layout>
   )
@@ -50,6 +66,12 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    allShopifyCollection {
+      nodes {
+        handle
+        title
       }
     }
   }

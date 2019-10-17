@@ -1,5 +1,4 @@
 import React from "react"
-import { animated } from "react-spring"
 import { Link } from "gatsby"
 import { MdClose } from "react-icons/md"
 import styled from "@emotion/styled"
@@ -7,17 +6,7 @@ import ButtonToggle from "../Button/ButtonToggle"
 import CartIconIndicator from "../Cart/CartIconIndicator"
 import Img from "gatsby-image"
 import SocialIcon from "../SocialIcon/SocialIcon"
-
-const Wrapper = styled(animated.div)`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 49;
-  overflow-y: auto;
-  background: #fff;
-`
+import AnimatedMenuWrapper from "../AnimatedMenuWrapper/AnimatedMenuWrapper"
 
 const MenuContainer = styled.div`
   padding: 1.5rem;
@@ -72,7 +61,7 @@ const NavLink = styled(Link)`
 
 const NavMobile = ({ style, closeNav, logoImage }) => {
   return (
-    <Wrapper
+    <AnimatedMenuWrapper
       style={{
         ...style,
       }}
@@ -118,7 +107,7 @@ const NavMobile = ({ style, closeNav, logoImage }) => {
           </SocialContainer>
         </NavFooter>
       </MenuContainer>
-    </Wrapper>
+    </AnimatedMenuWrapper>
   )
 }
 

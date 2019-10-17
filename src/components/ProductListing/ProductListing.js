@@ -6,7 +6,7 @@ import { breakpoints } from "../../utils/styles"
 const ProductWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-row-gap: 1rem;
   justify-content: center;
   align-items: center;
 
