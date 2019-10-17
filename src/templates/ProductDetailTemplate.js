@@ -3,11 +3,13 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/Layout"
 import ProductDetail from "../components/ProductDetail/ProductDetail"
+import SEO from "../components/seo"
 
 const ProductDetailTemplate = ({ data }) => {
   const { shopifyProduct: product } = data
   return (
     <Layout>
+      <SEO title={product.title} description={product.description} />
       <ProductDetail product={product} />
     </Layout>
   )

@@ -6,6 +6,7 @@ import styled from "@emotion/styled"
 import ProductListing from "../components/ProductListing/ProductListing"
 import CollectionSideNav from "../components/CollectionSideNav/CollectionSideNav"
 import { breakpoints } from "../utils/styles"
+import SEO from "../components/seo"
 
 const CollectionTitle = styled.h2`
   text-align: center;
@@ -27,6 +28,7 @@ const CollectionTemplate = ({ data }) => {
   const { shopifyCollection, allShopifyCollection } = data
   return (
     <Layout>
+      <SEO title={shopifyCollection.title} />
       <Container>
         <CollectionTitle>{shopifyCollection.title}</CollectionTitle>
         <ListingContainer>
