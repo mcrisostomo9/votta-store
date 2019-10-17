@@ -12,7 +12,7 @@ const IndexPage = () => {
   } = useStaticQuery(HOMEPAGE_QUERY)
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Premium Dress Socks" />
       <HeroSection
         title={data.hero_title.text}
         subheader={data.subheader.text}
