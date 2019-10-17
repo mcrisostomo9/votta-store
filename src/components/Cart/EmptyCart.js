@@ -37,13 +37,16 @@ const EmptyCart = ({ toggleCartOpen }) => {
     <EmptyContainer>
       <p>Your cart is empty.</p>
       <ShopNowContainer>
-        <StyledLink to="/mens-collection" onClick={toggleCartOpen}>
+        <StyledLink to="/collections/mens-collection" onClick={toggleCartOpen}>
           <StyledOutlineButton>Men's</StyledOutlineButton>
         </StyledLink>
-        <StyledLink to="/womens-collection" onClick={toggleCartOpen}>
+        <StyledLink
+          to="/collections/womens-collection"
+          onClick={toggleCartOpen}
+        >
           <StyledOutlineButton>Women's</StyledOutlineButton>
         </StyledLink>
-        <StyledLink to="/dress-sock-packs" onClick={toggleCartOpen}>
+        <StyledLink to="/collections/dress-sock-packs" onClick={toggleCartOpen}>
           <StyledOutlineButton>Sock Packs</StyledOutlineButton>
         </StyledLink>
         <StyledButton onClick={toggleCartOpen}>Start Shopping</StyledButton>
