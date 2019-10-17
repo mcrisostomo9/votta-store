@@ -9,7 +9,7 @@ import SocialIcon from "../SocialIcon/SocialIcon"
 const StyledContainer = styled(Container)`
   margin-top: 5rem;
   background: ${colors.lightGrey};
-  padding: 3rem 1.5rem 10rem;
+  padding: 3rem 1.5rem 5rem;
 `
 
 const FooterContainer = StyledContainer.withComponent("footer")

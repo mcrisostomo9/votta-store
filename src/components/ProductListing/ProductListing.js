@@ -19,8 +19,8 @@ const ProductWrapper = styled.div`
   }
 `
 
-const ProductListing = ({ products }) => (
-  <ProductWrapper>
+const ProductListing = ({ products, className }) => (
+  <ProductWrapper className={className}>
     {products.map((product, index) => (
       <ProductListingItem product={product} key={index} />
     ))}

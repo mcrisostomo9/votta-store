@@ -10,6 +10,7 @@ import SEO from "../components/seo"
 
 const CollectionTitle = styled.h2`
   text-align: center;
+  font-weight: 400;
 `
 // TODO extract title h2
 
@@ -17,10 +18,21 @@ const ListingContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-
+  margin-top: 2rem;
+  grid-row-gap: 2rem;
   @media (min-width: ${breakpoints.lg}) {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
+  }
+`
+
+const CollectionProductListing = styled(ProductListing)`
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 
@@ -33,7 +45,7 @@ const CollectionTemplate = ({ data }) => {
         <CollectionTitle>{shopifyCollection.title}</CollectionTitle>
         <ListingContainer>
           <CollectionSideNav collections={allShopifyCollection} />
-          <ProductListing products={shopifyCollection.products} />
+          <CollectionProductListing products={shopifyCollection.products} />
         </ListingContainer>
       </Container>
     </Layout>

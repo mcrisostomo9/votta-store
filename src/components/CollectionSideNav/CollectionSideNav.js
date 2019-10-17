@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
+import { useSpring } from "react-spring"
+import { MdFilterList } from "react-icons/md"
+
 import { breakpoints } from "../../utils/styles"
 import AnimatedMenuWrapper from "../AnimatedMenuWrapper/AnimatedMenuWrapper"
-import { useSpring } from "react-spring"
 
 const NavContainer = styled.div`
   position: relative;
@@ -62,6 +64,21 @@ const FilterMenu = styled(AnimatedMenuWrapper)`
   width: 50%;
 `
 
+const FilterButton = styled.button`
+  border: 1px solid var(--dark-grey);
+  background: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 150px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  span {
+    //font-weight: 700;
+    text-transform: uppercase;
+  }
+`
+
 const CollectionSideNav = ({ collections }) => {
   const [isFilterOpen, setFilterOpen] = useState(false)
   const filterMenu = useSpring({
@@ -86,7 +103,10 @@ const CollectionSideNav = ({ collections }) => {
         })}
       </StickyWrapper>
       <MobileWrapper>
-        <button onClick={() => setFilterOpen(!isFilterOpen)}> filter</button>
+        <FilterButton onClick={() => setFilterOpen(!isFilterOpen)}>
+          <MdFilterList />
+          <span>filter</span>
+        </FilterButton>
         <FilterMenu style={filterMenu}>
           <ByCategory>Filter by Category</ByCategory>
           {collections.nodes.map(collection => {
