@@ -568,7 +568,7 @@ type Query {
     shopifyCollection(children: NodeFilterListInput, description: StringQueryOperatorInput, descriptionHtml: StringQueryOperatorInput, handle: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, products: ShopifyProductFilterListInput, shopifyId: StringQueryOperatorInput, title: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput): ShopifyCollection
     shopifyProduct(availableForSale: BooleanQueryOperatorInput, children: NodeFilterListInput, createdAt: DateQueryOperatorInput, description: StringQueryOperatorInput, descriptionHtml: StringQueryOperatorInput, handle: StringQueryOperatorInput, id: StringQueryOperatorInput, images: ShopifyProductImagesFilterListInput, internal: InternalFilterInput, onlineStoreUrl: StringQueryOperatorInput, options: ShopifyProductOptionFilterListInput, parent: NodeFilterInput, priceRange: ShopifyProductPriceRangeFilterInput, productType: StringQueryOperatorInput, publishedAt: DateQueryOperatorInput, shopifyId: StringQueryOperatorInput, tags: StringQueryOperatorInput, title: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput, variants: ShopifyProductVariantFilterListInput, vendor: StringQueryOperatorInput): ShopifyProduct
     shopifyProductOption(children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, parent: NodeFilterInput, shopifyId: StringQueryOperatorInput, values: StringQueryOperatorInput): ShopifyProductOption
-    shopifyProductVariant(availableForSale: BooleanQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, image: ShopifyProductVariantImageFilterInput, internal: InternalFilterInput, parent: NodeFilterInput, price: StringQueryOperatorInput, selectedOptions: ShopifyProductVariantSelectedOptionsFilterListInput, shopifyId: StringQueryOperatorInput, sku: StringQueryOperatorInput, title: StringQueryOperatorInput, weight: FloatQueryOperatorInput, weightUnit: StringQueryOperatorInput): ShopifyProductVariant
+    shopifyProductVariant(availableForSale: BooleanQueryOperatorInput, children: NodeFilterListInput, compareAtPrice: StringQueryOperatorInput, id: StringQueryOperatorInput, image: ShopifyProductVariantImageFilterInput, internal: InternalFilterInput, parent: NodeFilterInput, price: StringQueryOperatorInput, selectedOptions: ShopifyProductVariantSelectedOptionsFilterListInput, shopifyId: StringQueryOperatorInput, sku: StringQueryOperatorInput, title: StringQueryOperatorInput, weight: FloatQueryOperatorInput, weightUnit: StringQueryOperatorInput): ShopifyProductVariant
     shopifyShopPolicy(body: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, shopifyId: StringQueryOperatorInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): ShopifyShopPolicy
     site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
     sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, context: SitePageContextFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
@@ -790,6 +790,7 @@ type ShopifyProductPriceRangeMinVariantPrice {
 type ShopifyProductVariant implements Node {
     availableForSale: Boolean
     children: [Node!]!
+    compareAtPrice: String
     id: ID!
     image: ShopifyProductVariantImage
     internal: Internal!
@@ -2030,6 +2031,7 @@ enum ShopifyCollectionFieldsEnum {
     products___variants___children
     products___variants___children___children
     products___variants___children___id
+    products___variants___compareAtPrice
     products___variants___id
     products___variants___image___altText
     products___variants___image___id
@@ -2276,6 +2278,7 @@ enum ShopifyProductFieldsEnum {
     variants___children___internal___type
     variants___children___parent___children
     variants___children___parent___id
+    variants___compareAtPrice
     variants___id
     variants___image___altText
     variants___image___id
@@ -2484,6 +2487,7 @@ enum ShopifyProductVariantFieldsEnum {
     children___parent___internal___type
     children___parent___parent___children
     children___parent___parent___id
+    compareAtPrice
     id
     image___altText
     image___id
@@ -3546,6 +3550,7 @@ input ShopifyProductSortInput {
 input ShopifyProductVariantFilterInput {
     availableForSale: BooleanQueryOperatorInput
     children: NodeFilterListInput
+    compareAtPrice: StringQueryOperatorInput
     id: StringQueryOperatorInput
     image: ShopifyProductVariantImageFilterInput
     internal: InternalFilterInput

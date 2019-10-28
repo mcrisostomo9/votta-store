@@ -7,6 +7,7 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
+import { colors } from "../../utils/styles"
 
 const ProductTitle = styled.h1``
 
@@ -16,6 +17,22 @@ const ProductPrice = styled.div`
 
 const ProductDescription = styled.div``
 
+const SalesContainer = styled.div`
+  display: flex;
+  //justify-content: space-around;
+`
+
+const SalesPrice = styled.span`
+  color: ${colors.teal};
+  font-size: 1.5rem;
+`
+
+const StrikeThroughPrice = styled.span`
+  text-decoration: line-through;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+`
+
 const ProductDetail = ({ product }) => {
   const {
     images,
@@ -23,19 +40,9 @@ const ProductDetail = ({ product }) => {
     handle,
   } = product
 
-  const [available] = useState(firstVariant.availableForSale)
-
-  // useEffect(() => {
-  //   const checkAvailability = productHandle => {
-  //     client.product.fetchByHandle(productHandle).then(product => {
-  //       const res = product.variants.filter(
-  //         variant => variant.id === firstVariant.shopifyId
-  //       )
-  //       setAvailable(res[0].available)
-  //     })
-  //   }
-  //   checkAvailability(handle)
-  // }, [client, handle, firstVariant])
+  const { price, compareAtPrice, availableForSale } = firstVariant
+  const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
+  const [available] = useState(availableForSale)
 
   return (
     <Container>
@@ -43,7 +50,14 @@ const ProductDetail = ({ product }) => {
         <ImgSlider images={images} />
         <TextContainer>
           <ProductTitle>{product.title}</ProductTitle>
-          <ProductPrice>${firstVariant.price}</ProductPrice>
+          {isSale ? (
+            <SalesContainer>
+              <SalesPrice>${price}</SalesPrice>
+              <StrikeThroughPrice>${compareAtPrice}</StrikeThroughPrice>
+            </SalesContainer>
+          ) : (
+            <ProductPrice>${price}</ProductPrice>
+          )}
           <ProductDescription
             dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
           />

@@ -31,6 +31,7 @@ export const query = graphql`
         shopifyId
         title
         price
+        compareAtPrice
         sku
         availableForSale
       }

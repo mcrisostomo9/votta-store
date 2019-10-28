@@ -8,7 +8,7 @@ const Wrapper = styled(animated.div)`
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 49;
+  z-index: 100;
   overflow-y: auto;
   background: #fff;
 `

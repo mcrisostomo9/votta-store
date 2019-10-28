@@ -3,6 +3,7 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { colors } from "../../utils/styles"
+import ProductLabel from "./ProductLabel"
 
 const ProductListingItemLink = styled(Link)`
   text-align: center;
@@ -38,16 +39,19 @@ const Price = styled.div`
   font-size: 1rem;
 `
 
-const SoldOutLabel = styled.span`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  background: ${colors.darkGrey};
-  color: #fff;
-  font-weight: bold;
-  padding: 0.5rem;
-  font-size: 0.75rem;
+const SalesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`
+
+const SalesPrice = styled.span`
+  color: ${colors.teal};
+  margin-top: 0.25rem;
+`
+
+const StrikeThroughPrice = styled.span`
+  text-decoration: line-through;
 `
 
 const ProductListingItem = ({ product }) => {
@@ -60,14 +64,27 @@ const ProductListingItem = ({ product }) => {
       childImageSharp: { fluid },
     },
   } = firstImage
-  const { price, availableForSale } = firstVariant
+  const { price, availableForSale, compareAtPrice } = firstVariant
+  const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
   return (
     <ProductListingItemLink to={`/product/${product.handle}`}>
       <Preview>
-        {!availableForSale && <SoldOutLabel>Out of stock</SoldOutLabel>}
+        {!availableForSale && (
+          <ProductLabel color={colors.darkGrey}>Out of stock</ProductLabel>
+        )}
+        {availableForSale && isSale && (
+          <ProductLabel color={colors.teal}>Sale</ProductLabel>
+        )}
         <Image fluid={fluid} />
         <ProductTitle>{product.title}</ProductTitle>
-        <Price>${price}</Price>
+        {isSale ? (
+          <SalesContainer>
+            <StrikeThroughPrice>${compareAtPrice}</StrikeThroughPrice>
+            <SalesPrice>${price}</SalesPrice>
+          </SalesContainer>
+        ) : (
+          <Price>${price}</Price>
+        )}
       </Preview>
     </ProductListingItemLink>
   )
