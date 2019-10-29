@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
 import styled from "@emotion/styled"
+import { FaChevronUp, FaChevronDown } from "react-icons/fa"
 import { StoreContext } from "../../context/StoreContext"
 import { colors } from "../../utils/styles"
+import ButtonToggle from "../Button/ButtonToggle"
 
 const ItemContainer = styled.div`
   padding: 1rem 0;
@@ -45,13 +47,27 @@ const RemoveButton = styled.button`
   }
 `
 
-const Quantity = styled.input`
+const QuantityContainer = styled.div`
   flex-grow: 0;
-  width: 50px;
-  height: 45px;
-  padding: 0 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Quantity = styled.div`
   font-size: 1rem;
-  border: 1px solid ${colors.lightGrey};
+`
+
+const ChevronButton = styled(ButtonToggle)`
+  height: auto;
+  width: 10px;
+  outline: none;
+
+  svg {
+    color: ${colors.darkGrey};
+  }
 `
 
 const LineItem = ({ item }) => {
@@ -67,16 +83,22 @@ const LineItem = ({ item }) => {
 
   const [cartQuantity, setCartQuantity] = useState(quantity)
 
-  const handleChange = e => {
-    const newQuantity =
-      e.target.type === "number" ? parseInt(e.target.value, 10) : e.target.value
-    setCartQuantity(newQuantity)
-    updateProductQuantity(id, newQuantity)
+  const changeQuantity = value => {
+    if (cartQuantity <= 1 && value === -1) {
+      return
+    }
+    setCartQuantity(cartQuantity => {
+      return cartQuantity + value
+    })
   }
 
   useEffect(() => {
-    setCartQuantity(quantity)
-  }, [setCartQuantity, quantity])
+    // Prevent loading every time component mounts
+    if (cartQuantity === quantity) {
+      return
+    }
+    updateProductQuantity(id, cartQuantity)
+  }, [cartQuantity, quantity, id, updateProductQuantity])
 
   return (
     <ItemContainer>
@@ -96,12 +118,15 @@ const LineItem = ({ item }) => {
           </RemoveButton>
         </div>
       </DetailsWrapper>
-      <Quantity
-        type="number"
-        min="1"
-        value={cartQuantity}
-        onChange={handleChange}
-      />
+      <QuantityContainer>
+        <ChevronButton onClick={() => changeQuantity(1)}>
+          <FaChevronUp />
+        </ChevronButton>
+        <Quantity>{cartQuantity}</Quantity>
+        <ChevronButton onClick={() => changeQuantity(-1)}>
+          <FaChevronDown />
+        </ChevronButton>
+      </QuantityContainer>
     </ItemContainer>
   )
 }

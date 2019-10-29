@@ -109,8 +109,6 @@ const Nav = () => {
   )
 }
 
-// TODO remove toggleCart?
-
 const LOGO_QUERY = graphql`
   query logoQuery {
     logoImage: file(relativePath: { eq: "black-logo.png" }) {

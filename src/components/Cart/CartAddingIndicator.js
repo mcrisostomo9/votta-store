@@ -15,7 +15,7 @@ const CartAddingIndicatorRoot = styled.div`
 const CartAddingIndicator = ({ visible }) => {
   return (
     <CartAddingIndicatorRoot visible={visible}>
-      Adding to cart...
+      Updating Cart...
     </CartAddingIndicatorRoot>
   )
 }
