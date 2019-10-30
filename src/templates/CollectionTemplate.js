@@ -20,6 +20,7 @@ const ListingContainer = styled.div`
   grid-template-rows: auto auto;
   margin-top: 2rem;
   grid-row-gap: 2rem;
+  grid-column-gap: 1rem;
   @media (min-width: ${breakpoints.lg}) {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
@@ -75,7 +76,7 @@ export const query = graphql`
           id
           localFile {
             childImageSharp {
-              fluid(maxWidth: 400, maxHeight: 400) {
+              fluid(maxWidth: 400, maxHeight: 400, quality: 100) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
