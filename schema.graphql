@@ -491,9 +491,51 @@ type PrismicHomepageConnection {
 }
 
 type PrismicHomepageData {
+    collections: [PrismicHomepageDataCollections]
     hero_image: PrismicHomepageDataHero_image
     hero_title: PrismicHomepageDataHero_title
     subheader: PrismicHomepageDataSubheader
+}
+
+type PrismicHomepageDataCollections {
+    collection_image: PrismicHomepageDataCollectionsCollection_image
+    collection_name: PrismicHomepageDataCollectionsCollection_name
+    slug: PrismicHomepageDataCollectionsSlug
+}
+
+type PrismicHomepageDataCollectionsCollection_image {
+    alt: String
+    copyright: String
+    dimensions: PrismicHomepageDataCollectionsCollection_imageDimensions
+    localFile: File
+    url: String
+}
+
+type PrismicHomepageDataCollectionsCollection_imageDimensions {
+    height: Int
+    width: Int
+}
+
+type PrismicHomepageDataCollectionsCollection_name {
+    html: String
+    raw: [PrismicHomepageDataCollectionsCollection_nameRaw]
+    text: String
+}
+
+type PrismicHomepageDataCollectionsCollection_nameRaw {
+    text: String
+    type: String
+}
+
+type PrismicHomepageDataCollectionsSlug {
+    html: String
+    raw: [PrismicHomepageDataCollectionsSlugRaw]
+    text: String
+}
+
+type PrismicHomepageDataCollectionsSlugRaw {
+    text: String
+    type: String
 }
 
 type PrismicHomepageDataHero_image {
@@ -1622,6 +1664,16 @@ enum PrismicHomepageFieldsEnum {
     children___parent___parent___children
     children___parent___parent___id
     dataString
+    data___collections
+    data___collections___collection_image___alt
+    data___collections___collection_image___copyright
+    data___collections___collection_image___url
+    data___collections___collection_name___html
+    data___collections___collection_name___raw
+    data___collections___collection_name___text
+    data___collections___slug___html
+    data___collections___slug___raw
+    data___collections___slug___text
     data___hero_image___alt
     data___hero_image___copyright
     data___hero_image___dimensions___height
@@ -3365,7 +3417,61 @@ input Potrace {
     turnPolicy: PotraceTurnPolicy
 }
 
+input PrismicHomepageDataCollectionsCollection_imageDimensionsFilterInput {
+    height: IntQueryOperatorInput
+    width: IntQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsCollection_imageFilterInput {
+    alt: StringQueryOperatorInput
+    copyright: StringQueryOperatorInput
+    dimensions: PrismicHomepageDataCollectionsCollection_imageDimensionsFilterInput
+    localFile: FileFilterInput
+    url: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsCollection_nameFilterInput {
+    html: StringQueryOperatorInput
+    raw: PrismicHomepageDataCollectionsCollection_nameRawFilterListInput
+    text: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsCollection_nameRawFilterInput {
+    text: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsCollection_nameRawFilterListInput {
+    elemMatch: PrismicHomepageDataCollectionsCollection_nameRawFilterInput
+}
+
+input PrismicHomepageDataCollectionsFilterInput {
+    collection_image: PrismicHomepageDataCollectionsCollection_imageFilterInput
+    collection_name: PrismicHomepageDataCollectionsCollection_nameFilterInput
+    slug: PrismicHomepageDataCollectionsSlugFilterInput
+}
+
+input PrismicHomepageDataCollectionsFilterListInput {
+    elemMatch: PrismicHomepageDataCollectionsFilterInput
+}
+
+input PrismicHomepageDataCollectionsSlugFilterInput {
+    html: StringQueryOperatorInput
+    raw: PrismicHomepageDataCollectionsSlugRawFilterListInput
+    text: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsSlugRawFilterInput {
+    text: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataCollectionsSlugRawFilterListInput {
+    elemMatch: PrismicHomepageDataCollectionsSlugRawFilterInput
+}
+
 input PrismicHomepageDataFilterInput {
+    collections: PrismicHomepageDataCollectionsFilterListInput
     hero_image: PrismicHomepageDataHero_imageFilterInput
     hero_title: PrismicHomepageDataHero_titleFilterInput
     subheader: PrismicHomepageDataSubheaderFilterInput

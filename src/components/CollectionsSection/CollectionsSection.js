@@ -29,66 +29,48 @@ const CollectionContainer = styled.div`
 `
 
 const CollectionsSection = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      mensCollection: file(relativePath: { eq: "mens-collection.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      womensCollection: file(relativePath: { eq: "womens-collection.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      premiumCollection: file(relativePath: { eq: "houndstooth.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      packCollection: file(relativePath: { eq: "pack-collection.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
-
+  const {
+    prismicHomepage: {
+      data: { collections },
+    },
+  } = useStaticQuery(QUERY)
   return (
     <StyledContainer>
       <SectionTitle title="Shop our collections" />
       <CollectionContainer>
-        <SingleCollection
-          fluid={data.mensCollection.childImageSharp.fluid}
-          title="Men's"
-          link="/collections/mens-collection"
-        />
-        <SingleCollection
-          fluid={data.womensCollection.childImageSharp.fluid}
-          title="Women's"
-          link="/collections/womens-collection"
-        />
-        <SingleCollection
-          fluid={data.premiumCollection.childImageSharp.fluid}
-          title="Premium"
-          link="/collections/mens-premium"
-        />
-        <SingleCollection
-          fluid={data.packCollection.childImageSharp.fluid}
-          title="Sock Pack"
-          link="/collections/dress-sock-packs"
-        />
+        {collections.map(collection => (
+          <SingleCollection
+            key={collection.collection_name.text}
+            title={collection.collection_name.text}
+            link={`/collections/${collection.slug.text}`}
+            fluid={collection.collection_image.localFile.childImageSharp.fluid}
+          />
+        ))}
       </CollectionContainer>
     </StyledContainer>
   )
 }
 
 export default CollectionsSection
+
+const QUERY = graphql`
+  query {
+    prismicHomepage {
+      data {
+        collections {
+          collection_name {
+            text
+          }
+          slug {
+            text
+          }
+          collection_image {
+            localFile {
+              ...fluidImageBlurFragment
+            }
+          }
+        }
+      }
+    }
+  }
+`
