@@ -69,6 +69,15 @@ const LogoLink = styled(Link)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  img {
+    width: 125px;
+    height: auto;
+
+    @media (min-width: ${breakpoints.lg}) {
+      width: 150px;
+    }
+  }
 `
 
 const Nav = () => {

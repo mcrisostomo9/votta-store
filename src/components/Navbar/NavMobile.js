@@ -27,6 +27,16 @@ const LinksContainer = styled.div`
   margin-top: 3rem;
 `
 
+const ImgContainer = styled.div`
+  width: 125px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`
+
 const NavFooter = styled.div`
   margin-top: auto;
 `
@@ -70,9 +80,9 @@ const NavMobile = ({ style, closeNav, logo }) => {
           <ButtonToggle onClick={closeNav}>
             <MdClose />
           </ButtonToggle>
-          <div onClick={closeNav}>
+          <ImgContainer onClick={closeNav}>
             <img src={logo} alt="Votta logo" />
-          </div>
+          </ImgContainer>
           <CartIconIndicator />
         </TopBarContainer>
         <LinksContainer>
