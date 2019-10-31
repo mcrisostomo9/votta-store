@@ -93,7 +93,7 @@ const LineItem = ({ item }) => {
   }
 
   useEffect(() => {
-    // Prevent loading every time component mounts
+    // Prevent updating every time component mounts
     if (cartQuantity === quantity) {
       return
     }
