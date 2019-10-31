@@ -1,5 +1,4 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { Link, useStaticQuery } from "gatsby"
 import React, { useContext, useState } from "react"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
@@ -10,6 +9,7 @@ import ButtonToggle from "../Button/ButtonToggle"
 import { StoreContext } from "../../context/StoreContext"
 import CartIconIndicator from "../Cart/CartIconIndicator"
 import CartAddingIndicator from "../Cart/CartAddingIndicator"
+import logo from "../../images/black-logo.png"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -92,7 +92,7 @@ const Nav = () => {
           <NavLink to="/collections/mens-premium">Premium</NavLink>
         </DesktopMenu>
         <LogoLink to="/">
-          <Img fixed={logoImage.childImageSharp.fixed} />
+          <img src={logo} alt="Votta logo" />
         </LogoLink>
         <CartIconIndicator />
         <CartAddingIndicator visible={isCartLoading} />
@@ -108,17 +108,5 @@ const Nav = () => {
     </>
   )
 }
-
-const LOGO_QUERY = graphql`
-  query logoQuery {
-    logoImage: file(relativePath: { eq: "black-logo.png" }) {
-      childImageSharp {
-        fixed(quality: 100, width: 100) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-  }
-`
 
 export default Nav
