@@ -33,17 +33,19 @@
     "swiper": "^5.0.4"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
+    "clean": "rimraf .cache public",
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },

@@ -6,36 +6,41 @@ import styled from "@emotion/styled"
 
 const CollectionTitle = styled.h2`
   text-align: center;
+  margin-top: 1rem;
 `
 // TODO extract title h2 to page title
 
 const PolicyContent = styled.div`
   width: 100%;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
 `
 
-const CollectionTemplate = ({ data }) => {
-  const {
-    shopifyShopPolicy: { title, body },
-  } = data
+const LegalPageTemplate = ({ data }) => {
+  const { title, body } = data.prismicLegalPages.data
   return (
     <Layout>
       <Container>
-        <CollectionTitle>{title}</CollectionTitle>
-        <PolicyContent dangerouslySetInnerHTML={{ __html: `${body}` }} />
+        <CollectionTitle>{title.text}</CollectionTitle>
+        <PolicyContent dangerouslySetInnerHTML={{ __html: body.html }} />
       </Container>
     </Layout>
   )
 }
 
-export default CollectionTemplate
+export default LegalPageTemplate
 
 export const query = graphql`
-  query($type: String!) {
-    shopifyShopPolicy(type: { eq: $type }) {
-      title
-      body
+  query($id: String!) {
+    prismicLegalPages(id: { eq: $id }) {
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
     }
   }
 `

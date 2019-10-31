@@ -38,13 +38,13 @@ const FooterContent = styled.div`
   margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: repeat(4, auto);
   grid-row-gap: 2.5rem;
   justify-items: center;
 
   @media (min-width: ${breakpoints.md}) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr auto;
   }
 `
 
@@ -85,6 +85,26 @@ const Email = styled.a`
   margin-top: 1rem;
 `
 
+const CopyrightSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  font-size: 0.75rem;
+  justify-items: center;
+
+  @media (min-width: ${breakpoints.md}) {
+    grid-column: 1/4;
+  }
+`
+
+const Copyright = styled.div`
+  font-family: "Raleway", sans-serif;
+`
+
+const CopyrightLinks = styled(StyledLink)`
+  margin-top: 0;
+`
+
 const Footer = () => {
   const { footerLogo } = useStaticQuery(FOOTER_LOGO_QUERY)
 
@@ -113,8 +133,10 @@ const Footer = () => {
         </FooterSection>
         <FooterSection>
           <FooterSectionTitle>Support</FooterSectionTitle>
-          <StyledLink to="/">Shipping Policy</StyledLink>
-          <StyledLink to="/refund-policy">Returns & Exchanges</StyledLink>
+          <StyledLink to="/shipping-policy">Shipping Policy</StyledLink>
+          <StyledLink to="/returns-and-exchanges">
+            Returns and Exchanges
+          </StyledLink>
         </FooterSection>
         <FooterSection>
           <FooterSectionTitle>Need to contact us?</FooterSectionTitle>
@@ -129,6 +151,13 @@ const Footer = () => {
             <SocialIcon socialNetwork="instagram" />
           </SocialFooterSection>
         </FooterSection>
+        <CopyrightSection>
+          <Copyright>© VOTTA SOCKS 2019</Copyright>
+          <CopyrightLinks to="/privacy-policy">Privacy Policy</CopyrightLinks>
+          <CopyrightLinks to="/terms-of-service">
+            Terms of service
+          </CopyrightLinks>
+        </CopyrightSection>
       </FooterContent>
     </FooterContainer>
   )

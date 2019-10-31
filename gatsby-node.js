@@ -51,29 +51,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
   )
 
-  const shopPolicy = await graphql(`
-    query allShopifyShopPolicy {
-      allShopifyShopPolicy {
-        edges {
-          node {
-            title
-            type
+  const legalPages = await graphql(`
+    query legalPages {
+      allPrismicLegalPages {
+        nodes {
+          id
+          data {
+            body {
+              html
+            }
+            title {
+              text
+            }
           }
         }
       }
     }
   `)
 
-  shopPolicy.data.allShopifyShopPolicy.edges.forEach(
-    ({ node: { title, type } }) => {
-      createPage({
-        path: `/${title.replace(/\s+/g, "-").toLowerCase()}`,
-        component: path.resolve("./src/templates/ShopPolicyTemplate.js"),
-        context: {
-          title,
-          type,
-        },
-      })
-    }
-  )
+  const { allPrismicLegalPages } = legalPages.data
+  allPrismicLegalPages.nodes.forEach(({ data: { title }, id }) => {
+    createPage({
+      path: `/${title.text.replace(/\s+/g, "-").toLowerCase()}`,
+      component: path.resolve("./src/templates/LegalPageTemplate.js"),
+      context: {
+        id,
+      },
+    })
+  })
 }
