@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { useContext, useState } from "react"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
@@ -72,7 +72,6 @@ const LogoLink = styled(Link)`
 `
 
 const Nav = () => {
-  const { logoImage } = useStaticQuery(LOGO_QUERY)
   const { toggleCartOpen, isCartLoading } = useContext(StoreContext)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const menuNavigation = useSpring({
@@ -98,7 +97,7 @@ const Nav = () => {
         <CartAddingIndicator visible={isCartLoading} />
       </NavWrapper>
       <NavMobile
-        logoImage={logoImage}
+        logo={logo}
         style={menuNavigation}
         closeNav={() => {
           setMenuOpen(false)

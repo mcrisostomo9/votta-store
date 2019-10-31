@@ -4,7 +4,6 @@ import { MdClose } from "react-icons/md"
 import styled from "@emotion/styled"
 import ButtonToggle from "../Button/ButtonToggle"
 import CartIconIndicator from "../Cart/CartIconIndicator"
-import Img from "gatsby-image"
 import SocialIcon from "../SocialIcon/SocialIcon"
 import AnimatedMenuWrapper from "../AnimatedMenuWrapper/AnimatedMenuWrapper"
 
@@ -59,7 +58,7 @@ const NavLink = styled(Link)`
   color: var(--dark-grey);
 `
 
-const NavMobile = ({ style, closeNav, logoImage }) => {
+const NavMobile = ({ style, closeNav, logo }) => {
   return (
     <AnimatedMenuWrapper
       style={{
@@ -72,7 +71,7 @@ const NavMobile = ({ style, closeNav, logoImage }) => {
             <MdClose />
           </ButtonToggle>
           <div onClick={closeNav}>
-            <Img fixed={logoImage.childImageSharp.fixed} />
+            <img src={logo} alt="Votta logo" />
           </div>
           <CartIconIndicator />
         </TopBarContainer>
