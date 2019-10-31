@@ -494,6 +494,7 @@ type PrismicHomepageData {
     collections: [PrismicHomepageDataCollections]
     hero_image: PrismicHomepageDataHero_image
     hero_title: PrismicHomepageDataHero_title
+    offer_text: PrismicHomepageDataOffer_text
     subheader: PrismicHomepageDataSubheader
 }
 
@@ -558,6 +559,17 @@ type PrismicHomepageDataHero_title {
 }
 
 type PrismicHomepageDataHero_titleRaw {
+    text: String
+    type: String
+}
+
+type PrismicHomepageDataOffer_text {
+    html: String
+    raw: [PrismicHomepageDataOffer_textRaw]
+    text: String
+}
+
+type PrismicHomepageDataOffer_textRaw {
     text: String
     type: String
 }
@@ -1092,8 +1104,6 @@ type SitePageConnection {
 type SitePageContext {
     handle: String
     id: String
-    title: String
-    type: String
 }
 
 type SitePageEdge {
@@ -1821,6 +1831,11 @@ enum PrismicHomepageFieldsEnum {
     data___hero_title___raw___text
     data___hero_title___raw___type
     data___hero_title___text
+    data___offer_text___html
+    data___offer_text___raw
+    data___offer_text___raw___text
+    data___offer_text___raw___type
+    data___offer_text___text
     data___subheader___html
     data___subheader___raw
     data___subheader___raw___text
@@ -3096,8 +3111,6 @@ enum SitePageFieldsEnum {
     componentPath
     context___handle
     context___id
-    context___title
-    context___type
     id
     internalComponentName
     internal___content
@@ -3682,6 +3695,7 @@ input PrismicHomepageDataFilterInput {
     collections: PrismicHomepageDataCollectionsFilterListInput
     hero_image: PrismicHomepageDataHero_imageFilterInput
     hero_title: PrismicHomepageDataHero_titleFilterInput
+    offer_text: PrismicHomepageDataOffer_textFilterInput
     subheader: PrismicHomepageDataSubheaderFilterInput
 }
 
@@ -3711,6 +3725,21 @@ input PrismicHomepageDataHero_titleRawFilterInput {
 
 input PrismicHomepageDataHero_titleRawFilterListInput {
     elemMatch: PrismicHomepageDataHero_titleRawFilterInput
+}
+
+input PrismicHomepageDataOffer_textFilterInput {
+    html: StringQueryOperatorInput
+    raw: PrismicHomepageDataOffer_textRawFilterListInput
+    text: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataOffer_textRawFilterInput {
+    text: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+}
+
+input PrismicHomepageDataOffer_textRawFilterListInput {
+    elemMatch: PrismicHomepageDataOffer_textRawFilterInput
 }
 
 input PrismicHomepageDataSubheaderFilterInput {
@@ -4009,8 +4038,6 @@ input SiteFilterInput {
 input SitePageContextFilterInput {
     handle: StringQueryOperatorInput
     id: StringQueryOperatorInput
-    title: StringQueryOperatorInput
-    type: StringQueryOperatorInput
 }
 
 input SitePageFilterInput {

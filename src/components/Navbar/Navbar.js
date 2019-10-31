@@ -4,7 +4,7 @@ import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
 import styled from "@emotion/styled"
 import { MdMenu } from "react-icons/md"
-import { breakpoints } from "../../utils/styles"
+import { breakpoints, colors } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
 import { StoreContext } from "../../context/StoreContext"
 import CartIconIndicator from "../Cart/CartIconIndicator"
@@ -17,8 +17,12 @@ const NavWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  position: relative;
+  position: sticky;
+  top: 0;
   margin: 0 auto;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid ${colors.lightGrey};
 
   @media (min-width: ${breakpoints.md}) {
     padding: 1.5rem;

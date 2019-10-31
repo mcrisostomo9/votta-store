@@ -14,7 +14,7 @@ const Root = styled.div`
   }
 `
 
-const InputContainer = styled.div`
+const QuantityContainer = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid ${colors.darkGrey};
@@ -22,6 +22,7 @@ const InputContainer = styled.div`
   justify-content: space-between;
   height: 50px;
   width: 100%;
+  border-radius: 50px;
 
   @media (min-width: ${breakpoints.lg}) {
     width: 40%;
@@ -75,11 +76,11 @@ const AddToCart = ({ firstVariant, handle }) => {
 
   return (
     <Root>
-      <InputContainer>
+      <QuantityContainer>
         <DecreaseButton onClick={() => changeQuantity(-1)}>-</DecreaseButton>
         <Quantity>{quantity}</Quantity>
         <IncreaseButton onClick={() => changeQuantity(1)}>+</IncreaseButton>
-      </InputContainer>
+      </QuantityContainer>
       <StyledButton onClick={addToCart}>
         {isLoading ? "Adding to cart..." : "add to cart"}
       </StyledButton>

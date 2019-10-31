@@ -17,6 +17,7 @@ const StyledButton = styled.button`
   background: ${colors.darkGrey};
   opacity: 0.6;
   pointer-events: none;
+  border-radius: 50px;
 `
 
 const DisabledButton = ({ children, className }) => {
