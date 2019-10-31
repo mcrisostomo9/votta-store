@@ -54,7 +54,7 @@ const FilterMenu = styled(AnimatedMenuWrapper)`
 const ListContainer = styled.ul`
   padding: 0 1rem;
   list-style: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0;
   height: 100vh;
 `
