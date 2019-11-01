@@ -11,18 +11,23 @@ import CartIconIndicator from "../Cart/CartIconIndicator"
 import CartAddingIndicator from "../Cart/CartAddingIndicator"
 import logo from "../../images/black-logo.png"
 
+const Root = styled.div`
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid ${colors.lightGrey};
+`
+
 const NavWrapper = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  position: sticky;
-  top: 0;
+
   margin: 0 auto;
-  z-index: 10;
-  background: #fff;
-  border-bottom: 1px solid ${colors.lightGrey};
 
   @media (min-width: ${breakpoints.md}) {
     padding: 1.5rem;
@@ -93,22 +98,24 @@ const Nav = () => {
 
   return (
     <>
-      <NavWrapper>
-        <MenuToggle onClick={() => setMenuOpen(!isMenuOpen)}>
-          <MdMenu />
-        </MenuToggle>
-        <DesktopMenu>
-          <NavLink to="/collections/mens-collection">mens</NavLink>
-          <NavLink to="/collections/womens-collection">Womens</NavLink>
-          <NavLink to="/collections/dress-sock-packs">Sock Packs</NavLink>
-          <NavLink to="/collections/mens-premium">Premium</NavLink>
-        </DesktopMenu>
-        <LogoLink to="/">
-          <img src={logo} alt="Votta logo" />
-        </LogoLink>
-        <CartIconIndicator />
-        <CartAddingIndicator visible={isCartLoading} />
-      </NavWrapper>
+      <Root>
+        <NavWrapper>
+          <MenuToggle onClick={() => setMenuOpen(!isMenuOpen)}>
+            <MdMenu />
+          </MenuToggle>
+          <DesktopMenu>
+            <NavLink to="/collections/mens-collection">mens</NavLink>
+            <NavLink to="/collections/womens-collection">Womens</NavLink>
+            <NavLink to="/collections/dress-sock-packs">Sock Packs</NavLink>
+            <NavLink to="/collections/mens-premium">Premium</NavLink>
+          </DesktopMenu>
+          <LogoLink to="/">
+            <img src={logo} alt="Votta logo" />
+          </LogoLink>
+          <CartIconIndicator />
+          <CartAddingIndicator visible={isCartLoading} />
+        </NavWrapper>
+      </Root>
       <NavMobile
         logo={logo}
         style={menuNavigation}

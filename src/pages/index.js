@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection/HeroSection"
 import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
 import { graphql, useStaticQuery } from "gatsby"
+import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
 
 const IndexPage = () => {
   const {
@@ -20,6 +21,7 @@ const IndexPage = () => {
       />
       <CollectionsSection />
       <FeaturedSection />
+      <NewsletterSection />
       {/*<DesignedSection />*/}
     </Layout>
   )
