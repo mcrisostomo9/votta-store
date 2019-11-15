@@ -1,5 +1,5 @@
 import React from "react"
-import Container from "../Container/Container"
+import Container from "../Shared/Container"
 import styled from "@emotion/styled"
 import { useFormik } from "formik"
 import { FiGift } from "react-icons/all"

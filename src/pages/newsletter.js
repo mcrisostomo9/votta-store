@@ -1,8 +1,8 @@
 import React from "react"
-import SEO from "../components/seo"
+import SEO from "../components/Shared/seo"
 import Layout from "../components/Layout/Layout"
-import Container from "../components/Container/Container"
-import SectionTitle from "../components/SectionTitle/SectionTitle"
+import Container from "../components/Shared/Container"
+import SectionTitle from "../components/Shared/SectionTitle"
 
 const NewsletterPage = () => {
   return (

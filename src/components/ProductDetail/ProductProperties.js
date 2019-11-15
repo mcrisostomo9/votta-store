@@ -5,6 +5,11 @@ import Img from "gatsby-image"
 import data from "../../data/productProperties"
 import GridContainer from "./GridContainer"
 import TextContainer from "./TextContainer"
+import ImgContainer from "../Shared/ImgContainer"
+
+const StyledGridContainer = styled(GridContainer)`
+  margin-top: 3rem;
+`
 
 const Title = styled.h3`
   margin-bottom: 2rem;
@@ -16,7 +21,9 @@ const ListContainer = styled.ul`
   padding: 0;
 `
 
-const ListItem = styled.li``
+const ListItem = styled.li`
+  margin-top: 1rem;
+`
 
 const ListTitle = styled.h4`
   text-transform: uppercase;
@@ -27,13 +34,10 @@ const ListDescription = styled.p`
 `
 
 const ProductProperties = () => {
-  const {
-    infographicImage: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery(IMAGE_QUERY)
+  const { infographicImage } = useStaticQuery(IMAGE_QUERY)
+
   return (
-    <GridContainer>
+    <StyledGridContainer>
       <TextContainer>
         <Title>All of our socks are designed with...</Title>
         <ListContainer>
@@ -45,8 +49,10 @@ const ProductProperties = () => {
           ))}
         </ListContainer>
       </TextContainer>
-      <Img fluid={fluid} />
-    </GridContainer>
+      <ImgContainer>
+        <Img fluid={infographicImage.childImageSharp.fluid} />
+      </ImgContainer>
+    </StyledGridContainer>
   )
 }
 
@@ -54,7 +60,9 @@ export default ProductProperties
 
 const IMAGE_QUERY = graphql`
   query {
-    infographicImage: file(relativePath: { eq: "product-infographic.jpg" }) {
+    infographicImage: file(
+      relativePath: { eq: "product-infographic-icon-w-text.jpg" }
+    ) {
       childImageSharp {
         fluid(quality: 100, maxWidth: 1000) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG

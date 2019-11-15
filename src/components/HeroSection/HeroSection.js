@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
-import Container from "../Container/Container"
+import Container from "../Shared/Container"
 import styled from "@emotion/styled"
 import Button from "../Button/Button"
 import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"

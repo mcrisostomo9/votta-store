@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
-import Container from "../components/Container/Container"
+import Container from "../components/Shared/Container"
 import styled from "@emotion/styled"
 import ProductListing from "../components/ProductListing/ProductListing"
 import CollectionSideNav from "../components/CollectionSideNav/CollectionSideNav"
 import { breakpoints } from "../utils/styles"
-import SEO from "../components/seo"
+import SEO from "../components/Shared/seo"
 
 const CollectionTitle = styled.h2`
   text-align: center;

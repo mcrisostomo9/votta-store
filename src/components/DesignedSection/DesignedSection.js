@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
-import Container from "../Container/Container"
-import SectionTitle from "../SectionTitle/SectionTitle"
+import Container from "../Shared/Container"
+import SectionTitle from "../Shared/SectionTitle"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 import { breakpoints } from "../../utils/styles"
@@ -83,32 +83,16 @@ const DesignedSection = () => {
 const DESIGNED_ICONS_QUERY = graphql`
   query designedIconsQuery {
     cuffImage: file(relativePath: { eq: "craft_cuff.png" }) {
-      childImageSharp {
-        fixed(quality: 100, width: 70) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
+      ...iconImgFragment
     }
     skinfitImage: file(relativePath: { eq: "craft_skinfit.png" }) {
-      childImageSharp {
-        fixed(quality: 100, width: 70) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
+      ...iconImgFragment
     }
     heelImage: file(relativePath: { eq: "craft_heel.png" }) {
-      childImageSharp {
-        fixed(quality: 100, width: 70) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
+      ...iconImgFragment
     }
     toeImage: file(relativePath: { eq: "craft_toe.png" }) {
-      childImageSharp {
-        fixed(quality: 100, width: 70) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
+      ...iconImgFragment
     }
   }
 `

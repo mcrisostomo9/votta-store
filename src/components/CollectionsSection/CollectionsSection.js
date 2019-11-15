@@ -1,10 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import Container from "../Container/Container"
+import Container from "../Shared/Container"
 import SingleCollection from "./SingleCollection"
 import { breakpoints } from "../../utils/styles"
-import SectionTitle from "../SectionTitle/SectionTitle"
+import SectionTitle from "../Shared/SectionTitle"
 
 const StyledContainer = styled(Container)`
   padding: 0;

@@ -1,11 +1,12 @@
 import React from "react"
-import SEO from "../components/seo"
+import SEO from "../components/Shared/seo"
 import Layout from "../components/Layout/Layout"
 import HeroSection from "../components/HeroSection/HeroSection"
 import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
 import { graphql, useStaticQuery } from "gatsby"
 import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
+import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => {
   const {
@@ -22,7 +23,7 @@ const IndexPage = () => {
       <CollectionsSection />
       <FeaturedSection />
       <NewsletterSection />
-      {/*<DesignedSection />*/}
+      <DesignedSection />
     </Layout>
   )
 }

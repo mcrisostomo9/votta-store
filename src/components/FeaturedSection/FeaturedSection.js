@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProductListing from "../ProductListing/ProductListing"
-import Container from "../Container/Container"
-import SectionTitle from "../SectionTitle/SectionTitle"
+import Container from "../Shared/Container"
+import SectionTitle from "../Shared/SectionTitle"
 
 const FeaturedSection = () => {
   const { allShopifyCollection } = useStaticQuery(FEATURED_COLLECTION_QUERY)

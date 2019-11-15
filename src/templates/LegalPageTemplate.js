@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
-import Container from "../components/Container/Container"
+import Container from "../components/Shared/Container"
 import styled from "@emotion/styled"
 
 const CollectionTitle = styled.h2`
