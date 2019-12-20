@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 const Root = styled.span`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1;
   background: ${props => props.color && props.color};
   color: #fff;
