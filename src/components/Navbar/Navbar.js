@@ -104,8 +104,8 @@ const Nav = () => {
             <MdMenu />
           </MenuToggle>
           <DesktopMenu>
-            <NavLink to="/collections/mens-collection">mens</NavLink>
-            <NavLink to="/collections/womens-collection">Womens</NavLink>
+            <NavLink to="/collections/mens-collection">men</NavLink>
+            <NavLink to="/collections/womens-collection">Women</NavLink>
             <NavLink to="/collections/dress-sock-packs">Sock Packs</NavLink>
             <NavLink to="/collections/mens-premium">Premium</NavLink>
           </DesktopMenu>
