@@ -42,21 +42,6 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Playfair Display`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Raleway`,
-            variants: [`400`, `700`],
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `votta-socks`,
