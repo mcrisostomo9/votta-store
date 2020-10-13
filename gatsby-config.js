@@ -61,6 +61,10 @@ module.exports = {
       options: {
         repositoryName: `votta-socks`,
         accessToken: `${process.env.GATSBY_PRISMIC_ACCESS_TOKEN}`,
+        schemas: {
+          homepage: require("./src/schemas/homepage.json"),
+          legal_pages: require("./src/schemas/legal_pages.json"),
+        },
         // linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },

@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
-import "react-id-swiper/lib/styles/css/swiper.css"
+import "swiper/css/swiper.css"
 import Swiper from "react-id-swiper"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import { colors } from "../../utils/styles"

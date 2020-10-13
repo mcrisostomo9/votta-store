@@ -1,0 +1,68 @@
+{
+  "Main" : {
+    "offer_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label" : "Offer Text",
+        "placeholder" : "Offer text"
+      }
+    },
+    "hero_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Hero Title",
+        "placeholder" : "Discover your color"
+      }
+    },
+    "subheader" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label" : "Subheader",
+        "placeholder" : "Premium socks available in various designs and colors"
+      }
+    },
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
+      }
+    },
+    "collections" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "collection_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Collection Image"
+            }
+          },
+          "collection_name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label" : "Collection Name",
+              "placeholder" : "Collection Name"
+            }
+          },
+          "slug" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label" : "Slug",
+              "placeholder" : "Slug"
+            }
+          }
+        },
+        "label" : "Collections"
+      }
+    }
+  }
+}

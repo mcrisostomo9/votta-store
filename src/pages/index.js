@@ -12,18 +12,18 @@ const IndexPage = () => {
   const {
     prismicHomepage: { data },
   } = useStaticQuery(HOMEPAGE_QUERY)
+  console.log(data)
   return (
     <Layout>
       <SEO title="Premium Dress Socks" />
       <HeroSection
         title={data.hero_title.text}
         subheader={data.subheader.text}
-        hero={data.hero_image.localFile.childImageSharp.fluid}
+        hero={data.hero_image.fluid}
       />
       <CollectionsSection />
       <FeaturedSection />
-      <NewsletterSection />
-      <DesignedSection />
+      {/*<DesignedSection />*/}
     </Layout>
   )
 }
@@ -41,12 +41,8 @@ const HOMEPAGE_QUERY = graphql`
           text
         }
         hero_image {
-          localFile {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
+          fluid(maxWidth: 1000, maxHeight: 800) {
+            ...GatsbyPrismicImageFluid
           }
         }
       }

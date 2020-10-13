@@ -43,7 +43,7 @@ const CollectionsSection = () => {
             key={collection.collection_name.text}
             title={collection.collection_name.text}
             link={`/collections/${collection.slug.text}`}
-            fluid={collection.collection_image.localFile.childImageSharp.fluid}
+            fluid={collection.collection_image.fluid}
           />
         ))}
       </CollectionContainer>
@@ -65,8 +65,8 @@ const QUERY = graphql`
             text
           }
           collection_image {
-            localFile {
-              ...fluidImageBlurFragment
+            fluid(maxWidth: 1000, maxHeight: 800) {
+              ...GatsbyPrismicImageFluid
             }
           }
         }
