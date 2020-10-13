@@ -43,7 +43,7 @@
   "scripts": {
     "start": "npm run develop",
     "clean": "rimraf .cache public node_modules",
-    "build": "npm run clean && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
