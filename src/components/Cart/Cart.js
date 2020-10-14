@@ -151,7 +151,7 @@ const Cart = ({ style }) => {
         </CartTopBar>
         <ShippingContainer>
           {lineItemQuantity > 0 ? (
-            checkout.lineItemsSubtotalPrice.amount >= 20 ? (
+            checkout.lineItemsSubtotalPrice.amount >= 50 ? (
               <ShippingText>
                 Your order qualifies for free shipping in the US!
               </ShippingText>
@@ -163,7 +163,7 @@ const Cart = ({ style }) => {
             )
           ) : (
             <ShippingText>
-              Get free shipping on orders of $20 and above!
+              Get free shipping on orders of $50 and above!
             </ShippingText>
           )}
         </ShippingContainer>
