@@ -18,7 +18,6 @@ const ProductDescription = styled.div``
 
 const SalesContainer = styled.div`
   display: flex;
-  //justify-content: space-around;
 `
 
 const SalesPrice = styled.span`

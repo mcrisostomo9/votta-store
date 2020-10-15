@@ -14,7 +14,7 @@ const MobileWrapper = styled.div`
 `
 
 const FilterButton = styled.button`
-  border: 1px solid var(--black);
+  border: 1px solid var(--main-dark);
   background: none;
   padding: 0.5rem 1rem;
   width: 100%;
@@ -47,7 +47,7 @@ const Title = styled.h6`
 
 const FilterMenu = styled(AnimatedMenuWrapper)`
   width: 80%;
-  border-right: 1px solid ${colors.lightGrey};
+  border-right: 1px solid var(--light-grey);
   overflow-y: hidden;
 `
 
@@ -130,7 +130,7 @@ const MobileSideNav = ({ collections }) => {
               <NavItem key={handle}>
                 <NavLink
                   to={`/collections/${handle}`}
-                  activeStyle={{ color: "var(--accent)" }}
+                  activeStyle={{ color: "var(--grey)" }}
                 >
                   {title}
                 </NavLink>

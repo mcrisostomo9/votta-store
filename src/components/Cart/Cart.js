@@ -157,7 +157,7 @@ const Cart = ({ style }) => {
               </ShippingText>
             ) : (
               <ShippingText>
-                You are ${20 - checkout.lineItemsSubtotalPrice.amount} away from
+                You are ${50 - checkout.lineItemsSubtotalPrice.amount} away from
                 free shipping in the US!
               </ShippingText>
             )

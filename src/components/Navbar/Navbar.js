@@ -72,6 +72,10 @@ const NavLink = styled(Link)`
   @media (min-width: ${breakpoints.lg}) {
     font-size: 0.8rem;
   }
+
+  :hover {
+    color: var(--grey);
+  }
 `
 const LogoLink = styled(Link)`
   position: absolute;

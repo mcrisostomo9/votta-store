@@ -8,6 +8,7 @@ const ButtonToggle = styled.button`
   position: relative;
   height: 25px;
   width: 25px;
+  color: var(--main-dark);
 
   svg {
     height: 100%;

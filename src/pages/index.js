@@ -41,7 +41,10 @@ const HOMEPAGE_QUERY = graphql`
     }
     heroImg: file(relativePath: { eq: "wall-socks-2.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 720, traceSVG: { background: "#fff" }) {
+        fluid(
+          maxWidth: 720
+          traceSVG: { background: "#fff", color: "#5B85AA" }
+        ) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

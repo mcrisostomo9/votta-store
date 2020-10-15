@@ -7,6 +7,7 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled.h3`
+  color: var(--main-dark);
   text-align: center;
   font-size: 1.25rem;
 

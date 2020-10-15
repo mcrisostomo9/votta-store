@@ -33,7 +33,7 @@ const NavLink = styled(Link)`
   font-size: 0.75rem;
 
   :hover {
-    color: var(--accent);
+    color: var(--grey);
   }
 
   @media (min-width: ${breakpoints.lg}) {
@@ -63,7 +63,7 @@ const CollectionSideNav = ({ collections }) => {
             <NavItem key={handle}>
               <NavLink
                 to={`/collections/${handle}`}
-                activeStyle={{ color: "var(--accent)" }}
+                activeStyle={{ color: "var(--grey)" }}
               >
                 {title}
               </NavLink>

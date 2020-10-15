@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { colors } from "../../utils/styles"
 
 const StyledButton = styled.button`
   position: relative;
@@ -19,9 +18,9 @@ const StyledButton = styled.button`
   border-radius: 3px;
 
   :hover {
-    background: ${colors.darkGrey};
+    background: var(--main-dark);
     color: #fff;
-    border: 1px solid ${colors.darkGrey};
+    border: 1px solid var(--main-dark);
   }
 `
 

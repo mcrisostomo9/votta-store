@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   font-weight: bold;
   font-family: Roboto, serif;
   letter-spacing: 1px;
-  background: var(--black);
+  background: var(--main-dark);
   border-radius: 3px;
 
   :hover {

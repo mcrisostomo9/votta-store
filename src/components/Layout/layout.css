@@ -350,11 +350,13 @@ template {
 /*end normalize.css*/
 
 :root{
-  --black: #1A202C;
+  --main-dark: #11151C;
+  --grey: #757575;
   --light-grey: #e2e8f0;
-  --light-bg: #f7f7f7;
-  --accent: #4FD1C5;
-  /*--accent: #FCA311;*/
+  --light-bg: #FDFFFC;
+  /*--accent: #c9ada7;*/
+  --red: #A22C29;
+  --accent: #5B85AA;
 }
 
 html {
@@ -379,11 +381,11 @@ body {
 h1, h2, h3, h4, h5{
   font-family: "Playfair Display", serif;
   margin: 0;
-  color: var(--black);
+  color: var(--main-dark);
 }
 
 p, a{
   font-family: "Raleway", sans-serif;
   margin: 0;
-  color: var(--black);
+  color: var(--main-dark);
 }

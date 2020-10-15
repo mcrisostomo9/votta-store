@@ -21,7 +21,7 @@ const LineBreakContainer = styled.div`
 
 const Divider = styled.div`
   height: 1px;
-  background-color: var(--black);
+  background-color: var(--main-dark);
   flex: 1 1 0;
 `
 

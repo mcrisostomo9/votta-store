@@ -47,7 +47,7 @@ const Callout = styled.div`
   margin-bottom: 1rem;
 
   a {
-    color: var(--black);
+    color: var(--main-dark);
     text-decoration: none;
   }
 `
@@ -65,7 +65,7 @@ const NavLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 2.5rem;
   font-size: 1.5rem;
-  color: var(--black);
+  color: var(--main-dark);
 `
 
 const NavMobile = ({ style, closeNav, logo }) => {

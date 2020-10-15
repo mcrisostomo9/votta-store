@@ -2,12 +2,11 @@ import React from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import { colors } from "../../utils/styles"
 import ProductLabel from "./ProductLabel"
 
 const ProductListingItemLink = styled(Link)`
   text-align: center;
-  color: ${colors.darkGrey};
+  color: var(--main-dark);
   overflow: hidden;
   text-decoration: none;
 `
@@ -33,10 +32,12 @@ const ProductTitle = styled.div`
   z-index: 1;
   font-size: 1rem;
   margin-top: 0.5rem;
+  color: var(--main-dark);
 `
 
 const Price = styled.div`
   font-size: 1rem;
+  color: var(--main-dark);
 `
 
 const SalesContainer = styled.div`
@@ -70,7 +71,7 @@ const ProductListingItem = ({ product }) => {
     <ProductListingItemLink to={`/product/${product.handle}`}>
       <Preview>
         {!availableForSale && (
-          <ProductLabel color={colors.darkGrey}>Out of stock</ProductLabel>
+          <ProductLabel color="var(--red)">Out of stock</ProductLabel>
         )}
         {availableForSale && isSale && (
           <ProductLabel color="var(--accent)">Sale</ProductLabel>
