@@ -6,7 +6,7 @@ import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
 import { graphql, useStaticQuery } from "gatsby"
 // import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
-// import DesignedSection from "../components/DesignedSection/DesignedSection"
+import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => {
   const { prismicHomepage, heroImg } = useStaticQuery(HOMEPAGE_QUERY)
@@ -20,7 +20,7 @@ const IndexPage = () => {
       />
       <CollectionsSection />
       <FeaturedSection />
-      {/*<DesignedSection />*/}
+      <DesignedSection />
     </Layout>
   )
 }
@@ -39,12 +39,9 @@ const HOMEPAGE_QUERY = graphql`
         }
       }
     }
-    heroImg: file(relativePath: { eq: "wall-socks.png" }) {
+    heroImg: file(relativePath: { eq: "wall-socks-2.jpg" }) {
       childImageSharp {
-        fluid(
-          maxWidth: 720
-          traceSVG: { background: "#fff", color: "#FCA311" }
-        ) {
+        fluid(maxWidth: 720, traceSVG: { background: "#fff" }) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

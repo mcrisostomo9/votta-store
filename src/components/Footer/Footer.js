@@ -167,7 +167,7 @@ const FOOTER_LOGO_QUERY = graphql`
   query footerLogoQuery {
     footerLogo: file(relativePath: { eq: "guarantee-logo.png" }) {
       childImageSharp {
-        fixed(quality: 100, width: 200) {
+        fixed(width: 200) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
