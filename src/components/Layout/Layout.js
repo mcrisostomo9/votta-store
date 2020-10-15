@@ -12,7 +12,7 @@ import { colors } from "../../utils/styles"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Offer = styled.div`
-  background: #f7f7f7;
+  background: ${colors.lightBg};
   width: 100%;
   text-align: center;
   padding: 0.5rem 1rem;

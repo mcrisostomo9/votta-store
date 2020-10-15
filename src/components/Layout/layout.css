@@ -350,9 +350,11 @@ template {
 /*end normalize.css*/
 
 :root{
-  --dark-grey: #1A202C;
+  --black: #1A202C;
   --light-grey: #e2e8f0;
-  --teal: #4FD1C5;
+  --light-bg: #f7f7f7;
+  --accent: #4FD1C5;
+  /*--accent: #FCA311;*/
 }
 
 html {
@@ -377,11 +379,11 @@ body {
 h1, h2, h3, h4, h5{
   font-family: "Playfair Display", serif;
   margin: 0;
-  color: var(--dark-grey);
+  color: var(--black);
 }
 
 p, a{
   font-family: "Raleway", sans-serif;
   margin: 0;
-  color: var(--dark-grey);
+  color: var(--black);
 }

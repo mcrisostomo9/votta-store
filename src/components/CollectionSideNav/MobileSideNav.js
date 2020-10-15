@@ -14,7 +14,7 @@ const MobileWrapper = styled.div`
 `
 
 const FilterButton = styled.button`
-  border: 1px solid var(--dark-grey);
+  border: 1px solid var(--black);
   background: none;
   padding: 0.5rem 1rem;
   width: 100%;
@@ -69,7 +69,7 @@ const NavLink = styled(Link)`
   font-size: 0.75rem;
 
   :hover {
-    color: var(--teal);
+    color: var(--accent);
   }
 `
 
@@ -130,7 +130,7 @@ const MobileSideNav = ({ collections }) => {
               <NavItem key={handle}>
                 <NavLink
                   to={`/collections/${handle}`}
-                  activeStyle={{ color: "var(--teal)" }}
+                  activeStyle={{ color: "var(--accent)" }}
                 >
                   {title}
                 </NavLink>

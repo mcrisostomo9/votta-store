@@ -7,7 +7,6 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
-import { colors } from "../../utils/styles"
 
 const ProductTitle = styled.h1``
 
@@ -23,7 +22,7 @@ const SalesContainer = styled.div`
 `
 
 const SalesPrice = styled.span`
-  color: ${colors.teal};
+  color: var(--accent);
   font-size: 1.5rem;
 `
 

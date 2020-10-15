@@ -9,9 +9,13 @@ import { keyframes } from "@emotion/core"
  *    border-color: ${colors.brand}40;
  */
 export const colors = {
-  lightGrey: `#e2e8f0`,
+  // lightGrey: `#e2e8f0`,
+  lightBg: "#f7f7f7",
+  lightGrey: `#E5E5E5`,
   darkGrey: `#1A202C`,
-  teal: `#4FD1C5`,
+  // accent: `#4FD1C5`,
+  accent: `#FCA311`,
+  // accent: `#14213D`,
 }
 
 export const breakpoints = {

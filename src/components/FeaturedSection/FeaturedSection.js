@@ -10,7 +10,7 @@ const FeaturedSection = () => {
   return (
     <Container>
       <SectionTitle title="Shop our featured products" />
-      <ProductListing products={products} />
+      <ProductListing products={products.slice(0, 8)} />
     </Container>
   )
 }
@@ -26,7 +26,7 @@ const FEATURED_COLLECTION_QUERY = graphql`
             images {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 900) {
+                  fluid(maxWidth: 400) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }

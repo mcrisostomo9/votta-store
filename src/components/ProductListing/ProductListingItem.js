@@ -46,7 +46,7 @@ const SalesContainer = styled.div`
 `
 
 const SalesPrice = styled.span`
-  color: ${colors.teal};
+  color: var(--accent);
   margin-top: 0.25rem;
 `
 
@@ -73,7 +73,7 @@ const ProductListingItem = ({ product }) => {
           <ProductLabel color={colors.darkGrey}>Out of stock</ProductLabel>
         )}
         {availableForSale && isSale && (
-          <ProductLabel color={colors.teal}>Sale</ProductLabel>
+          <ProductLabel color="var(--accent)">Sale</ProductLabel>
         )}
         <Image fluid={fluid} />
         <ProductTitle>{product.title}</ProductTitle>

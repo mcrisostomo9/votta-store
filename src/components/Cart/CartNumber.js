@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { colors } from "../../utils/styles"
 
 const Number = styled.span`
   position: absolute;
@@ -10,7 +9,7 @@ const Number = styled.span`
   width: 35px;
   height: 35px;
   color: #fff;
-  background: ${colors.teal};
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;

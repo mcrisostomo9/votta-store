@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 import Button from "../Button/Button"
 import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"
 
-const HeroContainer = styled.div`
+const HeroContainer = styled(Container)`
   position: relative;
   height: 80vh;
   display: flex;

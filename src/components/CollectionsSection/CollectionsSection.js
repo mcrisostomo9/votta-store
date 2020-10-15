@@ -65,7 +65,7 @@ const QUERY = graphql`
             text
           }
           collection_image {
-            fluid(maxWidth: 1000, maxHeight: 800) {
+            fluid(maxWidth: 600) {
               ...GatsbyPrismicImageFluid
             }
           }

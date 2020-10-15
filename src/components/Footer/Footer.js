@@ -1,14 +1,14 @@
 import React from "react"
 import Container from "../Shared/Container"
 import styled from "@emotion/styled"
-import { breakpoints, colors } from "../../utils/styles"
+import { breakpoints } from "../../utils/styles"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import SocialIcon from "../SocialIcon/SocialIcon"
 
 const StyledContainer = styled(Container)`
   margin-top: 5rem;
-  background: ${colors.lightGrey};
+  background: var(--light-bg);
   padding: 3rem 1.5rem 5rem;
 `
 
@@ -21,7 +21,7 @@ const LineBreakContainer = styled.div`
 
 const Divider = styled.div`
   height: 1px;
-  background-color: var(--dark-grey);
+  background-color: var(--black);
   flex: 1 1 0;
 `
 
@@ -152,7 +152,7 @@ const Footer = () => {
           </SocialFooterSection>
         </FooterSection>
         <CopyrightSection>
-          <Copyright>© VOTTA SOCKS 2019</Copyright>
+          <Copyright>© VOTTA SOCKS {new Date().getFullYear()}</Copyright>
           <CopyrightLinks to="/privacy-policy">Privacy Policy</CopyrightLinks>
           <CopyrightLinks to="/terms-of-service">
             Terms of service

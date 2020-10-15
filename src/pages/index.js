@@ -5,21 +5,18 @@ import HeroSection from "../components/HeroSection/HeroSection"
 import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
 import { graphql, useStaticQuery } from "gatsby"
-import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
-import DesignedSection from "../components/DesignedSection/DesignedSection"
+// import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
+// import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => {
-  const {
-    prismicHomepage: { data },
-  } = useStaticQuery(HOMEPAGE_QUERY)
-  console.log(data)
+  const { prismicHomepage, heroImg } = useStaticQuery(HOMEPAGE_QUERY)
   return (
     <Layout>
       <SEO title="Premium Dress Socks" />
       <HeroSection
-        title={data.hero_title.text}
-        subheader={data.subheader.text}
-        hero={data.hero_image.fluid}
+        title={prismicHomepage.data.hero_title.text}
+        subheader={prismicHomepage.data.subheader.text}
+        hero={heroImg.childImageSharp.fluid}
       />
       <CollectionsSection />
       <FeaturedSection />
@@ -32,7 +29,7 @@ export default IndexPage
 
 const HOMEPAGE_QUERY = graphql`
   query {
-    prismicHomepage {
+    prismicHomepage: prismicHomepage {
       data {
         hero_title {
           text
@@ -40,10 +37,15 @@ const HOMEPAGE_QUERY = graphql`
         subheader {
           text
         }
-        hero_image {
-          fluid(maxWidth: 1000, maxHeight: 800) {
-            ...GatsbyPrismicImageFluid
-          }
+      }
+    }
+    heroImg: file(relativePath: { eq: "wall-socks.png" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 720
+          traceSVG: { background: "#fff", color: "#FCA311" }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
