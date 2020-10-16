@@ -10,7 +10,6 @@ import SEO from "../components/Shared/seo"
 
 const CollectionTitle = styled.h2`
   text-align: center;
-  font-weight: 400;
 `
 // TODO extract title h2
 

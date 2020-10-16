@@ -41,6 +41,7 @@ const FooterContent = styled.div`
   grid-template-rows: repeat(4, auto);
   grid-row-gap: 2.5rem;
   justify-items: center;
+  color: var(--main-dark);
 
   @media (min-width: ${breakpoints.md}) {
     grid-template-columns: repeat(3, 1fr);
@@ -74,15 +75,18 @@ const SocialFooterSection = styled.div`
 
 const FooterSectionTitle = styled.h5`
   font-size: 1.25rem;
+  color: inherit;
 `
 
 const StyledLink = styled(Link)`
   margin-top: 1rem;
   text-decoration: none;
+  color: inherit;
 `
 
 const Email = styled.a`
   margin-top: 1rem;
+  color: inherit;
 `
 
 const CopyrightSection = styled.div`
@@ -97,9 +101,7 @@ const CopyrightSection = styled.div`
   }
 `
 
-const Copyright = styled.div`
-  font-family: "Raleway", sans-serif;
-`
+const Copyright = styled.div``
 
 const CopyrightLinks = styled(StyledLink)`
   margin-top: 0;
@@ -110,19 +112,19 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <LineBreakContainer>
-        <Divider />
-        <Img
-          fixed={footerLogo.childImageSharp.fixed}
-          style={{ margin: "0 1rem" }}
-        />
-        <Divider />
-      </LineBreakContainer>
-      <GuaranteeText>
-        If you are not 100% satisfied with your purchase, it may be returned
-        within 30 days for a full refund. We offer free US returns for all
-        orders.
-      </GuaranteeText>
+      {/*<LineBreakContainer>*/}
+      {/*  <Divider />*/}
+      {/*  <Img*/}
+      {/*    fixed={footerLogo.childImageSharp.fixed}*/}
+      {/*    style={{ margin: "0 1rem" }}*/}
+      {/*  />*/}
+      {/*  <Divider />*/}
+      {/*</LineBreakContainer>*/}
+      {/*<GuaranteeText>*/}
+      {/*  If you are not 100% satisfied with your purchase, it may be returned*/}
+      {/*  within 30 days for a full refund. We offer free US returns for all*/}
+      {/*  orders.*/}
+      {/*</GuaranteeText>*/}
       <FooterContent>
         <FooterSection>
           <FooterSectionTitle>Shop</FooterSectionTitle>

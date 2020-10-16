@@ -8,16 +8,15 @@ import Footer from "../Footer/Footer"
 import { StoreContext } from "../../context/StoreContext"
 import Cart from "../Cart/Cart"
 import Navbar from "../Navbar/Navbar"
-import { colors } from "../../utils/styles"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Offer = styled.div`
-  background: ${colors.lightBg};
+  background: var(--light-bg);
   width: 100%;
   text-align: center;
   padding: 0.5rem 1rem;
   font-family: Raleway, sans-serif;
-  color: ${colors.darkGrey};
+  color: var(--main-dark);
 `
 
 const MainContainer = styled.main`
@@ -33,6 +32,7 @@ const Layout = ({ children }) => {
     enter: { transform: "translate3d(0,0,0)" },
     leave: { transform: "translate3d(100%,0,0)" },
   })
+
   return (
     <>
       <Offer>{prismicHomepage.data.offer_text.text}</Offer>

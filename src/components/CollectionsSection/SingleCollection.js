@@ -3,15 +3,16 @@ import { Link } from "gatsby"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"
+import Button from "../Button/Button"
 
 const CollectionWrapper = styled.div`
   position: relative;
-  height: 25vh;
+  height: 300px;
   min-height: 300px;
   transition: all 300ms ease 0s;
 
   @media (min-width: ${breakpoints.md}) {
-    height: 350px;
+    height: 600px;
   }
 
   :hover {
@@ -31,8 +32,11 @@ const StyledLink = styled(Link)`
 `
 
 const TextContainer = styled.div`
-  position: relative;
   margin: 0 auto;
+  z-index: 1;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
 
   h4 {
     font-weight: 700;
@@ -42,6 +46,10 @@ const TextContainer = styled.div`
   }
 `
 
+const StyledButton = styled(Button)`
+  margin-top: 1.5rem;
+`
+
 const SingleCollection = ({ fluid, title, link }) => {
   return (
     <CollectionWrapper>
@@ -49,6 +57,7 @@ const SingleCollection = ({ fluid, title, link }) => {
         <Image fluid={fluid} style={backgroundGatsbyImage} />
         <TextContainer>
           <h4>{title}</h4>
+          <StyledButton>Shop</StyledButton>
         </TextContainer>
       </StyledLink>
     </CollectionWrapper>

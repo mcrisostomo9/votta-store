@@ -8,13 +8,14 @@ import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"
 
 const HeroContainer = styled(Container)`
   position: relative;
-  height: 80vh;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   @media (min-width: ${breakpoints.lg}) {
     justify-content: center;
+    height: 700px;
   }
 `
 

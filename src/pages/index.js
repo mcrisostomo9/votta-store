@@ -5,7 +5,6 @@ import HeroSection from "../components/HeroSection/HeroSection"
 import FeaturedSection from "../components/FeaturedSection/FeaturedSection"
 import CollectionsSection from "../components/CollectionsSection/CollectionsSection"
 import { graphql, useStaticQuery } from "gatsby"
-// import NewsletterSection from "../components/NewsletterSection/NewsletterSection"
 import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => {
@@ -19,8 +18,8 @@ const IndexPage = () => {
         hero={heroImg.childImageSharp.fluid}
       />
       <CollectionsSection />
-      <FeaturedSection />
       <DesignedSection />
+      <FeaturedSection />
     </Layout>
   )
 }

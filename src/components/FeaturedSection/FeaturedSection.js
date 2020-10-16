@@ -7,6 +7,7 @@ import SectionTitle from "../Shared/SectionTitle"
 const FeaturedSection = () => {
   const { allShopifyCollection } = useStaticQuery(FEATURED_COLLECTION_QUERY)
   const { products } = allShopifyCollection.edges[0].node
+
   return (
     <Container>
       <SectionTitle title="Shop our featured products" />

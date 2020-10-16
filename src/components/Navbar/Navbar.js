@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React, { useContext, useState } from "react"
+import Headroom from "react-headroom"
 import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
 import styled from "@emotion/styled"
@@ -17,7 +18,7 @@ const Root = styled.div`
   top: 0;
   z-index: 10;
   background: #fff;
-  border-bottom: 1px solid ${colors.lightGrey};
+  border-bottom: 1px solid var(--light-bg);
 `
 
 const NavWrapper = styled.nav`
@@ -102,16 +103,42 @@ const Nav = () => {
 
   return (
     <>
-      <Root>
+      <Headroom
+        style={{
+          background: "#fff",
+          borderBottom: "1px solid var(--light-bg)",
+          zIndex: 10,
+        }}
+      >
         <NavWrapper>
           <MenuToggle onClick={() => setMenuOpen(!isMenuOpen)}>
             <MdMenu />
           </MenuToggle>
           <DesktopMenu>
-            <NavLink to="/collections/mens-collection">mens</NavLink>
-            <NavLink to="/collections/womens-collection">Womens</NavLink>
-            <NavLink to="/collections/dress-sock-packs">Sock Packs</NavLink>
-            <NavLink to="/collections/mens-premium">Premium</NavLink>
+            <NavLink
+              to="/collections/mens-collection"
+              activeStyle={{ fontWeight: 700 }}
+            >
+              mens
+            </NavLink>
+            <NavLink
+              to="/collections/womens-collection"
+              activeStyle={{ fontWeight: 700 }}
+            >
+              Womens
+            </NavLink>
+            <NavLink
+              to="/collections/dress-sock-packs"
+              activeStyle={{ fontWeight: 700 }}
+            >
+              Sock Packs
+            </NavLink>
+            <NavLink
+              to="/collections/mens-premium"
+              activeStyle={{ fontWeight: 700 }}
+            >
+              Premium
+            </NavLink>
           </DesktopMenu>
           <LogoLink to="/">
             <img src={logo} alt="Votta logo" />
@@ -119,7 +146,7 @@ const Nav = () => {
           <CartIconIndicator />
           <CartAddingIndicator visible={isCartLoading} />
         </NavWrapper>
-      </Root>
+      </Headroom>
       <NavMobile
         logo={logo}
         style={menuNavigation}

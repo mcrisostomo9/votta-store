@@ -11,8 +11,11 @@ const DesignedContainer = styled.div`
   justify-content: center;
   justify-items: center;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  padding: 5rem 0;
 
-  h4 {
+  span {
+    margin-top: 0.5rem;
     text-transform: uppercase;
   }
 
@@ -42,38 +45,38 @@ const DesignedSection = () => {
   )
   return (
     <Container>
-      <SectionTitle title="All Votta socks are designed with..." />
+      {/*<SectionTitle title="All Votta socks are designed with..." />*/}
       <DesignedContainer>
         <SingleDesignedContainer>
           <Img fixed={cuffImage.childImageSharp.fixed} />
-          <h4>Anti Slip Cuff</h4>
-          <p>
-            A combination of lycra and a thicker band to ensure that your socks
-            stay up through out the day.
-          </p>
+          <span>Anti Slip Cuff</span>
+          {/*<p>*/}
+          {/*  A combination of lycra and a thicker band to ensure that your socks*/}
+          {/*  stay up through out the day.*/}
+          {/*</p>*/}
         </SingleDesignedContainer>
         <SingleDesignedContainer>
           <Img fixed={skinfitImage.childImageSharp.fixed} />
-          <h4>Skin-fit technology</h4>
-          <p>
-            Designed and engineered to provide optimal amount of tension and
-            elasticity for a tight yet comfortable fit.
-          </p>
+          <span>Skin-fit technology</span>
+          {/*<p>*/}
+          {/*  Designed and engineered to provide optimal amount of tension and*/}
+          {/*  elasticity for a tight yet comfortable fit.*/}
+          {/*</p>*/}
         </SingleDesignedContainer>
         <SingleDesignedContainer>
           <Img fixed={heelImage.childImageSharp.fixed} />
-          <h4>REINFORCED L SHAPED HEEL</h4>
-          <p>
-            Anatomic design provides natural form around the heel for maximum
-            comfort.
-          </p>
+          <span>REINFORCED L SHAPED HEEL</span>
+          {/*<p>*/}
+          {/*  Anatomic design provides natural form around the heel for maximum*/}
+          {/*  comfort.*/}
+          {/*</p>*/}
         </SingleDesignedContainer>
         <SingleDesignedContainer>
           <Img fixed={toeImage.childImageSharp.fixed} />
-          <h4>HAND-LINKED TOE</h4>
-          <p>
-            Traditional technique used by our craftsmen to provide seamless toe
-          </p>
+          <span>HAND-LINKED TOE</span>
+          {/*<p>*/}
+          {/*  Traditional technique used by our craftsmen to provide seamless toe*/}
+          {/*</p>*/}
         </SingleDesignedContainer>
       </DesignedContainer>
     </Container>

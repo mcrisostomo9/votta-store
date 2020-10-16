@@ -1,12 +1,12 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 })
 
 module.exports = {
   siteMetadata: {
     title: `Votta Socks`,
     description: `Votta Socks are designed for comfort and versatility. Each pair of premium dress socks are made using quality materials. We offer men's and women's dress socks in a wide range of patterned, striped, ribbed, and colorful solid designs fit for any occasion.`,
-    author: `@gatsbyjs`,
+    author: `@mcrisostomo9`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -51,6 +51,15 @@ module.exports = {
           legal_pages: require("./src/schemas/legal_pages.json"),
         },
         // linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans\:400,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
       },
     },
 

@@ -4,7 +4,6 @@ import styled from "@emotion/styled"
 import "swiper/css/swiper.css"
 import Swiper from "react-id-swiper"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
-import { colors } from "../../utils/styles"
 
 const Container = styled.div`
   overflow: hidden;
@@ -17,7 +16,7 @@ const Container = styled.div`
     background: transparent;
   }
   .swiper-pagination-bullet-active {
-    background: ${colors.darkGrey};
+    background: var(--main-dark);
   }
 `
 
