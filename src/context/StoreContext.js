@@ -18,7 +18,7 @@ const defaultValues = {
   isLoading: false,
   setLoading: () => {},
   isCartLoading: false,
-  seCartLoading: () => {},
+  setCartLoading: () => {},
   client,
   checkout: { lineItems: [] },
   lineItemQuantity: 0,
