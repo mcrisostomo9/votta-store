@@ -3,7 +3,7 @@ const path = require("path")
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const product = await graphql(`
     query PagesQuery {
-      allShopifyProduct(limit: 25) {
+      allShopifyProduct(limit: 1) {
         edges {
           node {
             id
