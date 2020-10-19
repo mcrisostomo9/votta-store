@@ -7,6 +7,9 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
+import CollectionsSection from "../CollectionsSection/CollectionsSection"
+import SectionTitle from "../Shared/SectionTitle"
+import ProductListing from "../ProductListing/ProductListing"
 
 const ProductTitle = styled.h1``
 
@@ -41,7 +44,6 @@ const ProductDetail = ({ product }) => {
   const { price, compareAtPrice, availableForSale } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
   const [available] = useState(availableForSale)
-
   return (
     <Container>
       <GridContainer>
@@ -68,6 +70,10 @@ const ProductDetail = ({ product }) => {
       </GridContainer>
       <ProductProperties />
       {/*<Guarantee />*/}
+      {/*<Container>*/}
+      {/*  <SectionTitle title="Shop other products" />*/}
+      {/*  <ProductListing products={relatedProducts.slice(0, 4)} />*/}
+      {/*</Container>*/}
     </Container>
   )
 }

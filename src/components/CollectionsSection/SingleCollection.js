@@ -35,7 +35,7 @@ const TextContainer = styled.div`
   margin: 0 auto;
   z-index: 1;
   position: absolute;
-  bottom: 2rem;
+  top: 2rem;
   left: 2rem;
 
   h4 {
@@ -47,7 +47,7 @@ const TextContainer = styled.div`
 `
 
 const StyledButton = styled(Button)`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 `
 
 const SingleCollection = ({ fluid, title, link }) => {

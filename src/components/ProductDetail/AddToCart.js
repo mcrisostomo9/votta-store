@@ -22,7 +22,7 @@ const QuantityContainer = styled.div`
   justify-content: space-between;
   height: 50px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: var(--border-radius);
 
   @media (min-width: ${breakpoints.lg}) {
     width: 40%;

@@ -1,7 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
 import Container from "../Shared/Container"
-import SectionTitle from "../Shared/SectionTitle"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 import { breakpoints } from "../../utils/styles"
@@ -12,7 +11,7 @@ const DesignedContainer = styled.div`
   justify-items: center;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  padding: 5rem 0;
+  margin-top: 5rem;
 
   span {
     margin-top: 0.5rem;
@@ -25,10 +24,6 @@ const DesignedContainer = styled.div`
 
   @media (min-width: ${breakpoints.md}) {
     grid-template-columns: repeat(4, 1fr);
-
-    p {
-      display: initial;
-    }
   }
 `
 

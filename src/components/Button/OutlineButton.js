@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   font-family: Roboto, serif;
   letter-spacing: 1px;
   border: 1px solid ${props => props.color};
-  border-radius: 3px;
+  border-radius: var(--border-radius);
 
   :hover {
     background: var(--main-dark);

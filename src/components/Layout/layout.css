@@ -357,6 +357,7 @@ template {
   --light-bg: #F6F4F3;
   --red: #F03A47;
   --accent: #5B85AA;
+  --border-radius: 50px;
 }
 
 html {

@@ -62,7 +62,6 @@ const TextContainer = styled(Container)`
 
 const ButtonContainer = styled.div`
   margin-top: 1rem;
-
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
