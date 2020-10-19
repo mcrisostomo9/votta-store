@@ -51,7 +51,7 @@ const ProductDetail = ({ product }) => {
     handle,
   } = product
 
-  console.log(product)
+  // console.log(product)
 
   const { price, compareAtPrice, availableForSale } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
