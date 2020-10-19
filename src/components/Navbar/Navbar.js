@@ -5,21 +5,21 @@ import NavMobile from "./NavMobile"
 import { useSpring } from "react-spring"
 import styled from "@emotion/styled"
 import { MdMenu } from "react-icons/md"
-import { breakpoints, colors } from "../../utils/styles"
+import { breakpoints } from "../../utils/styles"
 import ButtonToggle from "../Button/ButtonToggle"
 import { StoreContext } from "../../context/StoreContext"
 import CartIconIndicator from "../Cart/CartIconIndicator"
 import CartAddingIndicator from "../Cart/CartAddingIndicator"
 import logo from "../../images/black-logo.png"
 
-const Root = styled.div`
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #fff;
-  border-bottom: 1px solid var(--light-bg);
-`
+// const Root = styled.div`
+//   width: 100%;
+//   position: sticky;
+//   top: 0;
+//   z-index: 10;
+//   background: #fff;
+//   border-bottom: 1px solid var(--light-bg);
+// `
 
 const NavWrapper = styled.nav`
   width: 100%;

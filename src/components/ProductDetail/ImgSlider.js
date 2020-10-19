@@ -35,9 +35,11 @@ const ImgSlider = ({ images }) => {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    // eslint-disable-next-line react/display-name
     renderPrevButton: () => (
       <MdKeyboardArrowLeft className="swiper-button-prev" />
     ),
+    // eslint-disable-next-line react/display-name
     renderNextButton: () => (
       <MdKeyboardArrowRight className="swiper-button-next" />
     ),

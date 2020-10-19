@@ -1,10 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import Image from "gatsby-image"
 import Container from "../Shared/Container"
 import styled from "@emotion/styled"
-import Button from "../Button/Button"
 import { backgroundGatsbyImage, breakpoints } from "../../utils/styles"
+import { LinkButton } from "../Button/LinkButton"
 
 const HeroContainer = styled(Container)`
   position: relative;
@@ -83,12 +82,10 @@ const HeroSection = ({ hero, title, subheader }) => {
         <h1>{title}</h1>
         <p>{subheader}</p>
         <ButtonContainer>
-          <Link to="/collections/mens-collection">
-            <Button>Shop Mens</Button>
-          </Link>
-          <Link to="/collections/womens-collection">
-            <Button>Shop Womens</Button>
-          </Link>
+          <LinkButton to="/collections/mens-collection">Shop Mens</LinkButton>
+          <LinkButton to="/collections/womens-collection">
+            Shop Womens
+          </LinkButton>
         </ButtonContainer>
       </TextContainer>
     </HeroContainer>

@@ -2,8 +2,7 @@ import React from "react"
 import Container from "../Shared/Container"
 import styled from "@emotion/styled"
 import { breakpoints } from "../../utils/styles"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
+import { Link } from "gatsby"
 import SocialIcon from "../SocialIcon/SocialIcon"
 
 const StyledContainer = styled(Container)`
@@ -14,25 +13,25 @@ const StyledContainer = styled(Container)`
 
 const FooterContainer = StyledContainer.withComponent("footer")
 
-const LineBreakContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Divider = styled.div`
-  height: 1px;
-  background-color: var(--main-dark);
-  flex: 1 1 0;
-`
-
-const GuaranteeText = styled.p`
-  text-align: center;
-  max-width: 500px;
-  margin: 1rem auto;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.75;
-`
+// const LineBreakContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+// `
+//
+// const Divider = styled.div`
+//   height: 1px;
+//   background-color: var(--main-dark);
+//   flex: 1 1 0;
+// `
+//
+// const GuaranteeText = styled.p`
+//   text-align: center;
+//   max-width: 500px;
+//   margin: 1rem auto;
+//   width: 100%;
+//   font-size: 1rem;
+//   line-height: 1.75;
+// `
 
 const FooterContent = styled.div`
   margin-top: 4rem;
@@ -108,7 +107,7 @@ const CopyrightLinks = styled(StyledLink)`
 `
 
 const Footer = () => {
-  const { footerLogo } = useStaticQuery(FOOTER_LOGO_QUERY)
+  // const { footerLogo } = useStaticQuery(FOOTER_LOGO_QUERY)
 
   return (
     <FooterContainer>
@@ -128,8 +127,10 @@ const Footer = () => {
       <FooterContent>
         <FooterSection>
           <FooterSectionTitle>Shop</FooterSectionTitle>
-          <StyledLink to="/collections/mens-collection">Men's</StyledLink>
-          <StyledLink to="/collections/womens-collection">Women's</StyledLink>
+          <StyledLink to="/collections/mens-collection">Men`&apos;s</StyledLink>
+          <StyledLink to="/collections/womens-collection">
+            Women`&apos;s
+          </StyledLink>
           <StyledLink to="/collections/dress-sock-packs">Sock Packs</StyledLink>
           <StyledLink to="/collections/mens-premium">Premium</StyledLink>
         </FooterSection>
@@ -165,16 +166,16 @@ const Footer = () => {
   )
 }
 
-const FOOTER_LOGO_QUERY = graphql`
-  query footerLogoQuery {
-    footerLogo: file(relativePath: { eq: "guarantee-logo.png" }) {
-      childImageSharp {
-        fixed(width: 200) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-  }
-`
+// const FOOTER_LOGO_QUERY = graphql`
+//   query footerLogoQuery {
+//     footerLogo: file(relativePath: { eq: "guarantee-logo.png" }) {
+//       childImageSharp {
+//         fixed(width: 200) {
+//           ...GatsbyImageSharpFixed_withWebp_tracedSVG
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Footer

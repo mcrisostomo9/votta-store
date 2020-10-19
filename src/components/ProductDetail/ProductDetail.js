@@ -7,9 +7,9 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
-import CollectionsSection from "../CollectionsSection/CollectionsSection"
-import SectionTitle from "../Shared/SectionTitle"
-import ProductListing from "../ProductListing/ProductListing"
+// import CollectionsSection from "../CollectionsSection/CollectionsSection"
+// import SectionTitle from "../Shared/SectionTitle"
+// import ProductListing from "../ProductListing/ProductListing"
 
 const ProductTitle = styled.h1``
 
@@ -17,7 +17,17 @@ const ProductPrice = styled.div`
   font-size: 1.5rem;
 `
 
-const ProductDescription = styled.div``
+const ProductDescription = styled.div`
+  margin-top: 1rem;
+
+  p {
+    margin-top: 1rem;
+  }
+
+  ul {
+    margin: 0.5rem 0 0;
+  }
+`
 
 const SalesContainer = styled.div`
   display: flex;
@@ -40,6 +50,8 @@ const ProductDetail = ({ product }) => {
     variants: [firstVariant],
     handle,
   } = product
+
+  console.log(product)
 
   const { price, compareAtPrice, availableForSale } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)

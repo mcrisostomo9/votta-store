@@ -66,7 +66,9 @@ export const StoreProvider = ({ children }) => {
       setCheckout(newCheckout)
       getLineItemQuantity(newCheckout.lineItems)
       setLoading(false)
-    } catch (e) {}
+    } catch (e) {
+      console.log(`Checkout Error: ${e}`)
+    }
   }, [])
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const addProductToCart = async (firstVariant, quantity, handle) => {
+  const addProductToCart = async (firstVariant, quantity) => {
     try {
       setLoading(true)
       setCartLoading(true)
