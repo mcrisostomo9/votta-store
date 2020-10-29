@@ -821,6 +821,7 @@ type Query {
     allSiteBuildMetadata(filter: SiteBuildMetadataFilterInput, limit: Int, skip: Int, sort: SiteBuildMetadataSortInput): SiteBuildMetadataConnection!
     allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: SitePageSortInput): SitePageConnection!
     allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
+    allSiteSearchIndex(filter: SiteSearchIndexFilterInput, limit: Int, skip: Int, sort: SiteSearchIndexSortInput): SiteSearchIndexConnection!
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput, url: StringQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput, resolutions: ImageSharpResolutionsFilterInput, sizes: ImageSharpSizesFilterInput): ImageSharp
@@ -834,10 +835,11 @@ type Query {
     shopifyProductVariant(availableForSale: BooleanQueryOperatorInput, children: NodeFilterListInput, compareAtPrice: StringQueryOperatorInput, compareAtPriceV2: ShopifyProductVariantCompareAtPriceV2FilterInput, id: StringQueryOperatorInput, image: ShopifyProductVariantImageFilterInput, internal: InternalFilterInput, parent: NodeFilterInput, presentmentPrices: ShopifyProductVariantPresentmentPricesFilterInput, price: StringQueryOperatorInput, priceV2: ShopifyProductVariantPriceV2FilterInput, product: ShopifyProductFilterInput, requiresShipping: BooleanQueryOperatorInput, selectedOptions: ShopifyProductVariantSelectedOptionsFilterListInput, shopifyId: StringQueryOperatorInput, sku: StringQueryOperatorInput, title: StringQueryOperatorInput, weight: FloatQueryOperatorInput, weightUnit: StringQueryOperatorInput): ShopifyProductVariant
     shopifyShop(children: NodeFilterListInput, description: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, moneyFormat: StringQueryOperatorInput, name: StringQueryOperatorInput, parent: NodeFilterInput): ShopifyShop
     shopifyShopPolicy(body: StringQueryOperatorInput, children: NodeFilterListInput, handle: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, shopifyId: StringQueryOperatorInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): ShopifyShopPolicy
-    site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
+    site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
     siteBuildMetadata(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput): SiteBuildMetadata
     sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, context: SitePageContextFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
     sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
+    siteSearchIndex(children: NodeFilterListInput, id: StringQueryOperatorInput, index: SiteSearchIndex_IndexQueryOperatorInput, internal: InternalFilterInput, pages: StringQueryOperatorInput, parent: NodeFilterInput): SiteSearchIndex
 }
 
 type ShopifyBlog implements Node {
@@ -1278,8 +1280,6 @@ type Site implements Node {
     id: ID!
     internal: Internal!
     parent: Node
-    pathPrefix: String
-    polyfill: Boolean
     port: Int
     siteMetadata: SiteSiteMetadata
 }
@@ -1469,7 +1469,8 @@ type SitePluginPluginOptions {
     cacheDigest: String
     cache_busting_mode: String
     display: String
-    fonts: [SitePluginPluginOptionsFonts]
+    fields: [String]
+    fonts: [String]
     icon: String
     include_favicon: Boolean
     legacy: Boolean
@@ -1485,11 +1486,6 @@ type SitePluginPluginOptions {
     theme_color: String
     theme_color_in_head: Boolean
     verbose: Boolean
-}
-
-type SitePluginPluginOptionsFonts {
-    family: String
-    variants: [String]
 }
 
 type SitePluginPluginOptionsSchemas {
@@ -1627,6 +1623,39 @@ type SitePluginPluginOptionsSchemasLegal_pagesMainTitleConfig {
     label: String
     placeholder: String
     single: String
+}
+
+type SiteSearchIndex implements Node {
+    children: [Node!]!
+    id: ID!
+    index: SiteSearchIndex_Index
+    internal: Internal!
+    pages: [String]
+    parent: Node
+}
+
+type SiteSearchIndexConnection {
+    distinct(field: SiteSearchIndexFieldsEnum!): [String!]!
+    edges: [SiteSearchIndexEdge!]!
+    group(field: SiteSearchIndexFieldsEnum!, limit: Int, skip: Int): [SiteSearchIndexGroupConnection!]!
+    nodes: [SiteSearchIndex!]!
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+type SiteSearchIndexEdge {
+    next: SiteSearchIndex
+    node: SiteSearchIndex!
+    previous: SiteSearchIndex
+}
+
+type SiteSearchIndexGroupConnection {
+    edges: [SiteSearchIndexEdge!]!
+    field: String!
+    fieldValue: String
+    nodes: [SiteSearchIndex!]!
+    pageInfo: PageInfo!
+    totalCount: Int!
 }
 
 type SiteSiteMetadata {
@@ -4060,8 +4089,6 @@ enum SiteFieldsEnum {
     parent___parent___internal___type
     parent___parent___parent___children
     parent___parent___parent___id
-    pathPrefix
-    polyfill
     port
     siteMetadata___author
     siteMetadata___description
@@ -4228,9 +4255,8 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___cacheDigest
     pluginCreator___pluginOptions___cache_busting_mode
     pluginCreator___pluginOptions___display
+    pluginCreator___pluginOptions___fields
     pluginCreator___pluginOptions___fonts
-    pluginCreator___pluginOptions___fonts___family
-    pluginCreator___pluginOptions___fonts___variants
     pluginCreator___pluginOptions___icon
     pluginCreator___pluginOptions___include_favicon
     pluginCreator___pluginOptions___legacy
@@ -4362,9 +4388,8 @@ enum SitePluginFieldsEnum {
     pluginOptions___cacheDigest
     pluginOptions___cache_busting_mode
     pluginOptions___display
+    pluginOptions___fields
     pluginOptions___fonts
-    pluginOptions___fonts___family
-    pluginOptions___fonts___variants
     pluginOptions___icon
     pluginOptions___include_favicon
     pluginOptions___legacy
@@ -4382,6 +4407,97 @@ enum SitePluginFieldsEnum {
     resolve
     ssrAPIs
     version
+}
+
+enum SiteSearchIndexFieldsEnum {
+    children
+    children___children
+    children___children___children
+    children___children___children___children
+    children___children___children___id
+    children___children___id
+    children___children___internal___content
+    children___children___internal___contentDigest
+    children___children___internal___description
+    children___children___internal___fieldOwners
+    children___children___internal___ignoreType
+    children___children___internal___mediaType
+    children___children___internal___owner
+    children___children___internal___type
+    children___children___parent___children
+    children___children___parent___id
+    children___id
+    children___internal___content
+    children___internal___contentDigest
+    children___internal___description
+    children___internal___fieldOwners
+    children___internal___ignoreType
+    children___internal___mediaType
+    children___internal___owner
+    children___internal___type
+    children___parent___children
+    children___parent___children___children
+    children___parent___children___id
+    children___parent___id
+    children___parent___internal___content
+    children___parent___internal___contentDigest
+    children___parent___internal___description
+    children___parent___internal___fieldOwners
+    children___parent___internal___ignoreType
+    children___parent___internal___mediaType
+    children___parent___internal___owner
+    children___parent___internal___type
+    children___parent___parent___children
+    children___parent___parent___id
+    id
+    index
+    internal___content
+    internal___contentDigest
+    internal___description
+    internal___fieldOwners
+    internal___ignoreType
+    internal___mediaType
+    internal___owner
+    internal___type
+    pages
+    parent___children
+    parent___children___children
+    parent___children___children___children
+    parent___children___children___id
+    parent___children___id
+    parent___children___internal___content
+    parent___children___internal___contentDigest
+    parent___children___internal___description
+    parent___children___internal___fieldOwners
+    parent___children___internal___ignoreType
+    parent___children___internal___mediaType
+    parent___children___internal___owner
+    parent___children___internal___type
+    parent___children___parent___children
+    parent___children___parent___id
+    parent___id
+    parent___internal___content
+    parent___internal___contentDigest
+    parent___internal___description
+    parent___internal___fieldOwners
+    parent___internal___ignoreType
+    parent___internal___mediaType
+    parent___internal___owner
+    parent___internal___type
+    parent___parent___children
+    parent___parent___children___children
+    parent___parent___children___id
+    parent___parent___id
+    parent___parent___internal___content
+    parent___parent___internal___contentDigest
+    parent___parent___internal___description
+    parent___parent___internal___fieldOwners
+    parent___parent___internal___ignoreType
+    parent___parent___internal___mediaType
+    parent___parent___internal___owner
+    parent___parent___internal___type
+    parent___parent___parent___children
+    parent___parent___parent___id
 }
 
 enum SortOrderEnum {
@@ -5520,8 +5636,6 @@ input SiteFilterInput {
     id: StringQueryOperatorInput
     internal: InternalFilterInput
     parent: NodeFilterInput
-    pathPrefix: StringQueryOperatorInput
-    polyfill: BooleanQueryOperatorInput
     port: IntQueryOperatorInput
     siteMetadata: SiteSiteMetadataFilterInput
 }
@@ -5615,7 +5729,8 @@ input SitePluginPluginOptionsFilterInput {
     cacheDigest: StringQueryOperatorInput
     cache_busting_mode: StringQueryOperatorInput
     display: StringQueryOperatorInput
-    fonts: SitePluginPluginOptionsFontsFilterListInput
+    fields: StringQueryOperatorInput
+    fonts: StringQueryOperatorInput
     icon: StringQueryOperatorInput
     include_favicon: BooleanQueryOperatorInput
     legacy: BooleanQueryOperatorInput
@@ -5631,15 +5746,6 @@ input SitePluginPluginOptionsFilterInput {
     theme_color: StringQueryOperatorInput
     theme_color_in_head: BooleanQueryOperatorInput
     verbose: BooleanQueryOperatorInput
-}
-
-input SitePluginPluginOptionsFontsFilterInput {
-    family: StringQueryOperatorInput
-    variants: StringQueryOperatorInput
-}
-
-input SitePluginPluginOptionsFontsFilterListInput {
-    elemMatch: SitePluginPluginOptionsFontsFilterInput
 }
 
 input SitePluginPluginOptionsSchemasFilterInput {
@@ -5784,6 +5890,27 @@ input SitePluginSortInput {
     order: [SortOrderEnum] = [ASC]
 }
 
+input SiteSearchIndexFilterInput {
+    children: NodeFilterListInput
+    id: StringQueryOperatorInput
+    index: SiteSearchIndex_IndexQueryOperatorInput
+    internal: InternalFilterInput
+    pages: StringQueryOperatorInput
+    parent: NodeFilterInput
+}
+
+input SiteSearchIndexSortInput {
+    fields: [SiteSearchIndexFieldsEnum]
+    order: [SortOrderEnum] = [ASC]
+}
+
+input SiteSearchIndex_IndexQueryOperatorInput {
+    eq: SiteSearchIndex_Index
+    in: [SiteSearchIndex_Index]
+    ne: SiteSearchIndex_Index
+    nin: [SiteSearchIndex_Index]
+}
+
 input SiteSiteMetadataFilterInput {
     author: StringQueryOperatorInput
     description: StringQueryOperatorInput
@@ -5812,3 +5939,6 @@ scalar Date
 scalar JSON
 
 scalar PrismicImageThumbnailsType
+
+"Serialized elasticlunr search index"
+scalar SiteSearchIndex_Index

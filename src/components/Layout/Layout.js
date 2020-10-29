@@ -35,8 +35,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Navbar />
       <Offer>{prismicHomepage.data.offer_text.text}</Offer>
+      <Navbar />
       <MainContainer isCartOpen={isCartOpen}>{children}</MainContainer>
       <Footer />
       {cartAnimation.map(

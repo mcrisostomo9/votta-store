@@ -68,6 +68,10 @@ const NavLink = styled(Link)`
   color: var(--main-dark);
 `
 
+const StyledButtonToggle = styled(ButtonToggle)`
+  height: 40px;
+`
+
 const NavMobile = ({ style, closeNav, logo }) => {
   return (
     <AnimatedMenuWrapper
@@ -77,9 +81,9 @@ const NavMobile = ({ style, closeNav, logo }) => {
     >
       <MenuContainer>
         <TopBarContainer>
-          <ButtonToggle onClick={closeNav}>
+          <StyledButtonToggle onClick={closeNav}>
             <MdClose />
-          </ButtonToggle>
+          </StyledButtonToggle>
           <ImgContainer onClick={closeNav}>
             <img src={logo} alt="Votta logo" />
           </ImgContainer>

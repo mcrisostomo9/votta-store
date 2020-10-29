@@ -28,6 +28,7 @@ export const query = graphql`
       title
       productType
       description
+      tags
       descriptionHtml
       variants {
         id

@@ -57,14 +57,29 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Open Sans\:400,700`, // you can also specify font weights and styles
+          `Open Sans:400,700`, // you can also specify font weights and styles
         ],
         display: "swap",
       },
     },
     "gatsby-plugin-eslint",
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, `tags`],
+        resolvers: {
+          ShopifyProduct: {
+            title: node => node.title,
+            tags: node => node.tags,
+            handle: node => node.handle,
+            price: node => node.priceRange.maxVariantPrice.amount,
+            image: node => node.images[0],
+          },
+        },
+        // Optional filter to limit indexed nodes
+        // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+      },
+    },
   ],
 }

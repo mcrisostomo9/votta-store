@@ -6,6 +6,7 @@ const TitleContainer = styled.div`
   margin: 5rem 0;
 `
 
+// TODO fix component
 const Title = styled.h3`
   color: var(--main-dark);
   text-align: center;

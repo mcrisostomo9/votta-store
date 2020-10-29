@@ -14,6 +14,12 @@ const PolicyContent = styled.div`
   width: 100%;
   max-width: 900px;
   margin: 2rem auto 0;
+
+  //TODO create html render component
+  p {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
 `
 
 const LegalPageTemplate = ({ data }) => {

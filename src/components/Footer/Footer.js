@@ -127,10 +127,8 @@ const Footer = () => {
       <FooterContent>
         <FooterSection>
           <FooterSectionTitle>Shop</FooterSectionTitle>
-          <StyledLink to="/collections/mens-collection">Men`&apos;s</StyledLink>
-          <StyledLink to="/collections/womens-collection">
-            Women`&apos;s
-          </StyledLink>
+          <StyledLink to="/collections/mens">Men&apos;s</StyledLink>
+          <StyledLink to="/collections/womens">Women&apos;s</StyledLink>
           <StyledLink to="/collections/dress-sock-packs">Sock Packs</StyledLink>
           <StyledLink to="/collections/mens-premium">Premium</StyledLink>
         </FooterSection>
@@ -152,6 +150,7 @@ const Footer = () => {
           <SocialFooterSection>
             <SocialIcon socialNetwork="facebook" />
             <SocialIcon socialNetwork="instagram" />
+            <SocialIcon socialNetwork="pinterest" />
           </SocialFooterSection>
         </FooterSection>
         <CopyrightSection>

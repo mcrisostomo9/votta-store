@@ -11,15 +11,7 @@ import { StoreContext } from "../../context/StoreContext"
 import CartIconIndicator from "../Cart/CartIconIndicator"
 import CartAddingIndicator from "../Cart/CartAddingIndicator"
 import logo from "../../images/black-logo.png"
-
-// const Root = styled.div`
-//   width: 100%;
-//   position: sticky;
-//   top: 0;
-//   z-index: 10;
-//   background: #fff;
-//   border-bottom: 1px solid var(--light-bg);
-// `
+import SearchIcon from "../SearchIcon"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -66,9 +58,16 @@ const DesktopMenu = styled.div`
   }
 `
 const NavLink = styled(Link)`
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.7rem;
+  //padding: 1rem;
+  transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
 
   @media (min-width: ${breakpoints.lg}) {
     font-size: 0.8rem;
@@ -76,6 +75,8 @@ const NavLink = styled(Link)`
 
   :hover {
     color: var(--grey);
+    background: var(--light-grey);
+    //padding: 0.5rem;
   }
 `
 const LogoLink = styled(Link)`
@@ -87,10 +88,6 @@ const LogoLink = styled(Link)`
   img {
     width: 125px;
     height: auto;
-
-    @media (min-width: ${breakpoints.lg}) {
-      width: 150px;
-    }
   }
 `
 
@@ -115,16 +112,10 @@ const Nav = () => {
             <MdMenu />
           </MenuToggle>
           <DesktopMenu>
-            <NavLink
-              to="/collections/mens-collection"
-              activeStyle={{ fontWeight: 700 }}
-            >
+            <NavLink to="/collections/mens" activeStyle={{ fontWeight: 700 }}>
               mens
             </NavLink>
-            <NavLink
-              to="/collections/womens-collection"
-              activeStyle={{ fontWeight: 700 }}
-            >
+            <NavLink to="/collections/womens" activeStyle={{ fontWeight: 700 }}>
               Womens
             </NavLink>
             <NavLink
@@ -143,8 +134,11 @@ const Nav = () => {
           <LogoLink to="/">
             <img src={logo} alt="Votta logo" />
           </LogoLink>
-          <CartIconIndicator />
-          <CartAddingIndicator visible={isCartLoading} />
+          <div style={{ display: "flex" }}>
+            <SearchIcon />
+            <CartIconIndicator />
+            <CartAddingIndicator visible={isCartLoading} />
+          </div>
         </NavWrapper>
       </Headroom>
       <NavMobile

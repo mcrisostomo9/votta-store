@@ -19,6 +19,13 @@ const StyledButton = styled.button`
   :hover {
     background: var(--accent);
   }
+
+  :focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    border-color: rgba(99, 179, 237, 1);
+  }
 `
 
 const Button = ({ children, className, onClick, type }) => {

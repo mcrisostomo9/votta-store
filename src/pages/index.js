@@ -9,6 +9,7 @@ import DesignedSection from "../components/DesignedSection/DesignedSection"
 
 const IndexPage = () => {
   const { prismicHomepage, heroImg } = useStaticQuery(HOMEPAGE_QUERY)
+
   return (
     <Layout>
       <SEO title="Premium Dress Socks" />
@@ -40,10 +41,7 @@ const HOMEPAGE_QUERY = graphql`
     }
     heroImg: file(relativePath: { eq: "wall-socks-2.jpg" }) {
       childImageSharp {
-        fluid(
-          maxWidth: 720
-          traceSVG: { background: "#fff", color: "#5B85AA" }
-        ) {
+        fluid(maxWidth: 720, traceSVG: { color: "#5B85AA" }) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

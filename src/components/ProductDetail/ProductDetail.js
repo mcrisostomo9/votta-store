@@ -7,9 +7,7 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
-// import CollectionsSection from "../CollectionsSection/CollectionsSection"
-// import SectionTitle from "../Shared/SectionTitle"
-// import ProductListing from "../ProductListing/ProductListing"
+import SectionTitle from "../Shared/SectionTitle"
 
 const ProductTitle = styled.h1``
 
@@ -51,42 +49,46 @@ const ProductDetail = ({ product }) => {
     handle,
   } = product
 
-  // console.log(product)
-
   const { price, compareAtPrice, availableForSale } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
   const [available] = useState(availableForSale)
   return (
-    <Container>
-      <GridContainer>
-        <ImgSlider images={images} />
-        <TextContainer>
-          <ProductTitle>{product.title}</ProductTitle>
-          {isSale ? (
-            <SalesContainer>
-              <SalesPrice>${price}</SalesPrice>
-              <StrikeThroughPrice>${compareAtPrice}</StrikeThroughPrice>
-            </SalesContainer>
-          ) : (
-            <ProductPrice>${price}</ProductPrice>
-          )}
-          <ProductDescription
-            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-          />
-          {available ? (
-            <AddToCart firstVariant={firstVariant} handle={handle} />
-          ) : (
-            <DisabledButton>Sorry, this product is sold out</DisabledButton>
-          )}
-        </TextContainer>
-      </GridContainer>
-      <ProductProperties />
-      {/*<Guarantee />*/}
-      {/*<Container>*/}
-      {/*  <SectionTitle title="Shop other products" />*/}
-      {/*  <ProductListing products={relatedProducts.slice(0, 4)} />*/}
-      {/*</Container>*/}
-    </Container>
+    <>
+      <div style={{ background: "var(--light-bg)" }}>
+        <Container>
+          <GridContainer style={{ padding: "3rem 0" }}>
+            <ImgSlider images={images} />
+            <TextContainer>
+              <ProductTitle>{product.title}</ProductTitle>
+              {isSale ? (
+                <SalesContainer>
+                  <SalesPrice>${price}</SalesPrice>
+                  <StrikeThroughPrice>${compareAtPrice}</StrikeThroughPrice>
+                </SalesContainer>
+              ) : (
+                <ProductPrice>${price}</ProductPrice>
+              )}
+              <ProductDescription
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              />
+              {available ? (
+                <AddToCart firstVariant={firstVariant} handle={handle} />
+              ) : (
+                <DisabledButton>Sorry, this product is sold out</DisabledButton>
+              )}
+            </TextContainer>
+          </GridContainer>
+        </Container>
+      </div>
+      <Container>
+        <ProductProperties />
+      </Container>
+      <div style={{ padding: "3rem 0", background: "var(--accent)" }}>
+        <Container>
+          <SectionTitle title="shop other" />
+        </Container>
+      </div>
+    </>
   )
 }
 

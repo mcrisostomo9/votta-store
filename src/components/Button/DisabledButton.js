@@ -3,10 +3,10 @@ import styled from "@emotion/styled"
 import { colors } from "../../utils/styles"
 
 const StyledButton = styled.button`
-  transition: all 300ms ease 0s;
   cursor: pointer;
-  width: 200px;
-  height: 50px;
+  //width: 200px;
+  //height: 50px;
+  padding: 1rem;
   border: none;
   color: #fff;
   font-size: 0.75rem;
@@ -17,7 +17,8 @@ const StyledButton = styled.button`
   background: ${colors.darkGrey};
   opacity: 0.6;
   pointer-events: none;
-  border-radius: 50px;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
 `
 
 const DisabledButton = ({ children, className }) => {

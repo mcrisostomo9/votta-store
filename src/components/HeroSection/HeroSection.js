@@ -82,10 +82,8 @@ const HeroSection = ({ hero, title, subheader }) => {
         <h1>{title}</h1>
         <p>{subheader}</p>
         <ButtonContainer>
-          <LinkButton to="/collections/mens-collection">Shop Mens</LinkButton>
-          <LinkButton to="/collections/womens-collection">
-            Shop Womens
-          </LinkButton>
+          <LinkButton to="/collections/mens">Shop Mens</LinkButton>
+          <LinkButton to="/collections/womens">Shop Womens</LinkButton>
         </ButtonContainer>
       </TextContainer>
     </HeroContainer>

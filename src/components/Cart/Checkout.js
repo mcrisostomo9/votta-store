@@ -29,7 +29,6 @@ const StyledOutlineButton = styled(OutlineButton)`
 `
 
 const Checkout = ({ checkout, toggleCartOpen }) => {
-  console.log(checkout)
   return (
     <CheckoutContainer>
       <a href={checkout.webUrl}>

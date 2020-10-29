@@ -3,6 +3,7 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import ProductLabel from "./ProductLabel"
+import { routes } from "../../data/routes"
 
 const ProductListingItemLink = styled(Link)`
   text-align: center;
@@ -68,7 +69,7 @@ const ProductListingItem = ({ product }) => {
   const { price, availableForSale, compareAtPrice } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
   return (
-    <ProductListingItemLink to={`/product/${product.handle}`}>
+    <ProductListingItemLink to={routes.productDetail(product.handle)}>
       <Preview>
         {!availableForSale && (
           <ProductLabel color="var(--red)">Out of stock</ProductLabel>
