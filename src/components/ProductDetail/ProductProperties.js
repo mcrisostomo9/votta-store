@@ -28,6 +28,7 @@ const ListItem = styled.li`
 const ListTitle = styled.h4`
   text-transform: uppercase;
   margin-top: 1rem;
+  font-weight: 700;
 `
 const ListDescription = styled.p`
   margin-top: 0.5rem;
