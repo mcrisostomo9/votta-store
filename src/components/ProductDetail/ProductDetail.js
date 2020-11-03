@@ -83,11 +83,6 @@ const ProductDetail = ({ product }) => {
       <Container>
         <ProductProperties />
       </Container>
-      <div style={{ padding: "3rem 0", background: "var(--accent)" }}>
-        <Container>
-          <SectionTitle title="shop other" />
-        </Container>
-      </div>
     </>
   )
 }
