@@ -15,8 +15,6 @@ const Offer = styled.div`
   width: 100%;
   text-align: center;
   padding: 0.5rem 1rem;
-  font-family: Raleway, sans-serif;
-  color: var(--main-dark);
 `
 
 const MainContainer = styled.main`
