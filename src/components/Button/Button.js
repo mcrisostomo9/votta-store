@@ -7,17 +7,17 @@ const StyledButton = styled.button`
   width: 200px;
   height: 50px;
   border: none;
-  color: #fff;
-  font-size: 0.75rem;
+  font-size: var(--small-text);
   text-transform: uppercase;
   font-weight: bold;
-  font-family: Roboto, serif;
   letter-spacing: 1px;
-  background: var(--main-dark);
+  background: var(--button-background);
+  color: var(--button-text-color);
   border-radius: var(--border-radius);
 
   :hover {
-    background: var(--accent);
+    background: var(--button-hover-bg);
+    color: var(--button-hover-text);
   }
 
   :focus {

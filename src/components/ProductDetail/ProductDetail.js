@@ -7,20 +7,17 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
-import SectionTitle from "../Shared/SectionTitle"
 
-const ProductTitle = styled.h1``
+const ProductTitle = styled.h1`
+  font-size: var(--h4);
+`
 
-const ProductPrice = styled.div`
-  font-size: 1.5rem;
+const ProductPrice = styled.p`
+  font-size: var(--h5);
 `
 
 const ProductDescription = styled.div`
-  margin-top: 1rem;
-
-  p {
-    margin-top: 1rem;
-  }
+  //font-size: var(--small-text);
 
   ul {
     margin: 0.5rem 0 0;
@@ -54,7 +51,7 @@ const ProductDetail = ({ product }) => {
   const [available] = useState(availableForSale)
   return (
     <>
-      <div style={{ background: "var(--light-bg)" }}>
+      <div style={{ background: "var(--background)" }}>
         <Container>
           <GridContainer style={{ padding: "3rem 0" }}>
             <ImgSlider images={images} />

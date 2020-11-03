@@ -27,6 +27,11 @@ const DetailsWrapper = styled.div`
   margin-right: 1rem;
   display: flex;
   flex-direction: column;
+
+  p {
+    font-size: var(--small-text);
+    margin: 0;
+  }
 `
 
 const RemoveButton = styled.button`
@@ -106,7 +111,7 @@ const LineItem = ({ item }) => {
         <img src={image.src} alt={title} />
       </Thumbnail>
       <DetailsWrapper>
-        <h5>{title}</h5>
+        <p>{title}</p>
         <p>${price}</p>
         <div>
           <RemoveButton

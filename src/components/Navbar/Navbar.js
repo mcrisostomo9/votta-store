@@ -103,7 +103,7 @@ const Nav = () => {
       <Headroom
         style={{
           background: "#fff",
-          borderBottom: "1px solid var(--light-bg)",
+          borderBottom: "var(--line)",
           zIndex: 10,
         }}
       >

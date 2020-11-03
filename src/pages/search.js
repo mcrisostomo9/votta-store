@@ -122,7 +122,7 @@ const IndexPage = () => {
                 return (
                   <ProductListingItemLink
                     key={product.id}
-                    to={`/product/${product.handle}`}
+                    to={`/socks/${product.handle}`}
                   >
                     <img
                       loading="lazy"

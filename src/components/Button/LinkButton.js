@@ -7,13 +7,12 @@ export const LinkButton = styled(Link)`
   width: 200px;
   height: 50px;
   border: none;
-  color: #fff;
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: Roboto, serif;
   letter-spacing: 1px;
-  background: var(--main-dark);
+  background: var(--button-background);
+  color: var(--button-text-color);
   border-radius: var(--border-radius);
   display: flex;
   justify-content: center;
@@ -22,6 +21,7 @@ export const LinkButton = styled(Link)`
   text-align: center;
 
   :hover {
-    background: var(--accent);
+    background: var(--button-hover-bg);
+    color: var(--button-hover-text);
   }
 `

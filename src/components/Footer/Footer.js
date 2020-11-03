@@ -7,31 +7,11 @@ import SocialIcon from "../SocialIcon/SocialIcon"
 
 const StyledContainer = styled(Container)`
   margin-top: 5rem;
-  background: var(--light-bg);
+  background: var(--background);
   padding: 3rem 1.5rem 5rem;
 `
 
 const FooterContainer = StyledContainer.withComponent("footer")
-
-// const LineBreakContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-// `
-//
-// const Divider = styled.div`
-//   height: 1px;
-//   background-color: var(--main-dark);
-//   flex: 1 1 0;
-// `
-//
-// const GuaranteeText = styled.p`
-//   text-align: center;
-//   max-width: 500px;
-//   margin: 1rem auto;
-//   width: 100%;
-//   font-size: 1rem;
-//   line-height: 1.75;
-// `
 
 const FooterContent = styled.div`
   margin-top: 4rem;
@@ -40,7 +20,6 @@ const FooterContent = styled.div`
   grid-template-rows: repeat(4, auto);
   grid-row-gap: 2.5rem;
   justify-items: center;
-  color: var(--main-dark);
 
   @media (min-width: ${breakpoints.md}) {
     grid-template-columns: repeat(3, 1fr);
@@ -81,6 +60,10 @@ const StyledLink = styled(Link)`
   margin-top: 1rem;
   text-decoration: none;
   color: inherit;
+
+  :hover {
+    color: var(--orange);
+  }
 `
 
 const Email = styled.a`

@@ -58,12 +58,12 @@ const CartTopBar = styled.div`
 const LineItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   overflow: hidden;
   overflow-y: scroll;
 
   @media (min-width: ${breakpoints.md}) {
-    padding: 3rem;
+    padding: 0 3rem;
   }
 `
 
@@ -84,15 +84,17 @@ const StyledCartNumber = styled(CartNumber)`
 `
 
 const ShippingContainer = styled.div`
-  padding: 1.5rem 1.5rem 0;
+  padding: 1.5rem;
   text-align: center;
 
   @media (min-width: ${breakpoints.md}) {
-    padding: 3rem 1.5rem 0;
+    padding: 2rem 1.5rem;
   }
 `
 
-const ShippingText = styled.p``
+const ShippingText = styled.p`
+  font-size: initial;
+`
 
 const Cart = ({ style }) => {
   const {
@@ -141,7 +143,7 @@ const Cart = ({ style }) => {
           <CloseButton onClick={() => toggleCartOpen()}>
             <MdClose />
           </CloseButton>
-          <h3>Your cart</h3>
+          <p>Your cart</p>
           <ItemsInCart>
             items
             <br />

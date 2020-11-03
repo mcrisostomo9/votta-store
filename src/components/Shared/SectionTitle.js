@@ -1,20 +1,14 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { breakpoints } from "../../utils/styles"
 
 const TitleContainer = styled.div`
   margin: 5rem 0;
 `
 
 // TODO fix component
-const Title = styled.h3`
-  color: var(--main-dark);
+const Title = styled.h4`
   text-align: center;
-  font-size: 1.25rem;
-
-  @media (min-width: ${breakpoints.md}) {
-    font-size: 1.75rem;
-  }
+  margin: 0;
 `
 
 const SectionTitle = ({ title }) => {

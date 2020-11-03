@@ -28,12 +28,10 @@ const Preview = styled.div`
   }
 `
 
-const ProductTitle = styled.div`
+const ProductTitle = styled.p`
   position: relative;
   z-index: 1;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  color: var(--main-dark);
+  margin: 0.5rem 0;
 `
 
 const Price = styled.div`

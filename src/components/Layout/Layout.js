@@ -11,7 +11,7 @@ import Navbar from "../Navbar/Navbar"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Offer = styled.div`
-  background: var(--light-bg);
+  background: var(--background);
   width: 100%;
   text-align: center;
   padding: 0.5rem 1rem;

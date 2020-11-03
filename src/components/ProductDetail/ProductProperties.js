@@ -11,27 +11,21 @@ const StyledGridContainer = styled(GridContainer)`
   margin-top: 3rem;
 `
 
-const Title = styled.h3`
-  margin-bottom: 2rem;
-`
-
 const ListContainer = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
 `
 
-const ListItem = styled.li`
-  margin-top: 1rem;
-`
+const ListItem = styled.li``
 
-const ListTitle = styled.h4`
+const ListTitle = styled.h5`
   text-transform: uppercase;
-  margin-top: 1rem;
-  font-weight: 700;
+  margin: 1.75rem 0 1rem;
+  font-size: var(--h6);
 `
 const ListDescription = styled.p`
-  margin-top: 0.5rem;
+  //margin-top: 0.5rem;
 `
 
 const ProductProperties = () => {
@@ -40,7 +34,7 @@ const ProductProperties = () => {
   return (
     <StyledGridContainer>
       <TextContainer>
-        <Title>All of our socks are designed with...</Title>
+        <h4>All of our socks are designed with...</h4>
         <ListContainer>
           {data.map(p => (
             <ListItem key={p.title}>
