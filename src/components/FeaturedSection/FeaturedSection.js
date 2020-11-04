@@ -18,7 +18,7 @@ const FeaturedSection = () => {
 
 const FEATURED_COLLECTION_QUERY = graphql`
   query ProductsListingQuery {
-    allShopifyCollection(filter: { handle: { eq: "featured" } }) {
+    allShopifyCollection(filter: { handle: { eq: "featured-socks" } }) {
       edges {
         node {
           products {
