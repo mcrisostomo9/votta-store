@@ -59,7 +59,7 @@ module.exports = {
         fonts: [
           // `Work Sans:400,700`,
           // `Space Mono:400,700`,
-          "Raleway:400,700",
+          "Raleway:600",
           "Merriweather:300",
         ],
         display: "swap",
