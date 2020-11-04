@@ -12,6 +12,7 @@ import CartIconIndicator from "../Cart/CartIconIndicator"
 import CartAddingIndicator from "../Cart/CartAddingIndicator"
 import logo from "../../images/black-logo.png"
 import SearchIcon from "../SearchIcon"
+import { routes } from "../../data/routes"
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -112,20 +113,26 @@ const Nav = () => {
             <MdMenu />
           </MenuToggle>
           <DesktopMenu>
-            <NavLink to="/collections/mens" activeStyle={{ fontWeight: 700 }}>
+            <NavLink
+              to={routes.collections("mens-dress-socks")}
+              activeStyle={{ fontWeight: 700 }}
+            >
               mens
             </NavLink>
-            <NavLink to="/collections/womens" activeStyle={{ fontWeight: 700 }}>
+            <NavLink
+              to={routes.collections("womens-socks")}
+              activeStyle={{ fontWeight: 700 }}
+            >
               Womens
             </NavLink>
             <NavLink
-              to="/collections/dress-sock-packs"
+              to={routes.collections("dress-sock-packs")}
               activeStyle={{ fontWeight: 700 }}
             >
               Sock Packs
             </NavLink>
             <NavLink
-              to="/collections/mens-premium"
+              to={routes.collections("mens-premium-dress-socks")}
               activeStyle={{ fontWeight: 700 }}
             >
               Premium
