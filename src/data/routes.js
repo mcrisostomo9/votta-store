@@ -6,7 +6,7 @@ const routes = {
     return `/product/${handle}`
   },
   collections(handle) {
-    return `/${handle}`
+    return `/collections/${handle}`
   },
 }
 
