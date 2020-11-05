@@ -381,9 +381,7 @@ template {
   --line: 1px solid var(--line-color);
 
   /*type*/
-  --heading-font: 'Space Mono', serif;
   --heading-font: 'Raleway', serif;
-  --body-font: 'Work Sans',  sans-serif;
   --body-font: 'Merriweather',  sans-serif;
   --base-font-size: 100%;
   --h1: 3.052rem;
@@ -402,6 +400,7 @@ template {
 
   /*Positioning*/
   --border-radius: 50px;
+  --header-height: 75px;
 }
 
 html {

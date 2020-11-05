@@ -70,7 +70,7 @@ const ProductListingItem = ({ product }) => {
     <ProductListingItemLink to={routes.productDetail(product.handle)}>
       <Preview>
         {!availableForSale && (
-          <ProductLabel color="var(--red)">Out of stock</ProductLabel>
+          <ProductLabel color="var(--danger)">Out of stock</ProductLabel>
         )}
         {availableForSale && isSale && (
           <ProductLabel color="var(--accent)">Sale</ProductLabel>

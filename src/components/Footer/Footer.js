@@ -14,7 +14,6 @@ const StyledContainer = styled(Container)`
 const FooterContainer = StyledContainer.withComponent("footer")
 
 const FooterContent = styled.div`
-  margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, auto);
@@ -90,23 +89,8 @@ const CopyrightLinks = styled(StyledLink)`
 `
 
 const Footer = () => {
-  // const { footerLogo } = useStaticQuery(FOOTER_LOGO_QUERY)
-
   return (
     <FooterContainer>
-      {/*<LineBreakContainer>*/}
-      {/*  <Divider />*/}
-      {/*  <Img*/}
-      {/*    fixed={footerLogo.childImageSharp.fixed}*/}
-      {/*    style={{ margin: "0 1rem" }}*/}
-      {/*  />*/}
-      {/*  <Divider />*/}
-      {/*</LineBreakContainer>*/}
-      {/*<GuaranteeText>*/}
-      {/*  If you are not 100% satisfied with your purchase, it may be returned*/}
-      {/*  within 30 days for a full refund. We offer free US returns for all*/}
-      {/*  orders.*/}
-      {/*</GuaranteeText>*/}
       <FooterContent>
         <FooterSection>
           <FooterSectionTitle>Shop</FooterSectionTitle>

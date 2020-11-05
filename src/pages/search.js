@@ -64,13 +64,14 @@ const ProductListingItemLink = styled(Link)`
   }
 `
 
-const IndexPage = () => {
+function IndexPage() {
   const { siteSearchIndex } = useStaticQuery(SEARCH_QUERY)
 
   let index = null
 
   const [query, setQuery] = useState("")
   const [results, setResults] = useState([])
+  // const [no]
 
   useEffect(() => {
     if (query.length > 0) {
@@ -86,9 +87,12 @@ const IndexPage = () => {
 
   const handleChange = e => {
     const query = e.target.value
-
-    index = index || Index.load(siteSearchIndex.index)
     setQuery(query)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    index = index || Index.load(siteSearchIndex.index)
     setResults(
       index
         .search(query, { expand: true }) // Accept partial matches
@@ -102,7 +106,7 @@ const IndexPage = () => {
       <SEO title="Premium Dress Socks" />
       <Container>
         <Title>Search styles</Title>
-        <SearchForm>
+        <SearchForm onSubmit={handleSubmit}>
           <label id="productSearchLabel" htmlFor="productSearchInput">
             <MdSearch />
           </label>

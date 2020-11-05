@@ -19,12 +19,13 @@ const NavWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  height: 100%;
+  padding: 0 1.5rem;
+  position: relative;
 
   margin: 0 auto;
 
   @media (min-width: ${breakpoints.md}) {
-    padding: 1.5rem;
     max-width: 992px;
   }
 
@@ -106,6 +107,7 @@ const Nav = () => {
           background: "#fff",
           borderBottom: "var(--line)",
           zIndex: 10,
+          height: "var(--header-height)",
         }}
       >
         <NavWrapper>
@@ -144,8 +146,8 @@ const Nav = () => {
           <div style={{ display: "flex" }}>
             <SearchIcon />
             <CartIconIndicator />
-            <CartAddingIndicator visible={isCartLoading} />
           </div>
+          <CartAddingIndicator visible={isCartLoading} />
         </NavWrapper>
       </Headroom>
       <NavMobile

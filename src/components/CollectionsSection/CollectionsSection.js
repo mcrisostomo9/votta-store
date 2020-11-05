@@ -5,6 +5,7 @@ import Container from "../Shared/Container"
 import SingleCollection from "./SingleCollection"
 import { breakpoints } from "../../utils/styles"
 import SectionTitle from "../Shared/SectionTitle"
+import { routes } from "../../data/routes"
 
 const StyledContainer = styled(Container)`
   padding: 0;
@@ -42,7 +43,7 @@ const CollectionsSection = () => {
           <SingleCollection
             key={collection.collection_name.text}
             title={collection.collection_name.text}
-            link={`/collections/${collection.slug.text}`}
+            link={routes.collections(collection.slug.text)}
             fluid={collection.collection_image.fluid}
           />
         ))}

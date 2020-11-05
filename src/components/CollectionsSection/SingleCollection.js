@@ -20,17 +20,6 @@ const TextContainer = styled.div`
   position: absolute;
   top: 2rem;
   left: 2rem;
-
-  h4 {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 1.25rem;
-  }
-`
-
-const StyledLinkButton = styled(LinkButton)`
-  margin-top: 1rem;
 `
 
 const SingleCollection = ({ fluid, title, link }) => {
@@ -39,8 +28,7 @@ const SingleCollection = ({ fluid, title, link }) => {
       {/*<StyledLink to={link}>*/}
       <Image fluid={fluid} style={backgroundGatsbyImage} />
       <TextContainer>
-        <h4>{title}</h4>
-        <StyledLinkButton to={link}>Shop</StyledLinkButton>
+        <LinkButton to={link}>Shop {title}</LinkButton>
       </TextContainer>
       {/*</StyledLink>*/}
     </CollectionWrapper>
