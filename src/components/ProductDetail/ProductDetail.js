@@ -7,9 +7,15 @@ import ProductProperties from "./ProductProperties"
 import GridContainer from "./GridContainer"
 import AddToCart from "./AddToCart"
 import TextContainer from "./TextContainer"
+import { breakpoints } from "../../utils/styles"
 
 const ProductTitle = styled.h1`
   font-size: var(--h4);
+  margin-top: 2rem;
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin-top: 0;
+  }
 `
 
 const ProductPrice = styled.p`
@@ -17,8 +23,6 @@ const ProductPrice = styled.p`
 `
 
 const ProductDescription = styled.div`
-  //font-size: var(--small-text);
-
   ul {
     margin: 0.5rem 0 0;
   }

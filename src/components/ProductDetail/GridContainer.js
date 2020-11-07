@@ -6,10 +6,11 @@ const GridContainer = styled.div`
   grid-template-rows: auto auto;
   grid-template-columns: 1fr;
 
-  @media (min-width: ${breakpoints.md}) {
+  @media (min-width: ${breakpoints.lg}) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 3rem;
+    align-items: flex-start;
   }
 `
 
