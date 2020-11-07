@@ -10,13 +10,6 @@ import Cart from "../Cart/Cart"
 import Navbar from "../Navbar/Navbar"
 import { graphql, useStaticQuery } from "gatsby"
 
-const Offer = styled.div`
-  background: var(--background);
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem 1rem;
-`
-
 const MainContainer = styled.main`
   ${props => props.isCartOpen && "filter: blur(1px); opacity: .8;"};
 `
@@ -33,8 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Offer>{prismicHomepage.data.offer_text.text}</Offer>
-      <Navbar />
+      <Navbar bannerText={prismicHomepage.data.offer_text.text} />
       <MainContainer isCartOpen={isCartOpen}>{children}</MainContainer>
       <Footer />
       {cartAnimation.map(

@@ -49,6 +49,7 @@ const ProductDetail = ({ product }) => {
   const { price, compareAtPrice, availableForSale } = firstVariant
   const isSale = parseInt(compareAtPrice, 10) > parseInt(price, 10)
   const [available] = useState(availableForSale)
+
   return (
     <>
       <div style={{ background: "var(--background)" }}>

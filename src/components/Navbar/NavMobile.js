@@ -6,6 +6,7 @@ import ButtonToggle from "../Button/ButtonToggle"
 import CartIconIndicator from "../Cart/CartIconIndicator"
 import SocialIcon from "../SocialIcon/SocialIcon"
 import AnimatedMenuWrapper from "../AnimatedMenuWrapper/AnimatedMenuWrapper"
+import { routes } from "../../data/routes"
 
 const MenuContainer = styled.div`
   padding: 1.5rem;
@@ -90,16 +91,25 @@ const NavMobile = ({ style, closeNav, logo }) => {
           <CartIconIndicator />
         </TopBarContainer>
         <LinksContainer>
-          <NavLink to="/collections/mens-collection" onClick={closeNav}>
+          <NavLink
+            to={routes.collections("mens-dress-socks")}
+            onClick={closeNav}
+          >
             Mens
           </NavLink>
-          <NavLink to="/collections/womens-collection" onClick={closeNav}>
+          <NavLink to={routes.collections("womens-socks")} onClick={closeNav}>
             Women
           </NavLink>
-          <NavLink to="/collections/dress-sock-packs" onClick={closeNav}>
+          <NavLink
+            to={routes.collections("dress-sock-packs")}
+            onClick={closeNav}
+          >
             Sock Pack
           </NavLink>
-          <NavLink to="/collections/mens-premium" onClick={closeNav}>
+          <NavLink
+            to={routes.collections("mens-premium-dress-socks")}
+            onClick={closeNav}
+          >
             Premium
           </NavLink>
           <NavLink to="/" onClick={closeNav}>

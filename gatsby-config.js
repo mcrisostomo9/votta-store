@@ -79,5 +79,12 @@ module.exports = {
         // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-tidio-chat",
+    //   options: {
+    //     tidioKey: "kyguji0ky6anotue5to62fd0xnnu2vuo",
+    //     enableDuringDevelop: false, // Optional. Disables Tidio chat widget when running Gatsby dev server. Defaults to true.
+    //   },
+    // },
   ],
 }

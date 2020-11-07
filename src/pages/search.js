@@ -4,29 +4,37 @@ import Layout from "../components/Layout/Layout"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 import { Index } from "elasticlunr"
+import queryString from "query-string"
 import Container from "../components/Shared/Container"
 import styled from "@emotion/styled"
 import { MdSearch } from "react-icons/md"
 import { breakpoints } from "../utils/styles"
+import { routes } from "../data/routes"
 
-const Title = styled.h2`
+const Title = styled.h3`
   text-align: center;
 `
 
 const SearchForm = styled.form`
-  margin-top: 3rem;
   display: flex;
-  padding: 2rem 0;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
 
   svg {
-    height: 40px;
-    width: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0.25rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   input {
     width: 100%;
     border-radius: 3px;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 0.5rem 0.75rem 2.25rem;
     border: 1px solid var(--light-grey);
 
     :focus {
@@ -39,6 +47,7 @@ const SearchForm = styled.form`
 `
 
 const ProductWrapper = styled.div`
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 1rem;
@@ -60,30 +69,57 @@ const ProductListingItemLink = styled(Link)`
   text-decoration: none;
 
   img {
+    transition: all 300ms;
+  }
+
+  :hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  img {
     width: 100%;
+    z-index: 1;
+    position: relative;
+  }
+
+  p {
+    z-index: 10;
+    margin: 0;
+    position: relative;
   }
 `
 
-function IndexPage() {
+const ResultsContainer = styled(Container)`
+  text-align: center;
+`
+
+function IndexPage({ location }) {
   const { siteSearchIndex } = useStaticQuery(SEARCH_QUERY)
 
   let index = null
 
-  const [query, setQuery] = useState("")
-  const [results, setResults] = useState([])
-  // const [no]
+  const parameter1 = queryString.parse(location.search)
+  console.log(parameter1)
 
-  useEffect(() => {
-    if (query.length > 0) {
-      index = index || Index.load(siteSearchIndex.index)
-      setResults(
-        index
-          .search(query, { expand: true }) // Accept partial matches
-          // Map over each ID and return the full document
-          .map(({ ref }) => index.documentStore.getDoc(ref))
-      )
-    }
-  }, [])
+  const [query, setQuery] = useState("")
+  const [results, setResults] = useState({
+    items: [],
+    notFound: false,
+  })
+
+  // useEffect(() => {
+  //   if (query.length > 0) {
+  //     index = index || Index.load(siteSearchIndex.index)
+  //     setResults(
+  //       index
+  //         .search(query, { expand: true }) // Accept partial matches
+  //         // Map over each ID and return the full document
+  //         .map(({ ref }) => index.documentStore.getDoc(ref))
+  //     )
+  //   }
+  // }, [])
 
   const handleChange = e => {
     const query = e.target.value
@@ -93,22 +129,24 @@ function IndexPage() {
   const handleSubmit = e => {
     e.preventDefault()
     index = index || Index.load(siteSearchIndex.index)
-    setResults(
-      index
-        .search(query, { expand: true }) // Accept partial matches
-        // Map over each ID and return the full document
-        .map(({ ref }) => index.documentStore.getDoc(ref))
-    )
+    const res = index
+      .search(query, { expand: true }) // Accept partial matches
+      // Map over each ID and return the full document
+      .map(({ ref }) => index.documentStore.getDoc(ref))
+    if (res.length > 0) {
+      setResults({ items: res, notFound: false })
+    } else {
+      setResults({ items: [], notFound: true })
+    }
   }
-
   return (
     <Layout>
-      <SEO title="Premium Dress Socks" />
+      <SEO title="Search" />
       <Container>
         <Title>Search styles</Title>
         <SearchForm onSubmit={handleSubmit}>
           <label id="productSearchLabel" htmlFor="productSearchInput">
-            <MdSearch />
+            <MdSearch color="var(--grey)" />
           </label>
           <input
             id="productSearchInput"
@@ -116,17 +154,23 @@ function IndexPage() {
             type="text"
             value={query}
             onChange={handleChange}
-            placeholder="Search"
+            placeholder="Search for styles"
           />
         </SearchForm>
-        <div>
-          {results.length ? (
+        <ResultsContainer>
+          {results.items.length > 0 && !results.notFound && (
+            <p>Search results for &quot;{query}&quot;</p>
+          )}
+          {query.length > 0 && results.notFound && (
+            <p>There are no products that match &quot;{query}&quot;</p>
+          )}
+          {results.items.length ? (
             <ProductWrapper>
-              {results.map(product => {
+              {results.items.map(product => {
                 return (
                   <ProductListingItemLink
                     key={product.id}
-                    to={`/socks/${product.handle}`}
+                    to={routes.productDetail(product.handle)}
                   >
                     <img
                       loading="lazy"
@@ -140,7 +184,7 @@ function IndexPage() {
               })}
             </ProductWrapper>
           ) : null}
-        </div>
+        </ResultsContainer>
       </Container>
     </Layout>
   )

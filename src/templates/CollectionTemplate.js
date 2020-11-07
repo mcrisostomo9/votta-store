@@ -40,7 +40,10 @@ const CollectionTemplate = ({ data }) => {
   const { shopifyCollection, allShopifyCollection } = data
   return (
     <Layout>
-      <SEO title={shopifyCollection.title} />
+      <SEO
+        title={shopifyCollection.title}
+        description={shopifyCollection.description}
+      />
       <Container>
         <CollectionTitle>{shopifyCollection.title}</CollectionTitle>
         <ListingContainer>
@@ -58,6 +61,7 @@ export const query = graphql`
   query($handle: String!) {
     shopifyCollection(handle: { eq: $handle }) {
       title
+      description
       products {
         title
         id

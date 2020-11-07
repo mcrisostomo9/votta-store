@@ -31,12 +31,11 @@ const Preview = styled.div`
 const ProductTitle = styled.p`
   position: relative;
   z-index: 1;
-  margin: 0.5rem 0;
+  margin: 0;
 `
 
-const Price = styled.div`
-  font-size: 1rem;
-  color: var(--main-dark);
+const Price = styled.p`
+  margin: 0;
 `
 
 const SalesContainer = styled.div`

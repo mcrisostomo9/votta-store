@@ -19,7 +19,7 @@ const NavWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 75px;
   padding: 0 1.5rem;
   position: relative;
 
@@ -92,8 +92,19 @@ const LogoLink = styled(Link)`
     height: auto;
   }
 `
+const Offer = styled.div`
+  background: var(--background);
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+  height: 40px;
+  font-size: var(--small-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
-const Nav = () => {
+const Nav = ({ bannerText }) => {
   const { toggleCartOpen, isCartLoading } = useContext(StoreContext)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const menuNavigation = useSpring({
@@ -110,6 +121,7 @@ const Nav = () => {
           height: "var(--header-height)",
         }}
       >
+        <Offer>{bannerText}</Offer>
         <NavWrapper>
           <MenuToggle onClick={() => setMenuOpen(!isMenuOpen)}>
             <MdMenu />

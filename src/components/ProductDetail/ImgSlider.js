@@ -54,6 +54,7 @@ const ImgSlider = ({ images }) => {
                 fluid={image.localFile.childImageSharp.fluid}
                 style={{ height: "100%" }}
                 imgStyle={{ objectFit: "contain" }}
+                alt={image.altText}
               />
             </ImgContainer>
           )

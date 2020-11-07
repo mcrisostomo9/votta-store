@@ -10,10 +10,7 @@ const ProductDetailTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={product.title} description={product.description} />
-      <ProductDetail
-        product={product}
-        // relatedProducts={allShopifyCollection.edges[0].node.products}
-      />
+      <ProductDetail product={product} />
     </Layout>
   )
 }
@@ -40,6 +37,7 @@ export const query = graphql`
         availableForSale
       }
       images {
+        altText
         id
         localFile {
           childImageSharp {
@@ -50,32 +48,5 @@ export const query = graphql`
         }
       }
     }
-    #    allShopifyCollection(
-    #      limit: 2
-    #      filter: { products: { elemMatch: { handle: { ne: $handle } } } }
-    #    ) {
-    #      edges {
-    #        node {
-    #          products {
-    #            title
-    #            handle
-    #            images {
-    #              localFile {
-    #                childImageSharp {
-    #                  fluid(maxWidth: 400) {
-    #                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-    #                  }
-    #                }
-    #              }
-    #            }
-    #            variants {
-    #              title
-    #              price
-    #              availableForSale
-    #            }
-    #          }
-    #        }
-    #      }
-    #    }
   }
 `
